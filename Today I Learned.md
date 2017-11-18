@@ -6,10 +6,14 @@
 
 <br />
 
-### 2. 웹 접근성을 보장하는 방법
+### 2. 웹 접근성
 
-1. 가이드라인 준수(WCAG 2.0)
-2. 웹 표준 준수
+1. 웹 접근성을 보장하는 방법
+
+- 가이드라인 준수(WCAG 2.0)
+- 웹 표준 준수
+
+2. 한 가지 수단이 아니라 다양한 수단으로 접근할 수 있도록 제공되어야 한다.
 
 <br />
 
@@ -32,8 +36,10 @@
 
 1. 특수문자
 
-- `&lt`: less than, <
-- `&gt`: greater than, >
+- `&lt;`: less than, &lt;
+- `&gt;`: greater than, &gt;
+- `&amp;`: ampersand, &amp;
+- [Speical Entities](http://www.htmlhelp.com/reference/html40/entities/special.html)
 
 2. head 설정
 
@@ -77,6 +83,8 @@
    <span tabindex="0">HTML에 대해</span>
    ```
 
+3. `tabindex`는 마크업 순서에 따라 접근한다.
+
 <br />
 
 > #### `tabindex`
@@ -86,6 +94,49 @@
 > - `tabindex`는 링크 관련 태그 및 `input` 태그 이외의 요소가 키보드 포커싱을 받을 수 있도록 설정하는 어트리뷰트
 > - `tabindex: 0`은 순차적으로 포커싱을 받을 수 있도록 하고,  `tabindex: 1`은 인접한 요소 중에 `tabindex` 속성을 가진 요소를 탐색한 후 해당 요소들에 대해 인덱싱한다.
 > - `tabindex: -1`은 모든 요소들에 대하여 탭 포커스에서 제외시킬 수 있다.
+> 2. 만약 인접한 형제 요소가 tabindex를 가지고 있다면 자식 요소보다 형제 요소에 먼저 접근하는지?
+> - 자식 요소를 탐색 후 형제 요소에 접근한다.
+
+<br />
+
+### 7. 섹셔닝 ([https://seulbi.github.io/](https://seulbi.github.io/))
+
+1. 구조 잡는 순서
+
+- Step 1: 영역을 구분한다.
+- Step 2: 어떤 태그를 사용할 지 정한다.
+- Step 3: 각 요소를 클래스와 아이디로 네이밍한다.
+- Step 4: 특정 이벤트가 발생했을 때 어떤 방식으로 처리할 건지 조사한다. 그 이후에 더 합리적인 방법을 고민하면서 튜닝하고 문제를 줄여나간다.
+
+3. 섹셔닝
+
+- header: 로고(h1), 멤버(ul), 검색 홈(form)
+- nav: 메인 메뉴(ul)
+- main: 서적(section), 뉴스(article), 게시판(section), 인기 사이트(section), 트위터(article)
+
+  - 트위터나 뉴스 콘텐츠처럼 배포 목적이 있을 때 article로 보는 것도 좋다.
+  - div로 구분할 시에 `헤딩 처리`를 통해 암묵적인 아웃라인을 형성햐여야 한다.
+  - section과 article도 역시 헤딩을 가져야 한다.
+- footer: 주소(address), 저작권(div)
+
+<br />
+
+### 8. form
+
+1. (네이버에서 CSS 제거한 검색 폼 참고): 테두리는 `fieldset`, '검색'은 `legend`이다. 검색과 관련된 요소를 묶어주는 역할을 한다.
+2. 회원가입 폼을 만들 때 한 개의 form 안에 두 개의 fieldset을 만들어 필수 정보, 선택 정보로 성격이 다른 것을 구분하기도 한다.
+3. `fieldset`은 `div`와 성격이 유사하지만 div는 범용적인 그루핑 요소인 반면, fieldset은 전용 그루핑 요소이다. 즉, 연관된 요소들을 묶을 때에 사용한다.
+4. `input`은 어떤 `label`을 위한 것인지 id를 통해 알려줘야 하고 `label`의 for 어트리뷰트를 이용해 연관된 `input`의 아이디를 지정해줘야 한다.
+
+<br />
+
+### 9. button
+
+1. Type
+
+- submit: 폼 양식 제출
+- reset: 입력 내용 리셋
+- button: 스크립트 실행
 
 <br />
 <br />
@@ -184,8 +235,6 @@
 1. `float`의 **default는 none**이다.
 2. `float`는 left, right 정렬만 가능할 뿐, 속성 값에 center를 주는 것은 불가능하다.
 3. `clear` 프로퍼티는 **Block Element**에만 사용 가능하다.
-4. 가상 요소 선택자(:after, ::after)
-   - :을 하나만 찍는 것은 예전 방식이고, 2개를 찍는 것이 요즘 방식이다.
 
 <br />
 
@@ -287,6 +336,9 @@
 2. 간혹 `position`과 `float`를 같이 사용할 수 없냐고 묻는 사람들이 있는데, 같이 사용될 수 있다.
 3. `position` 프로퍼티의 기준점은 `box-sizing: content-box`일 때 padding 영역을 기준으로 하고, `box-sizing: border-box`일 때 border 영역을 기준으로 한다.
 4. `position: relative`는 자시의 top-left를 기준(0, 0)으로 하여 움직인다.
+5. `position: absolute` 선언 시, block 레벨 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다.
+6. `positon: fixed`: 부모 요소와 관계없이 브라우저의 viewport를 기준으로 좌표프로퍼티(top, bottom, left, right)을 사용하여 위치를 이동시킨다. 스크롤이 되더라도 화면에서 사라지지 않고 항상 같은 곳에 위치한다. fixed 프로퍼티 선언 시, block 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다.
+7. `z-index`: `z-index` 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력된다. `position` 프로퍼티가 static 이외인 요소에만 적용된다.
 
 <br />
 
@@ -389,6 +441,160 @@
 1. 작은 상자가 큰 상자를 포함하는 건 바람직하지 않다.
 2. block > inline-block > inline
 
+> #### inline 요소 내의 block 요소
+> 1. 불가능한 건 아니지만 바람직하지 않다는 것인지?
+>   ```html
+>   <a href="#"><div class="a">Hello</div></a>
+>   ```
+
+<br />
+
+### 22. 가상 요소 선택자
+
+1. 가상 요소 선택자(:after, ::after)
+
+- :을 하나만 찍는 것은 예전 방식이고, 2개를 찍는 것이 요즘 방식이다.
+
+2. 가상 요소 선택자를 사용하여 block 요소로 지정하면 해당 텍스트 요소와 같은 같은 너비의 width를 갖도록 할 수 있다.
+3. `:hover`에 지정한 프로퍼티는 요소 선택자에서 지정한 기본 프로퍼티에 덮어 씌운다. 
+
+<br />
+
+### 23. Reset CSS
+
+1. 브라우저의 Agent Style을 무시하기 위한 CSS 초기화 스타일이다.
+2. 에릭 마이어의 CSS 초기화 스타일을 이용하면 좋다.
+
+<br />
+
+### 24. CSS Animation
+
+1. Animation
+
+- 가장 먼저 할 일은 애니메이션의 이름을 정하는 것이다.
+
+- 그 다음으로 어떤 효과가 필요할지 직접 적어본다.
+
+  - 텍스트 이동: translate(x, y)
+  - 글자 크기 변화: font-size
+  - 투명도의 변화: color: rgba() (상자 자체의 불투명도를 변화시키고 싶으면 `opacity` 프로퍼티를 이용한다.)
+
+- Example
+  ```css
+  @keyframes text-ani {
+    /* 시작 지점  0%{} */
+    from {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0);
+      transform: translate(0, 0);
+      /* top: 0;
+      left: 0; */
+    }
+    /* 끝 지점 100%{} */
+    to {
+      font-size: 24px;
+      color: rgba(0, 0, 0, 1);
+      transform: translate(400px, 70px);
+      /* top: 70px;
+      left: 400px; */
+    }
+  }
+
+  .short-hand {
+    animation: [animation-name] [animation-duration] [animation-timing-function]
+    [animation-delay] [animation-iteration-count] [animation-direction]
+    [animation-fill-mode] [animation-play-state];
+  }
+  ```
+
+- `animation-delay`는 처음 시작 시간만 늦출 뿐, 매번 반복할 때 마다 시간을 늦추지는 않는다.
+
+- from, to가 아닌 %로 시점을 선택하여 효과를 지정할 수도 있다.
+
+- `animation-play-state: paused`: 애니메이션 실행을 중지한다.
+
+- [CSS 애니메이션](https://brunch.co.kr/@99-life/3)
+
+2. Transform
+3. Transition
+
+- transition은 프로퍼티의 값이 duration 동안 매끄럽게 변화하도록 한다.
+- [Poiemaweb - CSS3 Effect](http://poiemaweb.com/css3-effect)
+- Move 애니메이션을 실현할 때, position을 이용한 방식은 리페인팅 방식으로 성능에 많은 문제를 일으키므로 translate를 이용한 방식이 더 좋은 방식이다.
+
+4. [codepen - CSS Animation](https://codepen.io/search/pens?q=animation&limit=all&type=type-pens)
+
+<br />
+
+### 25. Multi Background
+
+1. Multi Background
+
+  ```css
+  .container {
+    background-image: url("images/bg_flower.png");
+    background-repeat: no-repeat;
+
+    /* short-hand */
+    background: url("images/bg_flower.png") no-repeat 50% 0, linear-gradient(to bottom, #aaa 0%, #eee 50%, #fff 100%);
+
+  }
+  ```
+
+2. `background-position`: 픽셀 방식과 백분율 방식, 키워드 방식이 있다.
+
+- 픽셀 방식: 요소 박스를 기준으로 위치를 체크한다.
+- 백분율 방식: 요소 박스와 배경 박스를 모두 기준으로 위치를 체크한다. 따라서 가운데 정렬 시에 백분율 방식이 많이 쓰인다.
+- 키워드 방식: center left right / top bottom 등의 키워드를 지정할 수 있다.
+
+<br />
+
+### 26. SASS vs SCSS 
+
+1. SASS(구 문법)
+2. SCSS(신 문법)
+
+<br />
+
+### 27. 미디어 쿼리
+
+1. Mobile First? Desktop First?: 가장 좋은 전략은 작은 기기부터 구성하는 것이다.
+
+2. /media-query.css
+
+   ```css
+   @charset "utf-8"; /* 가장 선두에 선언하여야 모든 문자 포맷을 깨지지 않고 읽을 수 있다. */
+
+   /* 모든 디바이스 */
+
+   body {
+     background: yellow;
+   }
+
+   /* 태블릿 디바이스 이상 */
+   /* @media(미디어 쿼리를 적용하여) all(디바이스 지정, all 또는 screen은 모든 디바이스) min-width: 768px(디바이스의 최소 너비가 768px일 때){ 이 코드를 실행한다. } */ 
+   @media screen and (min-width:768px) {
+     body {
+       background: pink;
+     }
+   }
+   ```
+
+3. 네이버는 반응형 웹이 아니다. naver.com과 m.naver.com은 다른 사이트이다.
+
+4. 뷰포트 메타 태그가 없으면 휴대기기는 일반적 데스크톱 화면 너비로 페이지를 렌더링한 다음 모바일 화면에 맞게 페이지 크기를 조정한다. 따라서 디바이스의 가상 해상도로 인식하도록 하는 태그가 필요하다.
+
+   ```html
+   <!-- 뷰포트를 설정하여 뷰포트의 너비와 크기를 제어할 수 있다. -->
+   <!-- 이제부터 뷰포트는 디바이스의 width(물리적 해상도)에 맞추겠다. -->
+   <!-- 기기 독립적 픽셀과 CSS 픽셀 간에 1:1 관계를 설정하려면 initial-scale=1을 포함한다. -->
+   <!-- initial-scale 속성은 페이지가 처음 로드될 때 줌 레벨을 조정한다. maximum-scale, minimum-scale, 그리고 user-scalable 속성들은 사용자가 얼마나 페이지를 줌-인, 줌-아웃할 수 있는지를 조정한다. -->
+   <!-- maximum-scale과 minimum-scale의 기본값은 브라우저에 따라 다르다. -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   ```
+
+5. [뷰포트 메타 태그가 있는 HTML](https://developers.google.com/web/tools/lighthouse/audits/has-viewport-meta-tag?hl=ko)
+
 <br />
 <br />
 
@@ -402,12 +608,22 @@
 <br />
 <br />
 
-## 05 React.js
+## 05 jQuery
+
+### 1. `toggleClass()`, `addClass()`, `removeClass()`
+
+1. `toggleClass()`는 `addClass()`와 `removeClass()`를 합쳐놓은 것과 같다.
+2. 따라서 `toggleClass()`는 class 속성에 바인딩된 값 자체를 바꾸는 것이 아니라 기존에 존재하던 class에 다른 class를 추가하고 삭제하는 역할을 한다.
 
 <br />
 <br />
 
-## 06 Basic
+## 06 React.js
+
+<br />
+<br />
+
+## 07 Basic
 
 ### 1. 컴파일 언어 vs 인터프리트 언어
 
@@ -417,7 +633,7 @@
 <br />
 <br />
 
-## 07 Git
+## 08 Git
 
 ### 1. 과제 및 강의 내용 요약본 제출 방법
 
@@ -445,9 +661,7 @@
    ```
 
 5. 자신의 저장소에서 'Pull requests' → 'New pull request'한다.
-
 6. request 내용: '20171116 김찬연 과제입니다.'
-
 7. 과제를 다시 받아오려면
 
    ```bash
@@ -456,7 +670,7 @@
 
 8. fork를 뜬 저장소로 직접 push하려면 해당 저장소로부터 키를 받아야 한다. 키를 받지 않아도 pull은 가능하다.
 
-
+<br />
 
 > #### github 계정 2개 사용법
 >
@@ -466,7 +680,7 @@
 <br />
 <br />
 
-## 08 ETC
+## 09 ETC
 
 ### 1. Tool
 
@@ -500,6 +714,7 @@
 2. 파스칼 케이스: MainContent
 3. 스네이크 케이스: main_content
 4. 케밥 케이스: main-content
+5. [CSS 방법론](http://wit.nts-corp.com/2015/04/16/3538)
 
 <br />
 
@@ -565,6 +780,9 @@
 
 1. http://naradesign.net/wp/2008/05/27/144/
 2. 웹 접근성 가이드라인: WCAG 4대 원칙
+3. [웹 폰트 파헤치기](https://www.slideshare.net/wsconf/web-font-wsconfseoul2017-vol2?qid=953d01dc-4191-43ec-9c03-845a22578cf4&v=&b=&from_search=1)
+4. [CSS 애니메이션 성능](https://www.slideshare.net/wsconf/css-animation-wsconfseoul2017-vol2?qid=953d01dc-4191-43ec-9c03-845a22578cf4&v=&b=&from_search=2)
+5. [CSS 방법론](http://wit.nts-corp.com/2015/04/16/3538)
 
 <br />
 
