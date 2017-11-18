@@ -152,6 +152,7 @@
 
 2. 만약 `overflow` 프로퍼티의 값이 `visible`이고 내부 여백(padding)과 테두리(border)가 없는 상태에서 자식 요소가 'margin-top'을 가지고 있을 경우, 마치 요소 자신의 'margin-top'처럼 보여진다. 하지만, `hidden`인 상태에서는 그 'margin-top'이 자신의 요소 안에서 이뤄진다. 물론 부모 요소가 해당 margin이나 border를 가지고 있다면 `hidden`처럼 인식할 수 있다.
 3. `overflow: hidden;`*을 적용하면 content가 border 이외로 흘러넘치는 영역을 숨길 뿐, padding 영역에서는 content를 숨기지 않고 그대로 표시한다.
+4. 넘치는 영역을 계산하는 방식으로 자식 요소의 사이즈를 체크하여 영역을 잡는다.
 
 <br />
 
@@ -233,8 +234,9 @@
 #### 2.2 float
 
 1. `float`의 **default는 none**이다.
-2. `float`는 left, right 정렬만 가능할 뿐, 속성 값에 center를 주는 것은 불가능하다.
-3. `clear` 프로퍼티는 **Block Element**에만 사용 가능하다.
+2. `float`은 left, right 정렬만 가능할 뿐, 속성 값에 center를 주는 것은 불가능하다.
+3. `float`은 **Block Element**에만 적용 가능하며, float 되는 순간 좌측 혹은 우측에 다른 요소를 배치하기 위해 자신의 너비를 최소화하게 된다.
+4. `clear` 프로퍼티는 **Block Element**에만 사용 가능하다.
 
 <br />
 
@@ -335,16 +337,30 @@
 1. `position` 프로퍼티 이용 시, 먼저 마크업된 태그가 아래에 놓이게 된다.
 2. 간혹 `position`과 `float`를 같이 사용할 수 없냐고 묻는 사람들이 있는데, 같이 사용될 수 있다.
 3. `position` 프로퍼티의 기준점은 `box-sizing: content-box`일 때 padding 영역을 기준으로 하고, `box-sizing: border-box`일 때 border 영역을 기준으로 한다.
-4. `position: relative`는 자시의 top-left를 기준(0, 0)으로 하여 움직인다.
+4. `position: relative`는 자신의 top-left를 기준(0, 0)으로 하여 움직인다.
 5. `position: absolute` 선언 시, block 레벨 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다.
-6. `positon: fixed`: 부모 요소와 관계없이 브라우저의 viewport를 기준으로 좌표프로퍼티(top, bottom, left, right)을 사용하여 위치를 이동시킨다. 스크롤이 되더라도 화면에서 사라지지 않고 항상 같은 곳에 위치한다. fixed 프로퍼티 선언 시, block 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다.
-7. `z-index`: `z-index` 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력된다. `position` 프로퍼티가 static 이외인 요소에만 적용된다.
+6. `position: absolute` 선언 시 inline 요소도 block 요소로 바뀌므로 width를 지정할 수 있다.
+7. `positon: fixed`: 부모 요소와 관계없이 브라우저의 viewport를 기준으로 좌표프로퍼티(top, bottom, left, right)을 사용하여 위치를 이동시킨다. 스크롤이 되더라도 화면에서 사라지지 않고 항상 같은 곳에 위치한다. fixed 프로퍼티 선언 시, block 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다.
+8. `z-index`: `z-index` 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력된다. `position` 프로퍼티가 static 이외인 요소에만 적용된다.
+9. `position: relative`는 자신의 분신을 제 자리에 놓아둔 상태로 움직인다고 생각하면 된다.
 
 <br />
 
 > #### `z-index`
 >
 > 1. `z-index`의 기본값은?
+>
+>    → 기본값은 0이다. `z-index`의 값이 같을 때, 나중에 마크업된 요소가 상위에 위치한다.
+>
+> #### `position`
+>
+> 1. `position: absolute` 시에 `span`은 너비를 가질 수 있었고 `div`는 너비가 콘텐츠만큼의 너비를 갖게 되었는데, `span`은 block 요소가 된 것이고 `div`는 inline-block 요소가 된 것인지?
+>
+>    → me: block 요소이지만 width만 content에 맞게 줄어드는 것 같다.
+>
+> 2. `position: absolute`를 설정하면 부모 `div`가 자식을 인식하지 못 하게 되는 문제는 `.clearfix`는 당연히 먹히지 않으므로 어떻게 해결할 수 있는지?
+>
+> 3. `position: absolute`이 선언되었을 때 `float` 속성을 아예 사용할 수 없는지? `float` 속성을 함께 사용할 수 없는 것인지? 
 
 <br />
 
@@ -464,6 +480,7 @@
 
 1. 브라우저의 Agent Style을 무시하기 위한 CSS 초기화 스타일이다.
 2. 에릭 마이어의 CSS 초기화 스타일을 이용하면 좋다.
+3. 전체 선택자(*)로 선택해서 리셋하는 것보다 필요한 태그만 추려 리셋하는 것이 필요하지 않은 요소 설정을 피할 수 있기 때문에 성능면에서 더 좋다.
 
 <br />
 
@@ -594,6 +611,126 @@
    ```
 
 5. [뷰포트 메타 태그가 있는 HTML](https://developers.google.com/web/tools/lighthouse/audits/has-viewport-meta-tag?hl=ko)
+
+<br />
+
+### 28. 개발 버전과 배포 버전
+
+1. *.css: 개발버전으로, 주석 및 단락을 포함한다.
+2. *.min.css: 배포 버전으로 최적화된 버전이다.
+
+<br />
+
+### 29. Vendor Prefix
+
+1. 특정 브라우저에 대해 제어하기 위한 접두사를 말한다.
+2. -webkit-: Chrome, Safari, Opera
+3. [Vendor Prefix란?](http://aueyoo.tistory.com/11)
+
+<br />
+
+### 30. CSS 선언 순서의 중요성
+
+1. 중복 선언된 프로퍼티는 나중에 선언된 CSS 파일 또는 라인이 최종적으로 렌더링된다.
+
+<br />
+
+### 31. 웹 폰트
+
+1. `@font-face`: font의 성격과 자원을 선언한다.
+2. 폰트의 용량이 커질수록 성능에 영향을 준다.
+3. 다양한 폰트를 선언해서 해당 폰트가 존재하지 않을 때 차선책으로 적용할 대안을 제시해야 한다.
+4. **[CSS Validation Service](https://jigsaw.w3.org/css-validator/)**에서 `@import`와 `@font-face`는 체크할 수 없다.
+5. 로컬 경로를 우선 설정한다.
+6. [웹 폰트 파헤치기](https://www.slideshare.net/wsconf/web-font-wsconfseoul2017-vol2)
+
+<br />
+
+> #### /fonts.css 파일 질문
+>
+> 1. `font-family`와  `font-style, ` `font-weight`의 값은 지정된 키워드 값이 아니라 원하는 값으로 지정해도 되는 것인지? 그 후 그 값으로 사용하면 되는 것인지?
+> 2. `local()`과 `url()` 방식의 차이점은?
+> 3. `src` 프로퍼티에 여러 개를 선언하는 이유는 해당 폰트가 존재하지 않을 때에 대응하기 위한 것인지?
+
+<br />
+
+### 32. 병합 이슈
+
+1. margin collaspsing: margin은 투명한 영역으로 병합이 발생한다.
+2. padding은 병합되지 않는다.
+
+<br />
+
+### 33. 상속 이슈
+
+1. `a`의 `color` 프로퍼티의 기본값(agent style)은 `blue`
+2. 직접 설정한 값이 기본 속성의 값보다 우선 순위가 높다.
+3. 배치 / 레이아웃에 관한 속성은 상속되지 않는다.
+4. 데코레이션 속성은 상속되는 경향이 많다.
+
+<br />
+
+### 34. 모바일을 고려한 링크 또는 버튼의 사이즈
+
+1. 성인 남성 검지 손가락 기준으로 화면을 클릭하는 영역은 최소 44px
+
+<br />
+
+### 35. 기본 스타일
+
+1. 본문 스타일
+
+   ```css
+   html {
+       font-size: 10px; /* 루트 요소에 고정 폰트 사이즈 지정 */
+   }
+   body {
+       font-family: 'Noto Sans Regular', sans-serif;
+       font-size: 1.4rem; /* root equal M, 1.4rem = 14px */
+       color: #181818;
+   }
+   ```
+
+2. 링크 스타일
+
+   ```css
+   a:link, a:visited {
+       color:inherit; /* 상위 요소를 탐색하여 상속받는다. */
+       text-decoration: none;
+   }
+   a:hover, a:focus {
+       color: #f000;
+   }
+   ```
+
+3. .clearfix
+
+   ```css
+   .clearfix::after {
+      content: "" ; /* 글자 하나만큼의 높이 */
+       display: block; /* 가상 요소는 기본적으로 inline이다. */
+       clear: both;
+   }
+   ```
+
+4. 멤버 링크
+
+   ```css
+   .member {
+       text-transform: uppercase;
+       font-size: 0; /* 부모 요소 font-size: 0. 마크업 구조로 인한 간극을 없애기 위함 */
+       text-align:right;
+       transform: translateX(10px); 
+   }
+
+   .member li {
+       display: inline-block; /* 가로 배치를 위해 inline-block 지정. IE8 이상 지원 */
+       font-size:1.4rem;/* 해당 콘텐츠 font-size 재정의 */
+       padding:10px 0;
+   }
+   ```
+
+5. ​
 
 <br />
 <br />
@@ -795,3 +932,30 @@
 ### 12. 경로 설정
 
 1. ''./css/style.css'와 'css/style.css'는 같은 의미이다.
+
+<br />
+
+<br />
+
+## 10 Question
+
+### 1. 부모 요소에 `font-size: 0`으로 준 이유는?
+
+```css
+.member {
+    text-transform: uppercase;
+    font-size: 0;
+    text-align: right;
+    transform: translateX(10px); 
+}
+```
+
+→ 마크업 구조로 인한 간극을 없애기 위해 `font-size: 0` 지정
+
+<br />
+
+### 2. BEM 방법을 사용할 때 Block 내 Block 내의 Element 네이밍은 어떤 방식으로?
+
+<br />
+
+### 3. 다른 사이트들을 살펴봤을 때 보통 `<nav>`가 `<header>`에 포함되어 있던데 보통은 어떻게 하는지?
