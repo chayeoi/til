@@ -356,4 +356,4 @@
 1. 기기 특성에 따라 다른 이미지를 지정(아트 디렉션)하려는 경우 `picture` 요소를 사용한다.
 2. `srcset` 및 `x` 설명자를 `img` 요소에 사용하면, 다른 밀도를 선택할 때 사용할 최적의 이미지에 대한 힌트를 브라우저에 제공할 수 있다.
 3. 마지막에 img 태그를 삽입하는 것은 source 요소를 해석할 수 없을 시에 대비한 폴백(fallback)이다. source를 보여줄 수 있으면 img는 무시된다.
-4. ​
+4. [picturefill](https://github.com/scottjehl/picturefill/blob/master/src/picturefill.js)
