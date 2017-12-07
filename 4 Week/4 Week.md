@@ -101,7 +101,7 @@
 
 1. ASCII 코드는 미국에서 처음 탄생했다.
 2. 1Byte는 8bit이므로 총 256가지의 경우의 수를 표현할 수 있다.
-3.  ASCII 코드는 1Byte로 어떤 문자를 어떻게 표현하자고 정해놓은 것이다.
+3. ASCII 코드는 1Byte로 어떤 문자를 어떻게 표현하자고 정해놓은 것이다.
 4. 표현할 수 있는 경우의 수의 한계로 ASCII 코드로는 다른 나라의 언어를 모두 표현할 수 없었다. 이러한 상황에서 0과 1을 가지고 어떻게 문자를 확장성있게 컴퓨터에서 표현할 것인가라는 물음이 제기되었다. 이에 대한 답이 국제 표준으로 만들어졌는데 이것이 바로 유니코드이다.
 5. 어떤 정보를 0과 1로 바꾸는 것을 인코딩(encode), 0과 1로 표현되어 있는 정보를 우리가 알아볼 수 있는 정보로 바꾸는 것을 디코딩이라고 한다.
 6. 유니코드는 각 문자에 번호를 다 매기는데, 이것을 유니코드 코드포인트(Unicode Code Point)라고 한다. 이것은 유니코드 표준에서 문자마다 매겨놓은 번호이다.
@@ -157,6 +157,88 @@
    ```
 
 <br />
+
+### 18. Math 객체
+
+1. JavaScript에 내장된 `Math` 객체에는 수 연산을 위한 많은 메소드와 상수들이 내장되어 있다.
+
+   ```javascript
+   // 삼각함수, 로그함수, 지수함수
+   Math.sin // 사인
+   Math.cos // 코사인
+   Math.tan // 탄젠트
+   Math.log // 밑을 자연상수로 하는 로그함수
+   Math.exp // 밑을 자연상수로 하는 지수함수
+   Math.sqrt // 제곱근
+
+   // 절대값, 올림, 내림, 반올림, 소수점 아래 잘라내기
+   Math.abs // 절댓값
+   Math.ceil // 올림
+   Math.floor // 내림
+   Math.round // 반올림
+   Math.trunc // 소수점 아래 잘라내기
+
+   // 최대값, 최소값
+   Math.max
+   Math.min
+
+   // 총합
+   Math.sum
+
+   // 랜덤
+   Math.random
+
+   // 상수
+   Math.E // 자연상수 (2.71...)
+   Math.PI // 원주율 (3.14...)
+   ```
+
+<br />
+
+### 19. Number 타입의 메소드
+
+1. number 타입은 객체가 아니지만, 마치 객체처럼 메소드를 사용할 수 있다
+
+   ```javascript
+   (12345).toString(); // '12345'
+   (12345).toLocaleString(); // '12,345'
+   (1.2345).toFixed(2); // '1.23'
+   ```
+
+<br />
+
+### 20. String 타입의 메소드
+
+1. number 타입과 마찬가지로 string 타입도 래퍼 객체의 속성과 메소드를 사용할 수 있다.
+
+   ```javascript
+   // 문자열의 길이
+   'hello'.length; // 5
+
+   // 여러 문자열 연결하기
+   'hello'.concat('fun', 'javascript'); // 'hellofunjavascript'
+
+   // 특정 문자열이 포함되어 있는지 확인하기
+   'hello javascript'.includes('hello'); // true
+   'hello javascript'.startsWith('he'); // true
+   'hello javascript'.endsWith('ript'); // true
+   'hello javascript'.search('java'); // 6
+
+   // 문자열의 특정 부분 바꾸기
+   'hello javascript'.replace('java', 'type'); // 'hello typescript'
+
+   // 문자열의 일부를 얻어오기
+   'hello'.slice(2, 3); // 'll'
+
+   // 좌우 공백문자 제거하기
+   '   hello  '.trim(); // 'hello'
+
+   // 문자열을 특정 문자를 기준으로 잘라 배열로 바꾸기
+   'hello!fun!javavscript'.split('!'); // ['hello', 'fun', 'javascript']
+   'hello'.split(); // ['h', 'e', 'l', 'l', 'o']
+   ```
+
+   ​
 
 <br />
 
@@ -536,7 +618,7 @@
 2. 객체 안에는 **이름-값 쌍(name-value pair)**이 저장되는데, 이를 객체의 **속성(property)**이라고 한다.
 3. 같은 이름의 속성을 사용할수 없다. 같은 이름의 속성을 선언하면 나중에 선언한 값으로 덮어 씌워진다.
 4. **JavaScript에서 식별자로 허용되지 않는 문자가 들어간 속성 이름**을 정의할 때는 **반드시 문자열 표기를 사용**해야 한다.
-5. 한글은 쓰지 않는게 좋다.
+5. 한글은 쓰지 않는 것이 좋다.
 6. 객체 리터럴을 이용해 속성을 지정할 때, 이미 정의된 변수의 이름을 그대로 사용할 수도 있다.
 7. 대괄호를 사용해서 다른 변수에 저장된 문자열을 그대로 속성의 이름으로 쓰는 것도 가능하다.
 
@@ -554,7 +636,7 @@
 2. 배열 안에 들어가는 값을 요소라고 한다.
 3. 배열 안에는 순서가 있다. (객체는 순서가 없다.)
 4. 배열 안에는 어떠한 값도 넣을 수 있다.
-5.  ES2015에 `Array.of` 정적 메소드가 추가되었다.
+5. ES2015에 `Array.of` 정적 메소드가 추가되었다.
 
 <br />
 
@@ -674,10 +756,141 @@
 17. column의 너비를 %로 지정하면 container의 크기가 바껴도 쉽게 대응할 수 있다는 장점이 있다. 그러나 부모 요소를 기준으로 하기 때문에 6컬럼만 사용하고 있는 상황에서 그 안에서 한 column을 사용하기 위해 12.5%를 적용하면 실제는 120px이 아니게 되는 문제가 발생한다.
 
 
-
-
+<br />
 
 미디어 쿼리 안에다 쓰면 코드 먼저 선언해도 우선 적용되는지?
 
+<br />
 
+<br />
 
+### 4 Day
+
+### 1. Aray.from('hello')
+
+1. 문자열을 배열로 변환할 수 있다.
+
+   ```javascript
+   Array.from('hello') // ['h', 'e', 'l', 'l', 'o']
+   ```
+
+<br />
+
+### 2. 프로토타입 읽고 쓰기
+
+1. 어떤 객체의 프로토타입을 읽어오기 위해 `Object.getPrototypeOf` 함수를 사용할 수 있다.
+
+2. `Object.setPrototypeOf` 함수를 통해 이미 생성된 객체의 프로토타입을 변경할 수 있지만, 객체가 생성된 이후에 프로토타입을 변경하는 작업은 굉장히 느리므로 **이 기능의 사용은 피하는 것이 좋다.**
+
+   ```javascript
+   const parent = {
+     familyName: '윤'
+   };
+   const child = Object.create(parent);
+
+   Object.getPrototypeOf(child) === parent; // true
+
+   const newParent = {
+     familyName: '신'
+   };
+   Object.setPrototypeOf(child, newParent);
+   Object.getPrototypeOf(child) === parent; // false
+   ```
+
+<br />
+
+### 3. 프로토타입 체인
+
+1. 어떤 객체가 다른 객체의 프로토타입 체인에 존재하는지 확인하기 위해서 `Object.prototype.isPrototypeOf` 메소드를 사용할 수 있다.
+
+   ```javascript
+   obj1.isPrototypeOf(obj3); // true
+   obj2.isPrototypeOf(obj3); // true
+   ```
+
+2. 프로토타입 체인을 이용해 프로토타입 객체의 속성을 간접적으로 삭제하거나 변경하는 것은 불가능하다. **그저 프로토타입의 속성을 읽어올 수 있을 뿐**이다.
+
+   ```javascript
+   const parent = {
+     prop: '😝'
+   };
+
+   const child = Object.create(parent);
+
+   // 프로토타입 객체의 속성을 간접적으로 삭제하는 것은 불가능합니다.
+   delete child.prop;
+   parent.prop; // '😝'
+
+   // 프로토타입 객체의 속성을 간접적으로 변경하는 것은 불가능합니다.
+   child.prop = '💀';
+   parent.prop; // '😝'
+   child.prop; // '
+   ```
+
+<br />
+
+### 4. new.target
+
+1. ES2015에서 도입된 `new.target` 문법은 생성자 내부에서 사용된다. 만약 생성자가 `new`를 통해 호출되면 `new.target`에는 해당 생성자가 저장된다. 만약 생성자가 일반적인 함수로서 호출되면, `new.target`에는 `undefined`가 저장된다.
+
+   ```javascript
+   function Person() {
+     if (new.target) {
+       console.log('생성자로 호출되었습니다.');
+     } else {
+       console.log('생성자로 호출되지 않았습니다.');
+     }
+   }
+
+   new Person(); // 생성자로 호출되었습니다.
+   Person(); // 생성자로 호출되지 않았습니다.
+   ```
+
+2. 이 기능을 이용해, 실수로 `new`를 빠트렸을 때도 문제없이 객체가 생성되도록 코드를 작성할 수 있다.
+
+   ```javascript
+   function Person(name) {
+     if (!new.target) {
+       // `new` 없이 호출되면, 직접 객체를 생성해 반환합니다.
+       return new Person(name);
+     } else {
+       this.name = name;
+     }
+   }
+   ```
+
+<br />
+
+### 5. 정적 메소드
+
+1. JavaScript의 함수는 객체이기도 하다는 사실을 앞에서 언급했습니다. 생성자의 속성에 직접 지정된 메소드를 가지고 정적 메소드(static method)라고 한다. 우리가 이제까지 유용하게 사용했던 `Number.isNaN`, `Object.getPropertyOf` 등의 함수들은 모두 정적 메소드이다. 정적 메소드는 특정 인스턴스에 대한 작업이 아니라, 해당 생성자와 관련된 일반적인 작업을 정의하고 싶을 때 사용된다.
+
+   ```javascript
+   // 생성자의 속성에 함수를 직접 할당합니다.
+   Person.compareAge = function(person1, person2) {
+     if (person1.age < person2.age) {
+       return '첫 번째 사람의 나이가 더 많습니다.';
+     } else if (person1.age === person2.age) {
+       return '두 사람의 나이가 같습니다.';
+     } else {
+       return '두 번째 사람의 나이가 더 많습니다.';
+     }
+   }
+   ```
+
+<br />
+
+### 6. String.prototype.repeat()
+
+1. 문자열을 반복하는 메소드이다.
+
+   ```javascript
+   '* '.repeat(3) // '* * * '
+   ```
+
+<br />
+
+### 7. 정렬 알고리즘
+
+1. 요소 중에 가장 작은 값을 찾고 해당 요소를 가장 앞에 위치시킨다. (선택 정렬 알고리즘)
+2. 순차적으로 두 값을 비교하여 작은 값을 앞에 위치시킨다. (버블 정렬 알고리즘)
