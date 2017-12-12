@@ -121,6 +121,15 @@ const set = arr => {
 }
 
 // Solution
+function removeDuplicates(arr) {
+  const newArr = [];
+  for (let item of arr) {
+    if (!newArr.includes(item)) {
+      newArr.push(item);
+    }
+  }
+  return newArr;
+}
 ```
 
 <br />
@@ -138,8 +147,60 @@ addArray([1, 2, 3], [4, 5, 6, 7]) -> [5, 7, 9, 7]
 
 ```javascript
 // My Code
+const addArray = (a, b) => {
+  const newArray = [];
+  const newLength = a.length < b.length ? a.length : b.length;
+
+  for (let i = 0; i < newLength; i++) {
+    newArray[i] = a[i] + b[i];
+  }
+
+  if (a.length > b.length) {
+    for (let i = newLength; i < a.length; i++) {
+      newArray[i] = a[i];
+    }
+  } else if (a.length < b.length) {
+    for (let i = newLength; i < b.length; i++) {
+      newArray[i] = b[i];
+    }
+  }
+
+  return newArray;
+}
+
+// Reverse
+const reverse = arr => {
+  const reversedArray = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reversedArray.push(arr[i]);
+  };
+  return reversedArray;
+};
 
 // Solution
+function addArray(arr1, arr2) {
+  const newArr = [];
+  const longArr = arr1.length > arr2.length ? arr1 : arr2;
+  const shortArr = arr1.length > arr2.length ? arr2 : arr1;
+  
+  for (let i = 0; i < longArr.length; i++) {
+    newArr.push(longArr[i]);
+    if (shortArr[i] !== undefined) {
+      newArr[i] += shortArr[i]
+    }
+  }
+  return newArr;
+}
+
+// Reverse Solution
+function reverse(arr) {
+  const newArr = [];
+  
+  for (let i = arr.length - 1; i >= 0; i++) {
+    newArr.push(arr[i]);
+  }
+  return newArr;
+}
 ```
 
 <br />
@@ -155,8 +216,29 @@ combination([1, 2, 3]); -> [[1, 2], [1, 3], [2, 3]]
 
 ```javascript
 // My Code
+const combination = arr => {
+  const result = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      const item = [];
+      item.push(arr[i], arr[j]);
+      result.push(item);
+    }
+  }
+  return result;
+}
 
 // Solution
+function combination(arr) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      newArr.push([arr[i], arr[j]]);
+    }
+  }
+  return newArr;
+}
 ```
 
 <br />
@@ -179,8 +261,62 @@ coins(163, [100, 50, 10, 5, 1]);
 
 ```javascript
 // My Code
+const coins = (money, coin) => {
+  const sortedCoin = coin.sort((x, y) => y - x)
+  let rest = money;
+  let quotient = 0;
+
+  for (let i = 0; i < sortedCoin.length; i++) {
+    rest = i == 0 ? money : rest % sortedCoin[i - 1];
+    quotient = Math.floor(rest / sortedCoin[i]);
+    for (let j = 0; j < quotient; j++) {
+      console.log(sortedCoin[i]);
+    }
+  }
+}
+
+// or
+const coins2 = (money, coin) => {
+  let rest = money;
+  const sortedCoin = coin.sort((x, y) => y - x);
+
+  for (const item of coin) {
+    
+    while (rest >= item) {
+      rest -= item;
+      console.log(item);
+    }
+  }
+}
 
 // Solution
+function coins(amount, coinTypes) {
+  let currentAmount = amount;
+  for (let ct of coinTypes) {
+    // 정수 나눗셈 방법
+    const result = Math.floor(currentAmount / ct);
+    
+    // 코인타입을 result만큼 출력
+    // ...
+    for (let i = 0; i < result; i++) {
+      console.log(ct)
+    }
+    // 빼기
+    // ...
+    currentAmount -= result * ct;
+  }
+}
+
+// Solution 2
+function coins2(amount, coinTypes) {
+  let currentAmount = amount;
+  for (let ct of coinTypes) {
+    while (currentAmount - ct > 0) {
+      console.log(ct);
+      currentAmount -= ct;
+    }
+  }
+}
 ```
 
 <br />
@@ -191,6 +327,40 @@ coins(163, [100, 50, 10, 5, 1]);
 
 ```javascript
 // My Code
+const sort = arr => {
+  let temp;
+  for (let i = 0; i < arr.length-1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  console.log('배열이 변경되었습니다.')
+}
 
 // Solution
+function sort(arr) {
+  for (let i = 0; i< arr.length; i++) {
+    let min = arr[i];
+    let minIndx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      // 지금 탐색중인 값이 최소값인지 검사하기
+      if (min > arr[j]) {
+        // 최소값과 인덱스를 기억하기
+        min = arr[j];
+        minIndex = j;
+      }
+    }
+    // 자리 바꾸기
+    // const temp = arr[minIndex];
+    // arr[minIndex] = arr[i];
+    // arr[i] = temp;
+    
+    [arr[i], arr[minIndex]] = [arr[miinIndex], arr[i]];
+  }
+}
 ```
+
