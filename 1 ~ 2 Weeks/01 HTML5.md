@@ -355,3 +355,9 @@
 2. `srcset` 및 `x` 설명자를 `img` 요소에 사용하면, 다른 밀도를 선택할 때 사용할 최적의 이미지에 대한 힌트를 브라우저에 제공할 수 있다.
 3. 마지막에 img 태그를 삽입하는 것은 source 요소를 해석할 수 없을 시에 대비한 폴백(fallback)이다. source를 보여줄 수 있으면 img는 무시된다.
 4. [picturefill](https://github.com/scottjehl/picturefill/blob/master/src/picturefill.js)
+
+<br />
+
+### 27. 이미지는 Block으로 감싸는 것이 좋다.
+
+1. 사용자가 올린 이미지가 가로로 길지, 세로로 길지 미리 알 수 없으므로 부모 요소의 높이와 너비를 정사각형으로 맞춘 후 `overflow: hidden`으로 처리하여 해당 크기에 맞게 들어올 수 있도록 할 수 있다.

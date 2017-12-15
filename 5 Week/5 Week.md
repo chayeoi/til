@@ -99,6 +99,25 @@
 
 5. 계산을 오른쪽부터 수행하는 `reduceRight` 메소드도 있다.
 
+6. 초기값을 따로 주지 않으면 마치 두 번째 인덱스가 첫 번째 값인 것처럼 동작한다. 그러나 우리가 받을 배열이 어떤 모양일지 모르는 상황이기 때문에 초기값을 설정하지 않는다면 원치 않는 결과를 얻게 될 수 있다. 따라서 명시적으로 초기값을 설정해주는 것이 좋다.
+
+   ```javascript
+   const arr = ['one'];
+
+   // 문자열의 길이를 모두 더하려고 했지만...
+   // 계산을 수행할 대상이 하나밖에 없어서 함수가 호출되지 못하고 결과값으로 'one'이 반환된다.
+   arr.reduce((acc, item) => {
+     return acc + item.length;
+   }); // 'one'
+
+   // 초기값을 주면 계산이 제대로 수행된다.
+   arr.reduce((acc, item) => {
+     return acc + item.length;
+   }, 0); // 3
+   ```
+
+   ​
+
 <br />
 
 #### 1.7 요소 찾기
@@ -464,4 +483,95 @@ function forEach(arr, func) {
 const obj = {x: 1, y:1}에서 obj에는 실제 객체가 저장되는 것이 아니고 해당 객체가 어디에 저장되어있는지에 대한 참조값이 저장된다. 그때 실제 저장된 공간은 힘이라고 한다. 모든 객체는 변수에 실제 저장되는 값은 실제 값이 아니라 참조값이다.
 
 
+
+자바스크립트는 무조건 콜바이 발루. 객체는 참조가 복사된다. 원본의 값을 바꿀 수 있는 방법은 없다.
+
+
+
+parseInt()는 두번째 인자로 몇진법으로 해석할것인지 전달할 수 있다.
+
+
+
+문자열도 concat 메소드를 가지고 있다.
+
+
+
+reduce로 map, filter 구현하기
+
+```javascript
+const map = (arr, func) => {
+  return arr.reduce((acc, item) => {
+    acc.push(func(item));
+    return acc;
+  }, []);
+};
+
+const filter = (arr, func) => {
+  return arr.reduce((acc, item) => {
+    if (func(item)) {
+      acc.push(item);
+    };
+    return acc;
+  }, []);
+};
+```
+
+
+
+```javascript
+// `reduce`를 이용해 배열의 여러 메소드 다시 구현하기
+
+function filter(arr, func) {
+  return arr.reduce((acc, item) => {
+    console.log(acc, item);
+    if (func(item)) {
+      acc.push(item);
+    }
+    return acc;
+  }, []);
+}
+
+function map(arr, func) {
+  return arr.reduce((acc, item) => {
+    acc.push(func(item));
+    return acc;
+  }, []);
+}
+
+function every(arr, func) {
+  return arr.reduce((acc, item) => {
+    return acc && func(item);
+  }, true);
+}
+
+function some(arr, func) {
+  return arr.reduce((acc, item) => {
+    return acc || func(item)
+  }, false);
+}
+```
+
+
+
+
+
+### 참조
+
+이 중에 Object 타입, 그러니까 객체를 제외하고는 모두 **원시 타입(primitive type)**으로 불립니다. 객체는 **참조 타입(reference type)**으로 불립니다. 이렇게 분류를 하는 이유는, 둘 사이에 몇 가지 유의할 만한 차이점이 있기 때문입니다.
+
+여기에서 **참조(reference)**란, **객체가 컴퓨터 메모리 상에서 어디에 저장되었는 지를 가리키는 값**입니다. JavaScript에서는 우리가 참조를 직접 읽거나 조작할 수 없습니다. 하지만, 언어를 제대로 이해하기 위해서 참조가 무엇인지 알아야 할 필요는 있습니다.
+
+우리가 객체라고 생각하고 다루어왔던 값은 실제로는 **객체에 대한 참조**입니다.
+
+객체의 속성에 접근하면, JavaScript 엔진은 **참조를 통해 메모리에 저장되어 있는 객체에 접근해서 해당 객체의 속성을 읽습니다.** 이런 동작을 가지고 역참조(dereference)라고 합니다.
+
+
+
+레이아웃 책 찾아보기
+
+
+
+깃 브랜치 만들기
+
+브이에스코드에서 좌측하단에 마스터 클릭하면 새분기생성 눌러서 새로운 브랜치생성가능
 

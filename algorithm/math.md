@@ -46,8 +46,7 @@ ceilBy5(37); -> 40
 ```javascript
 // My Code
 const ceilBy5 = int => {
-  const len = String(int).length;
-  const result = (Math.ceil(((int / 10 ** (len - 1)) * 2)) / 2) * (10 ** (len - 1))
+  const result = int % 5 === 0 ? int : int + (5 - (int % 5));
   return result;
 }
 
