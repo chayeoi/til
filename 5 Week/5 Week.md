@@ -272,9 +272,9 @@
 
 ### 1. 소스맵(Sourcemap)
 
-1. 소스맵 설정을 하면 웹팩이 bundle.js에 대한 bundle.js.map 파일을 만들어서 bundle.js의 각 라인들이 어떤 파일에서 온 것인지 기록을 해준다. 번들러를 거치기 전과 거친 후의 파일이 어떻게 매칭이 되어있는지 기록을 해줌. 그것이 소스맵에 설정되어있음.
+1. 소스맵을 설정하면 Webpack은 bundle.js에 대한 bundle.js.map 파일을 만들고 bundle.js의 각 라인들이 어떤 파일에서 불러온 것인지 기록한다. 번들러를 거치기 전과 후의 파일이 어떻게 매칭이 되어있는지 기록을 해주는 것이다.
 
-2. webpack/development.js에 다음과같이 설정하면 소스맵을 만들어줌.
+2. webpack/development.js 파일에 다음과 같이 설정하면 소스맵을 만들어준다.
 
    ```javascript
    module.exports = merge(common, {
@@ -290,160 +290,121 @@
    });
    ```
 
+<br />
 
+### 2. 번들러의 세대 교체
 
-번들러 세대교체
+1. 기존의 Webpack은 약간 느리다는 단점이 있어서 차세대 번들러들이 등장했다.
+2. 대표적으로 Rollup, Fusebox, Brunch 등이 있다.
+3. 최근 Parcel이란 이름의 번들러가 등장했는데 굉장히 혁신적이다. 기존의 Webpack에서 번들링 속도를 느리게 하던 요소들을 제거했다. 그러나 아직 Sourcemap과 같은 기능이 없어서 실무에서 사용할 순 없는 상태이다.
 
-웹팩이 좀 느리다는 단점이 있어서 여러가지 차세대 번들러로 만들어놓은 게 있는데 대표적으로 rollup, fusebox, brunch 등등이 있다. 또 새로나온것중에 혁신적인것으로 parcel이란 것도 있다. 웹팩에서 번들링속도를 느리게하는 요소를 없애서 제시해준 번들러. 그러나 아직 소스맵같은 기능이 없어서 실무에선 사용할수 없는 상태. 하지만 기억해둘 필요가 있다.
+<br />
 
+### 3. LF와 CRLF
 
+1. LF는 현재 커서의 위치에서 아래쪽으로 줄만 바꾸는 것이고 CR은 현재 커서의 위치를 현재 행의 맨 앞으로 이동시키는 것을 의미한다.
+2. 리눅스와 맥은 줄바꿈 문자로 LF를 사용하고, 윈도는 CR과 LF를 모두 사용한다.
 
-leftPad 사건
+<br />
 
+### 4. .editorconfig
 
+1. 서로 다른 개발 환경에서 작업하는 개발자들이 서로 다른 옵션을 사용하게 되면 혼란을 겪게 되는데, 이러한 규칙을 미리 지키도록 강제해놓은 파일이 바로 .editorconfig이다.
 
-LF, CRLF 차이 (개행 문자에 관한 것)
+2. vscode에는 .editorconfig가 내장되어있지 않아서 Extension으로 추가적으로 설치해줘야 한다.
 
+   ```javascript
+   root = true
 
+   [*]
+   charset = utf-8
+   indent_style = space
+   indent_size = 2
+   trim_trailing_whitespace = true
+   insert_final_newline = true
+   ```
 
-.editorconfig라는 파일은 각자 다른개발환경에서 작업하는 개발자들이 서로 다른 옵션을 사용하게 되면 혼란을 겪게 되므로 그 규칙을 미리 지키도록 강제해놓은 파일이다.
+<br />
 
-vscode에는 에디터컨피그가 내장되어있지 않아서 익스텐션으로 따로 설치해줘야 한다.
+### 4. Prototype
 
-```javascript
-root = true
+1. 어떤 객체의 프로토타입에 메소드를 정의하기 위해 메소드를 정의한 객체를 통째로 프로토타입에 할당할 수 있지만, 이렇게 하게 되면 프로토타입 객체가 기본적으로 가지고 있던 constructor를 잃게 되므로 좋지 않은 방식이다.
 
-[*]
-charset = utf-8
-indent_style = space
-indent_size = 2
-trim_trailing_whitespace = true
-insert_final_newline = true
-```
+<br />
 
-실무에 가면 사람마다 사용하는 에디터가 다 다를수 있는데 그러면 에디터마다 기본 설정이 다르다.
+### 5. VSCode 설정
 
+#### 5.1 환경 설정 
 
+1. 환경 설정 열기: `CMD` + `,`
+   1. 좌측은 기본 설정, 우측은 기본 설정을 참고하여 수정할 내용을 써넣는다.
+   2. editor.renderWhitespace 속성으로 공백 문자를 렌더링하는 방법을 제어할 수 있다. boundary는 글자와 글자 사이의 점을 제외한 공백에 점을 표시하고, all은 글자와 글자 사이의 점까지 표시한다. 공백을 깔끔하게 관리할 필요가 있으므로 설정하는 것을 추천한다.
 
+<br />
 
+#### 5.2 Debugger for Chrome
 
-자바스크립트에선 기본적으로 들여쓰기를 공백2개로하는게 관례.
+1. Debugger를 활용하여 버그를 쉽게 캐치할 수 있다.
 
+   1. Debugger for Chrome 익스텐션을 설치한다.
+   2. `CMD` + `Shift` + `P`를 눌러 명령어 입력창을 실행한 후, launch를 검색한다.
+   3. 검색 목록에서 chrome을 선택하면 .vscode 폴더 안에 launch.json 파일이 생성된다.
 
+   ```javascript
+   {
+     // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+     // 기존 특성에 대한 설명을 보려면 가리킵니다.
+     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+     "version": "0.2.0",
+     "configurations": [
+       {
+         "type": "chrome",
+         "request": "launch",
+         "name": "Launch Chrome against localhost",
+         "url": "http://localhost:8080",
+         "webRoot": "${workspaceRoot}"
+       }
+     ]
+   }
+   ```
 
+2. 이후 다음 순서를 따라 Debugger를 실행할 수 있다.
 
+   1. 좌측의 bug 버튼을 클릭하여 재생 버튼을 클릭하면 Debugger for Chrome이 실행된다.
+   2. 일반 브라우저에 찍혀야 할 로그가 에디터 콘솔에 표시되는 것을 확인할 수 있다.
+   3. 코드의 좌측을 클릭하여 점을 고정시키면 중단점을 설정할 수 있다. 코드가 실행될 때 해당 부분이 실행되는 시점에 멈추라는 의미이다. 따라서 해당 시점에 코드 내부를 들여다볼 수 있게 된다. 재생 버튼을 한 번 더 클릭하여 재개할 수 있다.
+   4. 디버거를 사용하지 않는다면 `console.log()`를 사용해서 일일이 확인해봐야하지만,  Debugger를 사용하면 `console.log()`를 하나도 사용하지 않고 코드 내부에서 무슨일이 일어나는지 들여다볼 수 있다.
+   5. 재생 버튼의 우측에 위치한 버튼을 누르면 코드의 실행 흐름을 따라 한 줄씩 실행하므로 코드의 실행 흐름을 직접 확인할 수 있다.
 
+<br />
 
+#### 5.3 Multiple Cursor
 
-커맨드 쉼표누르면 vscode 설정창 열수 있고 왼쪽은 기본 설정으로 수정할 수 없고 그 설정을 참고하여 오른쪽에 써넣으면 설정이 바뀜
+1. 같은 단어를 순차적으로 여러 개 선택하기: `CMD` + `D`
+2. 다중 커서 지정하기: `CMD` + `Option` + `↑`, `↓` 또는 `CMD` 키를 누른 채로 커서를 위치시킬 부분을 클릭한다.
 
-whitespace 설정을 all로 하면 ㄷ글자와 글자사이에도 점을 표시해주고 boundary하면 그건 표시 안함.
+<br />
 
-공백을 깔끔하게 관리할 필요가 있으므로 설정하는 것을 추천.
+#### 5.4 git
 
+1. VSCode에 git 관련 기능이 내장되어 있다.
 
+2. git 버튼 클릭 후 Message에 commit 메세지 입력 후 체크 버튼을 클릭하면 add와 commit이 자동으로 처리된다.
 
-자바스크립트 디버거(Debugger)
+    하단의 변경 내용 동기화 버튼으로 push를 처리할 수 있다.
 
-이걸 잘쓰면 버그를 쉽게 잡을 수 있다. 사용법을 빨리 익힐 필요가 있다.
+<br />
 
-Debugger for Chrome 익스텐션 설치 후
+#### 5.5 라인 추가
 
-비쥬얼코드에서 커맨드쉬프트 피 누르면 명령어 칠수 있는창 뜸
+1. 커서의 위치에 상관없이 아랫쪽에 한 줄 추가: `CMD` + `Return`
+2. 커서의 위치에 상관없이 윗쪽에 한 줄 추가: `CMD` + `Shift` + `Return`
 
-거기에 launch라고 입력하고 선택. 그 다음 뜨는 부분에서 chrome 선택하면 파일이 하나 열린다.
+<br />
 
-그러면 .vscode 폴더안에 launch.json 파일이 생김.
+### 6. Predicate
 
-```javascript
-{
-  // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
-  // 기존 특성에 대한 설명을 보려면 가리킵니다.
-  // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "chrome",
-      "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceRoot}"
-    }
-  ]
-}
-```
-
-
-
-좌측 하단에서 둡너째 벌레 버튼 누른후 초록색 재생버튼 클릭
-
-그거 누르면 우리가 쓰는 크롬이랑 다르고 vscode랑 맞물려있는 개발용 크롬
-
-이거하면 원래는 브라우저에 찍혀야할 로그가 에디터 콘솔에 표시됨.
-
-
-
-코드의 왼쪽에 클릭해서 점을 고정시켜놓으면 중단점을 설정할수 있음. 그 뜻은 코드가 실행될때 그부분이 일어나면 멈추라는 뜻임.
-
- 그래서 그부분을 실행하면 자바스크립트 실행이 멈추고 디버그 버튼에서 그 내부를 들여다볼수 있음.
-
-재생버튼 다시 누르면 다시 재개됨.
-
-디버거를 안쓰면 콘솔로그로 다 써보고 확인해봐야되는데 디버거를 쓰면 콘솔로그 하나도 안쓰고 그 안에서 무슨일이 일어나는지 들여다볼수 있음. 휘어진화살표(재생버튼옆에꺼)누르면 한줄 지나가서 멈춤. 코드의 실행흐름을 알 수 있음.
-
-커맨드 디 누르면 같은 단어 여러개 순차적으로 선택할수 있음.
-
-
-
-멀티커서방법?
-
-커맨드 옵션 업앤 다운 또는 커맨드하고 클릭
-
-
-
-프로토타입을 통쨰로 바꿔버려서 메소드를 그 객체 안에 넣어주면 원래 기본적으로 가지고 있던 컨스트럭터도 없어지므로 안좋은 방식
-
-
-
-비쥬얼스튜디오코드에 깃 관련 기능이 내장되어있다. 좌측 상단에서 세번째 버튼 누르면 나오는 Message에 메세지 쓰고 체크버튼 누르면 자동으로 에드는 에디터가 해주고 바로 커밋해줌
-
-푸쉬는 좌측 하단의 화살표두개로 있는 동그라미 버튼누르면 푸쉬해줌.
-
-
-
-어디서든 커맨드 엔터 누르면 밑에 빈줄하나가 추가되고
-
-커맨드 쉬프트 엔터를 누르면 위에 빈줄이 추가된다.
-
-
-
-
-
-배열에 요소를 추가하고 지우는 과정으로 뱀게임 구현
-
-어느쪽을 바라보고 있는지 기억해야함.
-
-마지막 요소를 이동시키는 방법으로 이동
-
-ㅇ먹이먹었을 때에는 마지막 요소를 안지우면 됨.
-
-먹이를 먹었으면 새로운 먹이를 어딘가에 그려줘야함.
-
-키이벤트가 일어나면 2초를 안기다리고 넥스트 스테이트가 호출된다.
-
-
-
-생성자 안에서 방향에 대한 정보를 저장해주기 위해
-
-this.direction = 'right'로 저장
-
-어떤버튼을 눌렸는지에 따라 디렉션을 바꿔준다. 넥스트 디렉션에 따라 어디에 새 머리를 추가할지를 결정해주면 된다.
-
-
-
-진리값을 반환하는 함수를 Predicate라고 한다.
-
-
+1. 진리값을 반환하는 함수를 Predicate라고 한다.
 
 <br />
 
@@ -451,127 +412,105 @@ this.direction = 'right'로 저장
 
 ## 5 Day
 
-1. 이벤트가 일어나면 중간 계층인 상태를 변경하고 그것을 화면에 반영한다. 이것이 리액트의 방식이다. 제이쿼리를 사용하던 시절에는 이벤트가 발생하면 중간 계층을 두지 않고 바로 화면에 반영한다.
-2. 이벤트가 일어났을 때 중간 계층의 상태를 고쳐서 그것을 화면에 반영해야 한다. 이 방식에 익숙해져야 한다.
+### 1. 이벤트와 뷰, 상태 
+
+1. 과거에 제이쿼리를 사용하던 시절엔 이벤트가 발생했을 때 중간 계층을 거치지 않고 바로 화면에 반영했다.
+2. 리액트에서는 이벤트가 발생하면 중간 계층인 상태를 변경하고 그 상태를 화면에 반영한다. 이 방식에 익숙해져야 한다.
 
 
+<br />
 
-vim
+### 2. vim 
 
-1. 파일열기: vim 파일명
-2. a 눌러서 파일 수정 가능
-3. : 입력 후 w 는 파일 저장, q는 종료 q!로 강제종료
-
+1. 파일 열기
 
 
-forEach랑 같은 함수 구현. forEach에 함수를 인자로 전달하면 forEach가 각 요소를 순회하면서 알아서 그 함수를 실행해주는 것이다.
+   ```bash
+   vim 파일명
+   ```
 
-```javascript
-function forEach(arr, func) {
-  for (let item of arr) {
-    func(item);
-  }
-}
-```
+2. 파일 수정하기: vim 에디터에서  `a`를 한 번 누른 후 수정 가능
 
+3. 파일 저장하기: vim 에디터에서 `:` + `q` 입력 후 엔터
 
+4. 종료하기: vim 에디터에서 `:` + `q` 입력 후 엔터. `!` 추가하면 강제 종료 가능
 
-.zshrc에서 rc는 Run Command의 준말로 줄여서 런컴이라고 읽는다.
+<br />
 
+### 3. .zshrc
 
+1. rc는 Run Command의 준말로 보통 줄여서 '런컴'이라고 읽는다.
 
-const obj = {x: 1, y:1}에서 obj에는 실제 객체가 저장되는 것이 아니고 해당 객체가 어디에 저장되어있는지에 대한 참조값이 저장된다. 그때 실제 저장된 공간은 힘이라고 한다. 모든 객체는 변수에 실제 저장되는 값은 실제 값이 아니라 참조값이다.
+<br />
 
+### 4. 힙
 
+1. 객체가 변수에 할당될 때 실제 객체가 저장되는 것이 아니라 해당 객체가 어디에 저장되어있는지에 대한 참조값이 저장된다. 이때 실제로 저장된 공간을 힙이라고 한다.
 
-자바스크립트는 무조건 콜바이 발루. 객체는 참조가 복사된다. 원본의 값을 바꿀 수 있는 방법은 없다.
+<br />
 
+### 5. parseInt()
 
+1. 두 번째 인자로 해당 값을 몇 진법으로 해석할 것인지 설정할 수 있다.
 
-parseInt()는 두번째 인자로 몇진법으로 해석할것인지 전달할 수 있다.
+<br />
 
+### 6. String.prototype.concat()
 
+1. 문자열의 래퍼 객체도 concate 메소드를 가지고 있다.
 
-문자열도 concat 메소드를 가지고 있다.
+<br />
 
+### 7. reduce를 이용하여 배열의 다양한 메소드 구현하기
 
+1. map
 
-reduce로 map, filter 구현하기
+   ```javascript
+   const map = (arr, func) => {
+     return arr.reduce((acc, item) => {
+       acc.push(func(item));
+       return acc;
+     }, []);
+   };
+   ```
 
-```javascript
-const map = (arr, func) => {
-  return arr.reduce((acc, item) => {
-    acc.push(func(item));
-    return acc;
-  }, []);
-};
+2. filter
 
-const filter = (arr, func) => {
-  return arr.reduce((acc, item) => {
-    if (func(item)) {
-      acc.push(item);
-    };
-    return acc;
-  }, []);
-};
-```
+   ```javascript
+   const filter = (arr, func) => {
+     return arr.reduce((acc, item) => {
+       if (func(item)) {
+         acc.push(item);
+       };
+       return acc;
+     }, []);
+   };
+   ```
 
+3. every
 
+   ```javascript
+   function every(arr, func) {
+     return arr.reduce((acc, item) => {
+       return acc && func(item);
+     }, true);
+   }
+   ```
 
-```javascript
-// `reduce`를 이용해 배열의 여러 메소드 다시 구현하기
+4. some
 
-function filter(arr, func) {
-  return arr.reduce((acc, item) => {
-    console.log(acc, item);
-    if (func(item)) {
-      acc.push(item);
-    }
-    return acc;
-  }, []);
-}
+   ```javascript
+   function some(arr, func) {
+     return arr.reduce((acc, item) => {
+       return acc || func(item)
+     }, false);
+   }
+   ```
 
-function map(arr, func) {
-  return arr.reduce((acc, item) => {
-    acc.push(func(item));
-    return acc;
-  }, []);
-}
+<br />
 
-function every(arr, func) {
-  return arr.reduce((acc, item) => {
-    return acc && func(item);
-  }, true);
-}
+### 8. 참조
 
-function some(arr, func) {
-  return arr.reduce((acc, item) => {
-    return acc || func(item)
-  }, false);
-}
-```
-
-
-
-
-
-### 참조
-
-이 중에 Object 타입, 그러니까 객체를 제외하고는 모두 **원시 타입(primitive type)**으로 불립니다. 객체는 **참조 타입(reference type)**으로 불립니다. 이렇게 분류를 하는 이유는, 둘 사이에 몇 가지 유의할 만한 차이점이 있기 때문입니다.
-
-여기에서 **참조(reference)**란, **객체가 컴퓨터 메모리 상에서 어디에 저장되었는 지를 가리키는 값**입니다. JavaScript에서는 우리가 참조를 직접 읽거나 조작할 수 없습니다. 하지만, 언어를 제대로 이해하기 위해서 참조가 무엇인지 알아야 할 필요는 있습니다.
-
-우리가 객체라고 생각하고 다루어왔던 값은 실제로는 **객체에 대한 참조**입니다.
-
-객체의 속성에 접근하면, JavaScript 엔진은 **참조를 통해 메모리에 저장되어 있는 객체에 접근해서 해당 객체의 속성을 읽습니다.** 이런 동작을 가지고 역참조(dereference)라고 합니다.
-
-
-
-레이아웃 책 찾아보기
-
-
-
-깃 브랜치 만들기
-
-브이에스코드에서 좌측하단에 마스터 클릭하면 새분기생성 눌러서 새로운 브랜치생성가능
+1. **참조(reference)**란, **객체가 컴퓨터 메모리 상에서 어디에 저장되었는 지를 가리키는 값**이다. J다vaScript에서는 우리가 참조를 직접 읽거나 조작할 수 없다. 하지만, 언어를 제대로 이해하기 위해서 참조가 무엇인지 알아야 할 필요는 있다.
+2. 우리가 객체라고 생각하고 다루어왔던 값은 실제로는 **객체에 대한 참조**이다. 객체의 속성에 접근하면, JavaScript 엔진은 **참조를 통해 메모리에 저장되어 있는 객체에 접근해서 해당 객체의 속성을 읽는다.** 이런 동작을 가지고 역참조(dereference)라고 한다.
 
