@@ -11,9 +11,8 @@
 1. 웹 접근성을 보장하는 방법
    1. 가이드라인 준수(WCAG 2.0)
    2. 웹 표준 준수
+2. 한 가지 수단이 아니라 다양한 수단으로 접근할 수 있도록 제공되어야 한다.
 
-
-1. 한 가지 수단이 아니라 다양한 수단으로 접근할 수 있도록 제공되어야 한다.
 
 <br />
 
@@ -36,13 +35,13 @@
 
 1. 특수문자
 
-- `&lt;`: less than, &lt;
-- `&gt;`: greater than, &gt;
-- `&amp;`: ampersand, &amp;
-- `&copy;`: copyright, &copy;
-- [Speical Entities](http://www.htmlhelp.com/reference/html40/entities/special.html)
+   1. `&lt;`: less than, &lt;
+   2. `&gt;`: greater than, &gt;
+   3. `&amp;`: ampersand, &amp;
+   4. `&copy;`: copyright, &copy;
+   5. [Speical Entities](http://www.htmlhelp.com/reference/html40/entities/special.html)
 
-1. head 설정
+2. head 설정
 
    ```html
    <!-- 다음 2개의 meta 태그는 같은 인코딩 속성을 설정한다. -->
@@ -64,7 +63,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    ```
 
-2. `<abbr>`: 축약 태그
+3. `<abbr>`: 축약 태그
 
 <br />
 
@@ -105,21 +104,21 @@
 ### 7. 섹셔닝 ([https://seulbi.github.io/](https://seulbi.github.io/))
 
 1. 구조 잡는 순서
+   1. Step 1: 영역을 구분한다.
+   2. Step 2: 어떤 태그를 사용할지 정한다.
+   3. Step 3: 각 요소를 클래스와 아이디로 네이밍한다.
+   4. Step 4: 특정 이벤트가 발생했을 때 어떤 방식으로 처리할 건지 조사한다. 그 이후에 더 합리적인 방법을 고민하면서 튜닝하고 문제를 줄여나간다.
 
-- Step 1: 영역을 구분한다.
-- Step 2: 어떤 태그를 사용할지 정한다.
-- Step 3: 각 요소를 클래스와 아이디로 네이밍한다.
-- Step 4: 특정 이벤트가 발생했을 때 어떤 방식으로 처리할 건지 조사한다. 그 이후에 더 합리적인 방법을 고민하면서 튜닝하고 문제를 줄여나간다.
 
 2. 섹셔닝
+   1. header: 로고(h1), 멤버(ul), 검색 홈(form)
+   2. nav: 메인 메뉴(ul)
+   3. main: 서적(section), 뉴스(article), 게시판(section), 인기 사이트(section), 트위터(article)
+      1. 트위터나 뉴스 콘텐츠처럼 배포 목적이 있을 때 article로 보는 것도 좋다.
+      2. div로 구분할 시에 `헤딩 처리`를 통해 암묵적인 아웃라인을 형성햐여야 한다.
+      3. section과 article도 역시 헤딩을 가져야 한다.
+   4. footer: 주소(address), 저작권(div)
 
-- header: 로고(h1), 멤버(ul), 검색 홈(form)
-- nav: 메인 메뉴(ul)
-- main: 서적(section), 뉴스(article), 게시판(section), 인기 사이트(section), 트위터(article)
-  - 트위터나 뉴스 콘텐츠처럼 배포 목적이 있을 때 article로 보는 것도 좋다.
-  - div로 구분할 시에 `헤딩 처리`를 통해 암묵적인 아웃라인을 형성햐여야 한다.
-  - section과 article도 역시 헤딩을 가져야 한다.
-- footer: 주소(address), 저작권(div)
 
 3. rss 피드로 배포할 목적이 있다면 article로 마크업한다.
 
@@ -206,11 +205,11 @@
 ### 10. 명시적, 암묵적 아웃라인
 
 1. 다음 4가지는 명시적으로 아웃라인을 형성하며 헤딩을 가져야 한다.
+   1. section
+   2. article
+   3. nav
+   4. aside
 
-- section
-- article
-- nav
-- aside
 
 2. div 같은 경우 헤딩을 선언한 후, 또 다른 div가 존재하더라도 다른 헤딩을 만날 때까지 암묵적인 아웃라인이 형성된다.
 3. [Outline 알고리즘](https://appletree.or.kr/blog/web-development/html/html5%EC%9D%98-%EC%83%88%EB%A1%9C%EC%9A%B4-%EB%AC%B8%EC%84%9C-outline-%EC%95%8C%EA%B3%A0%EB%A6%AC%EB%93%AC/)
