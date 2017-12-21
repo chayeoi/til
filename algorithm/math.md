@@ -51,6 +51,7 @@ const ceilBy5 = int => {
 }
 
 // Solution
+const ceilBy5 = x => Math.ceil(x / 5) * 5;
 ```
 
 <br />
