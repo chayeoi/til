@@ -39,7 +39,7 @@
    2. `&gt;`: greater than, &gt;
    3. `&amp;`: ampersand, &amp;
    4. `&copy;`: copyright, &copy;
-   5. [Speical Entities](http://www.htmlhelp.com/reference/html40/entities/special.html)
+   5. [Special Entities](http://www.htmlhelp.com/reference/html40/entities/special.html)
 
 2. head 설정
 

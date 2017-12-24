@@ -939,7 +939,7 @@
 
 #### 4.7 DOM 노드 생성
 
-1. `el.createElement`
+1. `document.createElement`
 2. `el.createTextNode`
 3. `el.cloneNode`
 
