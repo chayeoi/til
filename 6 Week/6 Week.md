@@ -981,6 +981,7 @@
    const counter = makeCounter();
    console.log(counter()); // 1
    console.log(counter()); // 2
+   ```
 
 
    function personFactory(initialAge) {
@@ -1053,6 +1054,7 @@
    // ③ f(3)의 결과로 6이 반환된다.
    // ④ f(4)의 결과로 24가 반환된다.
    // 계산된 결과가 순차적으로 콜 스택에 쌓인다.
+   ```
 
 
    // 루프로 구현된 피보나치 수
@@ -1206,7 +1208,7 @@
 ##### 2.1.1 추상적 동일성((Abstract Equality)
 
 1. `==` 연산자는 두 피연산자의 타입이 다를 때는 **타입을 변환**한 후 비교한다. 두 피연산자의 타입이 같다면 `===` 연산자와 같은 방식으로 동작한다.
-2.  null check를 할 때 만큼은 유용하게 사용된다. `==` 연산자는 `null` 과 `undefined`를 동일하지만, 이 두 값을 다른 어떤 값과도 동일하지 않은 것으로 취급하기 때문이다.
+2. null check를 할 때 만큼은 유용하게 사용된다. `==` 연산자는 `null` 과 `undefined`를 동일하지만, 이 두 값을 다른 어떤 값과도 동일하지 않은 것으로 취급하기 때문이다.
 
 <br />
 
@@ -1751,3 +1753,30 @@
 
 1. 코드의 중복은 유지보수를 어렵게 만든다. 같은 코드가 재사용되는 부분은 함수 단위로 만들어 관리한다.
 
+
+<br />
+
+<br />
+
+## 5 Day
+
+### 1. UI 종류
+
+1. Tab UI
+2. Modal UI
+3. Accoridion UI
+4. Dropdown UI
+5. Date Pickup UI
+
+<br />
+
+### 2. Pesticide for Chrome 
+
+1. Chrome extension 중 하나로, 아웃라인을 보여준다.
+2. border는 box-sizing에 영향을 주지만, 아웃라인은 영향을 주지 않는다.
+
+<br />
+
+### 3. flex-grow
+
+1. flex로 정렬 시, 특정 요소가 남은 공간을 모두 차지하게 하고 싶을 때 `flex-grow: 1`로 설정한다.
