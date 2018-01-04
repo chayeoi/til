@@ -960,6 +960,30 @@
 
 <br />
 
+#### 4.10 노드 간 관계
+
+1. `el.childNodes`
+2. `el.firstChild`
+3. `el.lastChild`
+4. `el.previousSibling`
+5. `el.nextSibling`
+6. `el.parentNode`
+7. `el.offsetParent`
+
+<br />
+
+#### 4.11 엘리먼트 크기 및 위치
+
+1. `el.getBoundingClientRect()`
+2. `el.offsetHeight` / `el.offsetWidth`
+3. `el.clientHeight` / `el.clientWidth`
+4. `el.scrollHeight` / `el.scrollWidth`
+5. `el.offsetTop` / `el.offsetLeft`
+6. `el.scrollTop` / `el.scrollLeft`
+7. `el.clientTop` / `el.clientLeft`
+
+<br />
+
 <br />
 
 ## 4 Day
@@ -984,6 +1008,7 @@
    ```
 
 
+   ```javascript
    function personFactory(initialAge) {
      let age = initialAge;
      return {
@@ -1057,6 +1082,7 @@
    ```
 
 
+   ```javascript
    // 루프로 구현된 피보나치 수
    function fiboLoop(n) {
      let x = 0;
@@ -1090,7 +1116,6 @@
 1. 분할 정복(divide and conquer)은 **문제를 작은 부분 문제로 나누어서 푼 뒤, 그 결과를 합치는 식**으로 알고리즘을 작성하는 기법이며, 재귀 함수가 활용되는 대표적인 사례이다. 바로 위의 `fiboRec` 역시 분할 정복의 일종이라 할 수 있다.
 
 2. 피보나치 수열을 예로 들어 설명하면 다음과 같다.
-
    1. 피보나치 수열에서 4항의 값을 얻기 위해 3항, 2항의 값을 얻는다.
    2. 3항, 2항의 값을 얻기 위해 각각 2항과 1항, 1항과 0항의 값을 얻는다.
 
