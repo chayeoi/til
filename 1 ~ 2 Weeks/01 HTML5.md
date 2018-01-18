@@ -184,12 +184,12 @@
 
     <!-- datalist를 input의 리스트로 연결. autofocus를 설정하면 로딩되었을 때 자동 초점이 맞춰진다. -->
     <input type="search" autofocus list="search-suggestions"/> 
-    	<datalist id="search-suggestions">
-    		<option label="DM" value="Depeche Mode">
-          	<option label="Moz" value="Morrissey">
-          	<option label="NO" value="New Order">
-          	<option label="TC" value="The Cure">
-    	</datalist>
+    <datalist id="search-suggestions">
+      <option label="DM" value="Depeche Mode">
+      <option label="Moz" value="Morrissey">
+      <option label="NO" value="New Order">
+      <option label="TC" value="The Cure">
+    </datalist>
 
     <!-- tel 타입을 설정하면 모바일에서 키보드 포커싱을 받았을 때 숫자 키보드가 올라오도록 할 수 있다. pattern 어트리뷰트에 정규표현식을 설정. name은 값을 담는 변수와 비슷하다. -->
     <input type="tel" pattern="[0-9]{10}" name="tel" title="Phone Number?!?!"/>
@@ -262,11 +262,9 @@
 1. 웹 어플리케이션에 접근성을 개선하거나 보장할 수 있는 스펙
 2. 기존 스펙과 중복되는 상황에서는 ARIA 대신 기존 스펙을 따르는 것이 좋다.
 3. 이미 heading으로 명시한 상황에서 title로 중복된 내용을 명시해야 하는 상황이라면 `aria-labelledby`를 사용하는 것이 좋다.
-4. `aria-labelledby`와 `aria-describedby`
-
-- `aria-labelledby`: 명시적으로 딱 떨어지는 단어
-- `aria-describedby`: 문장 단위를 명시할 때
-
+4. `aria-labelledby`와 `aria-describedby``
+   1. ``aria-labelledby`: 명시적으로 딱 떨어지는 단어
+   2. `aria-describedby`: 문장 단위를 명시할 때
 5. `aria-hidden`: 읽지 않아도 되는 정보 처리
 6. [정보화 지능원 github 계정](https://github.com/niawa)
 7. [웹 접근성 연구소](www.wah.or.kr)

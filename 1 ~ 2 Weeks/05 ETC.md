@@ -86,8 +86,7 @@
 
 ### 8. VS Extension
 
-1. Path Autocomplete: path 자동 완성 기능
-2. ​
+1. Path Autocomplete: path 자동 완성 기능​
 
 <br />
 
