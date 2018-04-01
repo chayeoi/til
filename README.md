@@ -1,3 +1,6 @@
-# Today-I-Learned
+# Today I Learned
 
-수업 시간에 배운 내용을 정리해놓은 저장소입니다.
+1. [Fastcampus 수업 내용 정리](https://github.com/chayeoi/TIL/tree/master/Fastcampus)
+2. [CSS](https://github.com/chayeoi/TIL/tree/master/CSS)
+3. [Node](https://github.com/chayeoi/TIL/tree/master/Node)
+4. [Static Type Checking](https://github.com/chayeoi/TIL/tree/master/Static%20Type%20Checking)
