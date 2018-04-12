@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NameForm matches snapshot 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    이름
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    type="submit"
+  >
+    등록
+  </button>
+</form>
+`;
