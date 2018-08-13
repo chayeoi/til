@@ -202,8 +202,8 @@
 1. 웹 어플리케이션에 접근성을 개선하거나 보장할 수 있는 스펙
 2. 기존 스펙과 중복되는 상황에서는 ARIA 대신 기존 스펙을 따르는 것이 좋다.
 3. 이미 heading으로 명시한 상황에서 title로 중복된 내용을 명시해야 하는 상황이라면 `aria-labelledby`를 사용하는 것이 좋다.
-4. `aria-labelledby`와 `aria-describedby``
-   1. ``aria-labelledby`: 명시적으로 딱 떨어지는 단어
+4. `aria-labelledby`와 `aria-describedby`
+   1. `aria-labelledby`: 명시적으로 딱 떨어지는 단어
    2. `aria-describedby`: 문장 단위를 명시할 때
 5. `aria-hidden`: 읽지 않아도 되는 정보 처리
 6. [정보화 지능원 github 계정](https://github.com/niawa)
