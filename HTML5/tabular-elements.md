@@ -37,11 +37,11 @@
     <tbody>
     <tr>
       <td headers="n r1"> Sad
-      <th id="r1"> Mood
+      <td id="r1"> Mood
       <td> Happy
     <tr>
       <td headers="n r2"> Failing
-      <th id="r2"> Grade
+      <td id="r2"> Grade
       <td> Passing
   </table>
   ```
@@ -50,26 +50,29 @@
 
   ```html
   <figure aria-labelledby="caption">
-    <p>Characteristics are given in the second column, with the
-      negative side in the left column and the positive side in the right
-      column.</p>
-      <table>
+    <p>Characteristics are given in the second column, with the negative side in the left column and the positive side in the right column.</p>
+    <table>
       <caption id="caption">Characteristics with positive and negative sides</caption>
       <thead>
         <tr>
-        <th id="n"> Negative
-        <th> Characteristic
-        <th> Positive
+          <th id="n"> Negative</th>
+          <th> Characteristic</th>
+          <th> Positive</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-        <td headers="n r1"> Sad
-        <th id="r1"> Mood
-        <td> Happy
+          <td headers="n r1"> Sad</td>
+          <th id="r1"> Mood</th>
+          <td> Happy</td>
+        </tr>
         <tr>
-        <td headers="n r2"> Failing
-        <th id="r2"> Grade
-        <td> Passing
-      </table>
+          <td headers="n r2"> Failing</td>
+          <th id="r2"> Grade</th>
+          <td> Passing</td>
+        </tr>
+      </tbody>
+    </table>
   </figure>
   ```
 
