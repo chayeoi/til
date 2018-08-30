@@ -30,18 +30,81 @@ Realtime DB에서 데이터 모델링 작업을 할 때는 데이터 중첩이 �
 
 **"Firestore: 비정규화 및 데이터 평면화가 덜 필요합니다."**
 
-문서에서는 분명 Firestore DB 모델링 작업을 할 때 비정규화 및 데이터 평면화가 **아예 필요하지 않은 게 아니라 덜 필요**하다고 이야기하고 있다. 그렇다면 어느 시점에서 어떤 기준을 적용하여 비정규화 작업을 진행하면 좋은 것일까?
+문서에서는 정확히 Firestore DB 모델링 작업을 할 때 비정규화 및 데이터 평면화가 **아예 필요하지 않은 게 아니라 덜 필요**하다고 이야기한다. 그렇다면 어느 시점에서 어떤 기준을 적용하여 비정규화 작업을 진행하면 좋은 것일까?
 
-기준을 적용하기 위해서 스스로에게 다음 세 가지 질문을 던져보면 된다.
+### 일대다(One-to-Many) 관계
 
-### 1. 특정 컬렉션이 언제나 부모 문서 내에 한정하여 쿼리되는가(Will you ALWAYS query the collection scoped to its parent document)?
+*일대다 관계 예시: 한 명의 유저가 여러 개의 트윗을 갖고 있고, 각각의 트윗은 특정 한 유저에게 소속된다.*
+
+그 기준을 일대다 관계에서 적용하기 위해 다음 세 가지 질문에 답해보면 된다.
+
+#### 1. 특정 컬렉션이 언제나 부모 문서 내에 한정하여 질의(쿼리)가 이뤄지는가(Will you ALWAYS query the collection scoped to its parent document)?
 
 이 질문에 대한 답이 '예(Yes)'라면, 하위 컬렉션(Subcollections) 방식을 적용하면 된다. 하위 컬렉션은 다수의 문서 간에 병합되어질 필요가 없는 데이터인 경우에 유용하다.
 
-### 2. 데이터 최대 크기가 1MB를 초과하지 않는가(Is the max data size less than ~1MB)?
+#### 2. 데이터 최대 크기가 1MB를 초과하지 않는가(Is the max data size less than ~1MB)?
 
 이 질문에 대한 답이 '예(Yes)'라면, 중첩 데이터(Embedded data) 방식을 적용하자. 데이터 크기가 작고 단순하다면, 중첩 데이터 방식이 이상적이다.
 
-### 3. 부모를 횡단하여 데이터를 쿼리헤야할 경우가 있는가(Do you need to query documents across their parents)?
+#### 3. 부모를 횡단하여 데이터를 쿼리헤야할 경우가 있는가(Do you need to query documents across their parents)?
 
-이 질문에 대한 답이 '예(Yes)'라면, 루트 수준 컬렉션(Root collections) 방식을 적용하자. 예를 들어, 트윗이 한 사용자에게 속하는 동시에 특정 날짜에 대한 모든 유저로부터의 트윗을 불러오길 원한다면, 루트 수준 컬랙션이 적절할 것이다.
+이 질문에 대한 답이 '예(Yes)'라면, 루트 수준 컬렉션(Root collections) 방식을 적용하자. 예를 들어, 트윗이 한 사용자에게 속하는 동시에 특정 날짜에 대한 모든 유저로부터의 트윗을 불러오길 원한다면, 루트 수준 컬랙션이 적합할 것이다.
+
+### 일대일(One-to-One) 관계
+
+*일대일 관계 예시: 한 유저가 하나의 프리미엄 멤버십 계정을 갖는다.*
+
+대부분의 경우에, 일대일 관계는 중첩 데이터 방식으로 표현될 수 있다. 그러나 비교적 용량이 큰 루트 수준 컬렉션 방식을 적용할수도 있을 것이다.
+
+### 다대다(Many-to-Many) 관계
+
+*다대다 관계 예시: 한 명의 배우가 여러 편의 출연한 영화를 갖고 있고, 각 한 편의 영화가 여러 명의 출연 배우를 갖는다.*
+
+#### 제3자 컬렉션
+
+배우(actors)와 영화(movies)를 중계해주는 제3자 컬렉션을 사용하는 방식을 적용할 수 있다: 역할(roles) 컬렉션. 역할 컬렉션의 각 문서 아이디가 `actorId_movieId`인 형식에 주목하자. 필수는 아니더라도, 이렇게 함으로써 관계형 문서의 아이디에 고유성을 부여할 수 있다.
+
+```plain
+actors/{bradpitt}
+  -- data (any)
+
+movies/{fightclub}
+  -- data (any)
+  
+roles/{bradpitt_fightclub}
+    -- actorId (string)
+    -- movieId (string)
+    -- character
+    -- salary
+```
+
+#### 중첩 데이터
+
+몇몇 데이터를 중첩하고 중복 저장하는 방식으로 다대다 관계를 표현할 수도 있다. 데이터의 크기가 작고, 관계된 문서의 요약 정보만 필요할 때 괜찮은 방법이다.
+
+```plain
+actors/{bradpitt}
+  -- data (any)
+  -- movies {
+      fightclub: {
+        title: 'Fight Club'
+      }
+  }
+
+movies/{fightclub}
+  -- data (any)
+  -- actors {
+       bradpitt: {
+         name: 'Brad Pitt'
+       }
+  }
+```
+
+#### 하위 컬렉션
+
+중첩 데이터에 하위 컬렉션을 포함시킴으로써 다대다 관계를 표현할 수도 있다.
+
+## 레퍼런스
+
+* [Firebase: 파이어스토어 - 데이터 구조화](https://firebase.google.com/docs/firestore/manage-data/structure-data)
+* [Angular Firebase](https://angularfirebase.com/lessons/firestore-nosql-data-modeling-by-example/)
