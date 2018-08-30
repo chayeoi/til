@@ -26,7 +26,7 @@ Realtime DB에서 데이터 모델링 작업을 할 때는 데이터 중첩이 �
 
 이런 이유로, 공식 문서에서 Realtime DB와 Firestore를 비교해놓은 내용을 다시 한번 확인해보았다.
 
-![Realtime DB와 Firestore 비교](./firebase-database-modeling.png)
+![Realtime DB와 Firestore 비교](./firestore-database-modeling.png)
 
 **"Firestore: 비정규화 및 데이터 평면화가 덜 필요합니다."**
 
