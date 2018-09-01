@@ -4,6 +4,16 @@
 
 모든 HTML 요소들은 `hidden` 속성을 가질 수 있으며, 요소가 아직 페이지의 현재 상태와 직접적으로 관련이 없거나 페이지의 다른 부분에서 내용을 재사용하도록 선언하는 데 사용된다. 브라우저는 `hidden` 속성이 설정된 요소를 화면에 렌더링하지 않는다.
 
+`hidden` 속성을 사용해 감춰진 요소를 스크린 리더가 참조할 수 있도록 하고자 할 때, `aria-describedby` 속성을 사용해 참조하면 유용하다.
+
+```html
+<p hidden id="y9-table-summary">테이블 요약(화면에 감춰짐)</p>
+
+<table aria-describedby="y9-table-summary">
+  <!-- ... -->
+</table>
+```
+
 > 브라우저의 기본 스타일 중 `hidden` 속성은 다음과 같이 스타일이 정의되어 있다.
 > ```css
 > [hidden], template {
