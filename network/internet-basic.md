@@ -24,4 +24,4 @@
 
 ## 레퍼런스
 
-* CS50 x edwith
+* [CS50 x edwith](https://www.edwith.org/cs50/lecture/22869/)
