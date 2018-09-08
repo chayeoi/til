@@ -44,6 +44,19 @@
   * `pre-line`: `pre` 요소의 스타일에 더해 들여쓰기를 제거한다.
   * `nowrap`: 콘텐츠를 한 줄로 길게 나열한다.
 * `word-break`: 단어의 분리를 어떻게 할 것인지 결정한다.
+  * `normal`
   * `break-all`
+  * `keep-all`
 * `word-wrap`: 박스의 가로 영역을 넘친 단어 내에서 임의의 분리 여부를 결정하여 줄바꿈에 관여한다.
+  * `normal`
   * `break-word`
+
+
+## 웹 폰트 다운로드
+
+[google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts)
+
+## 레퍼런스
+
+* [WIT - word-break 속성과 word-wrap 속성 알아보기](http://wit.nts-corp.com/2017/07/25/4675)
+* 
