@@ -5,7 +5,7 @@
 1. `overflow: hidden`은 `overflow: visible`일때는 인식하지 못 했던 몇 가지를 인식하게 한다.
    1. **float** 처리된 요소
    2. 자식 요소의 **margin 값**
-2. 만약 `overflow` 프로퍼티의 값이 `visible`이고 내부 여백(padding)과 테두리(border)가 없는 상태에서 자식 요소가 'margin-top'을 가지고 있을 경우, 마치 요소 자신의 'margin-top'처럼 보여진다. 하지만, `hidden`인 상태에서는 그 'margin-top'이 자신의 요소 안에서 이뤄진다. 물론 부모 요소가 해당 margin이나 border를 가지고 있다면 `hidden`처럼 인식할 수 있다.
+2. 만약 `overflow` 프로퍼티의 값이 `visible`이고 내부 여백(padding)과 테두리(border)가 없는 상태에서 자식 요소가 'margin-top'을 가지고 있을 경우, 마치 요소 자신의 'margin-top'처럼 보여진다. 하지만, `hidden`인 상태에서는 그 'margin-top'이 자신의 요소 안에서 이뤄진다. 물론 부모 요소가 해당 margin에 상응하는 padding이나 border를 가지고 있다면 `hidden`처럼 인식할 수 있다.
 3. `overflow: hidden;`을 적용하면 content가 border 이외로 흘러넘치는 영역을 숨길 뿐, padding 영역에서는 content를 숨기지 않고 그대로 표시한다.
 4. 넘치는 영역을 계산하는 방식으로 자식 요소의 사이즈를 체크하여 영역을 잡는다.
 
