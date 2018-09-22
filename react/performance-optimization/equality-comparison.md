@@ -1,4 +1,4 @@
-# 성능 최적화
+# 동질성 비교
 
 ## Strict Equal, Shallow Equal and Deep Equal
 
