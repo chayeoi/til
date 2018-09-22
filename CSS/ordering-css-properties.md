@@ -151,7 +151,31 @@ CSS 속성 선언을 그룹 단위로 조직화시키고 개인 또는 팀 내�
 
 ## Example
 
+```css
+.selector {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  margin: 40px;
+  padding: 20px;
+
+  color: #00c896;
+  border: 1px solid #00c896;
+
+  font-family: Lato sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+```
 
 ## References
 
