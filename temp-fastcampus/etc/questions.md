@@ -1,8 +1,6 @@
-# Today I Learned
+# Question
 
-## 09 Question
-
-### 1. 부모 요소에 `font-size: 0`으로 준 이유는?
+## 1. 부모 요소에 `font-size: 0`으로 준 이유는?
 
 ```css
 .member {
@@ -15,7 +13,7 @@
 
 ​	→ 마크업 구조로 인한 간극을 없애기 위해 `font-size: 0` 지정
 
-### 2. BEM
+## 2. BEM
 
 1. BEM 방법을 사용할 때 Block 내 Block의 Element 네이밍은 어떤 방식으로?
 
@@ -23,7 +21,7 @@
 
 2. 클래스 선택자만 사용할 것을 권하는데, 그렇다면 :nth-child와 같은 가상 클래스는 어떻게 대처할지?
 
-### 3. 웹 폰트 관련
+## 3. 웹 폰트 관련
 
 1. `font-family`와  `font-style, ` `font-weight`의 값은 지정된 키워드 값이 아니라 원하는 값으로 지정해도 되는 것인지? 그 후 그 값으로 사용하면 되는 것인지?
 
@@ -37,7 +35,7 @@
 
    → 다양한 브라우저 환경에서 서로 다르게 대응하기 위함이다.
 
-### 4. `*::after`, `*::before`에도 `box-sizing: border-box`로 설정하는 이유는?
+## 4. `*::after`, `*::before`에도 `box-sizing: border-box`로 설정하는 이유는?
 
 ```css
 *, *::after, *::before {
@@ -47,11 +45,11 @@
 
 ​	→ `*`는 실제 존재하는 요소들을 모두 선택하는 selector이다. 이때, `:hover`는 어쨌든 `hover` 이벤트가 발생했더라도 원래 존재했던 해당 객체이지만, `::after`, `::before`는 기존에 존재하지 않던 하나의 가상 요소를 더 만든 것이므로 따로 설정해줘야 할 필요가 있다.
 
-### 5. normalize.css의 역할은?
+## 5. normalize.css의 역할은?
 
 ​	→ 브라우저마다 조금씩 다르게 보이는 스타일을 하나로 통일하기 위함.
 
-### 8. Position 관련
+## 8. Position 관련
 
 1. `position: absolute` 시에 `span`은 너비를 가질 수 있었고 `div`는 너비가 콘텐츠만큼의 너비를 갖게 되었는데, `span`은 block 요소가 된 것이고 `div`는 inline-block 요소가 된 것인지? 
 
@@ -61,15 +59,15 @@
 
    → 해결할 수 없다. `min-height`를 지정하여 최소 높이를 지정하는 방법이 해결책이 될 수 있다.
 
-### 9. 수직 정렬 방법
+## 9. 수직 정렬 방법
 
 1. `position: absolute`가 되었을 때 `transform: translate()`는 적용이 안되는지?
 
-### 10. 브런치 CSS
+## 10. 브런치 CSS
 
 1. 스크롤할수록 제목이 흐려지는 효과와 일정 부분부터 네비게이션이 등장하는 효과는 어떻게 만들 수 있는지?
 
-### 11. sup, sub 태그 
+## 11. sup, sub 태그 
 
 1. 장식에 관련된 속성이라 생각되는데, 이에 대응되는 CSS 스타일 속성은 없는지?
 
