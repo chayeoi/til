@@ -10,15 +10,15 @@ yarn start
 
 코드의 실행을 일시 중지하고 싶은 위치에 중단점을 체크한다.
 
-![중단점 체크](./IMG_001.png)
+![중단점 체크](./img-001.png)
 
 마켓플레이스에서 Debugger for Chrome 익스텐션을 설치한 다음 리로드한다.
 
-![Debugging for Chrome 추가](./IMG_002.png)
+![Debugging for Chrome 추가](./img-002.png)
 
 크롬 디버깅 실행 스크립트를 설정해야 한다. 디버깅 패널로 이동하여 톱니바퀴 아이콘을 누른 다음 Chrome을 선택한다.
 
-![크롬 디버깅 실행 스크립트 설정](./IMG_003.png)
+![크롬 디버깅 실행 스크립트 설정](./img-003.png)
 
 [Create React App](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#visual-studio-code)에서 안내하는 지시에 따라 `launch.json`을 다음과 같이 수정한다.
 
