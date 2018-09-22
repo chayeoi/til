@@ -17,5 +17,3 @@
 * `margin`
 * `border`
 * `padding`
-
-*/
