@@ -22,7 +22,7 @@ const Bar = connect(mapStateToProps)(Foo)
 먼저, 첫 번째 경우에서 Wrapped 컴포넌트에 업데이트가 발생하지 않는 이유를 알기 위해서는 먼저 `connect` 함수의 동작 원리를 이해해야 한다.
 
 * `connect` 함수의 첫 번째 인자로 전달되는 `mapStateToProps`는 구독 중인 스토어의 상태가 변경될 때마다 호출된다. 이때 `mapStateToProps` 함수가 반환한 값을 이전 호출에서 반환했던 값과 Shallow Equal 방식으로 비교한 후 변경 사항이 발생했다면 Wrapped 컴포넌트를 업데이트시킨다. 만약 비교한 결과가 같았다면 Wrapped 컴포넌트를 업데이트시키지 않는다.
-* Connected 컴포넌트에 업데이트 라이프사이클이 발생하면, 이전 `props` 객체와 새로 들어오는 `props` 객체를 Shallow Equal 방시으로 비교한다. 만약 변경 사항이 존재한다면 Wrapped 컴포넌트를 업데이트시키고 변경 사항이 존재하지 안으면 Wrapped 컴포넌트를 업데이트시키지 않는다.
+* Connected 컴포넌트에 업데이트 라이프사이클이 발생하면, 이전 `props` 객체와 새로 들어오는 `props` 객체를 Shallow Equal 방식으로 비교한다. 만약 변경 사항이 존재한다면 Wrapped 컴포넌트를 업데이트시키고 변경 사항이 존재하지 안으면 Wrapped 컴포넌트를 업데이트시키지 않는다.
 * Connected 컴포넌트는 자신의 부모 컴포넌트로부터 전달받은 `props` 객체를 암묵적으로 Wrapped 컴포넌트에게 그대로 전달한다.
 
 첫 번째 상황으로 다시 돌아가서, 로케이션 값이 변경되더라도 Wrapped 컴포넌트에 업데이트가 발생하지 않는 이유를 단계적으로 생각해보자.
