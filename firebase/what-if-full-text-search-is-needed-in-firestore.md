@@ -22,29 +22,19 @@
     "category": "angular"
   },
   "postId4": {
-    "title": "Learning django",
-    "content": "Learning django is exciting!",
-    "category": "django"
-  },
-  "postId5": {
     "title": "Teaching react",
     "content": "Teaching react is exciting!",
     "category": "react"
   },
-  "postId6": {
+  "postId5": {
     "title": "Teaching vue",
     "content": "Teaching vue is exciting!",
     "category": "vue"
   },
-  "postId7": {
+  "postId6": {
     "title": "Teaching angular",
     "content": "Teaching angular is exciting!",
     "category": "angular"
-  },
-  "postId8": {
-    "title": "Teaching django",
-    "content": "Teaching django is exciting!",
-    "category": "django"
   }
 }
 ```
