@@ -1,6 +1,6 @@
 # Redux Intergration
 
-로케이션 값이 변경되었음에도 업데이트가 발생하지 않는 컴포넌트는 다음 두 가지 경우 중 하나에 속한다.
+로케이션 값이 변경되었음에도 업데이트가 발생하지 않는 컴포넌트는 다음 두 가지 경우 중 하나에 해당한다.
 
 1. `react-redux`의 `connect` 함수로 감싸여진 Wrapped 컴포넌트(`connect()(Comp)`)
 2. `<Route component={Comp} />`처럼 `Route`로 감싸여지지 않은 `BrowserRouter` 외부에 존재하는 컴포넌트
