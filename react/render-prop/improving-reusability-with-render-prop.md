@@ -186,11 +186,11 @@ class Collapse extends Component {
   render() {
     const { handleClick } = this
     const { open } = this.state
-    // 방법 1. `children()`
+    // 방법 1: `children()`
     const { children, ...rest } = this.props
     return children({ onClick: handleClick, open, ...rest })
 
-    // 방법 2. `<Component />`
+    // 방법 2: `<Component />`
     // const { children: Component, ...rest } = this.props
     // return <Component onClick={handleClick} open={open} {...rest} />
   }
