@@ -57,7 +57,7 @@ const query = postsRef.where('title', '==', '/react/gi')
 
 생각해볼 수 있는 다른 대안은, 모든 포스트 목록을 클라이언트로 한 번에 불러와 저장한 다음 검색어에 매칭된 결과만 필터링하여 화면에 보여주는 것이다. 이 방법은 포스트 목록의 갯수가 적은 경우에는 꽤 괜찮은 방법일 수 있으나, 포스트 목록의 갯수가 늘어날수록 한 번에 불러와야 하는 양도 늘어날 것이므로 성능 상에 문제를 일으킬 수 있기 때문에 그닥 실용적이지 못하다.
 
-결국 우리가 희망하는 유연한 사용자 경험을 제공하기 위해서는 전문 검색(Full text search) 기능을 도입해야 한다. Firestore에서 전문 검색을 지원하려면 써드 파티 앱과의 통합이 필요하다. 대표적인 서비스로 [Algolia](https://www.algolia.com/)가 있는데, [Cloud function](https://firebase.google.com/docs/functions/?hl=ko)과 함께 사용하여 제목(content)과 내용(contents)을 바탕으로 색인(Index)을 생성하고 검색을 지원할 수 있다.
+결국 우리가 바라는 유연한 사용자 경험을 제공하기 위해서는 전문 검색(Full text search) 기능을 도입해야 한다. Firestore에서 전문 검색을 지원하려면 써드 파티 앱과의 통합이 필요하다. 대표적인 서비스로 [Algolia](https://www.algolia.com/)가 있는데, [Cloud function](https://firebase.google.com/docs/functions/?hl=ko)과 함께 사용하여 제목(content)과 내용(contents)을 바탕으로 색인(Index)을 생성하고 검색을 지원할 수 있다.
 
 ## References
 
