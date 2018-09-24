@@ -171,7 +171,7 @@ const Schedules = () => (
 
 ## 해결책 3: Render prop 기법 활용하기
 
-리액트 엘리먼트가 아닌 리액트 컴포넌트를 prop으로 전달하도록 코드를 변경한다.
+**리액트 엘리먼트를 반환하는 함수**를 `children` prop에 전달하도록 코드를 변경한다. 여기서 꼭 `children` prop에 전달할 필요는 없다. 어떤 이름의 prop으로 전달하던 간에 `Collapse` 컴포넌트에서 해당 prop으로 전달된 함수를 실행히가만 하면 된다.
 
 ```jsx
 import React, { Component } from 'react'
