@@ -120,7 +120,7 @@ class Collapse extends Component {
 
 `Collapse` 컴포넌트에 리액트 엘리먼트를 prop으로 전달하는 방법도 가능하다. 이때 prop으로 전달된 리액트 엘리먼트에 이벤트 핸들러를 맵핑하기 위해, 일반적인 방법은 아니지만 `React.Children`과 `React.cloneElement`를 사용하여 새 리액트 엘리먼트를 반환하도록 해야 한다.
 
-(참고로 [리액트 컴포넌트와 엘리먼트](https://medium.com/@dan_abramov/react-components-elements-and-instances-90800811f8ca)는 같지 않다. 간단히 구분하자면, `<Comp />`는 리액트 엘리먼트이고 `Comp`는 리액트 컴포넌트이다.)
+(참고로 [리액트 컴포넌트와 엘리먼트](https://medium.com/@dan_abramov/react-components-elements-and-instances-90800811f8ca)는 다르다. 간단히 구분하자면, `<Comp />`는 리액트 엘리먼트이고 `Comp`는 리액트 컴포넌트이다.)
 
 ```jsx
 import React, { Component } from 'react'
