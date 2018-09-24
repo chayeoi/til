@@ -35,7 +35,7 @@
 |         `Component`       |   X   |   O   |   X   |  010  |
 |       `PureComponent`     |   O   |   X   |   X   |  001  |
 
-뷰에 실제적인 변화가 일어나지 않았을 경우에는 `PureComponent`를 상속받는 방식에서 더 적은 비용이 든다.
+뷰에 실제적인 변화가 일어나지 않았을 경우에는 `PureComponent`를 상속받을 때 더 적은 비용이 발생한다.
 
 ### 뷰에 변화가 발생한 경우
 
@@ -44,7 +44,7 @@
 |         `Component`       |   X   |   O   |   O   |  110  |
 |       `PureComponent`     |   O   |   O   |   O   |  111  |
 
-뷰에 변화가 일어났을 경우, `PureComponent`를 상속받는 방식에서 오히려 더 많은 비용을 필요로 한다.
+뷰에 변화가 일어났을 경우에는 오히려 `PureComponent`를 상속받을 때 더 많은 비용을 필요로 한다.
 
 ## 결론
 
