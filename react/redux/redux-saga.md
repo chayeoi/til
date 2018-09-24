@@ -1,8 +1,8 @@
 # React 스터디 6주차: Redux-Saga
 
-2018년 6월 7일 React 스터디 자료입니다.
+> 2018년 6월 7일 사내 React 스터디 준비 자료입니다.
 
-이미 Redux-Saga를 시작하기 위한 친절한 공식 문서와 한글 번역본이 나와있습니다. 그렇기 때문에 이 글에서 redux-saga의 사용법 자체에 대해 자세히 설명하기보다는, redux-saga의 핵심 개념을 정리하고 redux-thunk와의 비교를 통해 그 특징을 가볍게 살펴보는 것에 초점을 두겠습니다.
+이미 redux-Saga를 시작하기 위한 친절한 공식 문서와 한글 번역본이 나와있습니다. 그렇기 때문에 이 글에서 redux-saga의 사용법 자체에 대해 자세히 설명하기보다는, redux-saga의 핵심 개념을 정리하고 redux-thunk와의 비교를 통해 그 특징을 가볍게 살펴보는 것에 초점을 두겠습니다.
 
 ## Redux-Saga가 하는 일: 사이드 이펙트 처리
 
@@ -27,7 +27,7 @@ yarn add redux-saga
 ```javascript
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import reducer from './reducer
+import reducer from './reducer'
 
 const configureStore = () => {
   const sagaMiddleware = createSagaMiddleware()
@@ -131,7 +131,7 @@ function* loginFlow() {
 }
 ```
 
-여기까지만 봐서는, redux-thunk를 쓸 때와 큰 차이점이 딱히 없어 보입니다. 그 차이를 느낄 수 있도록, 지금부터 redux-saga의 장점을 하나 씩 이야기해보겠습니다.
+여기까지만 봐서는 redux-thunk를 쓸 때와 특별한 차이점이 없어 보입니다. 그럼 지금부터 redux-saga의 장점을 하나 씩 이야기해보겠습니다.
 
 ### 복잡한 흐름을 쉽게 제어할 수 있습니다
 
