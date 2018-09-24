@@ -6,7 +6,7 @@
 
 만일 단순히 `React.PureComponent`를 상속받는 방식으로는 부족하고 그보다 더 디테일한 비교가 필요한 경우라면, `shouldComponentUpdate` 내에 개발자가 직접 동질성 비교 로직을 작성하는 방식도 가능하다.
 
-그렇다면 `React.PureComponent`를 상속할 때, 얕은 비교를 사용하는 `shouldComponentUpdate`의 내부 구현은 어떤 모습일까? 아마도 다음 코드와 비슷한 모습일 것이라고 생각된다.
+그렇다면 `React.PureComponent`를 상속할 때, 얕은 비교를 사용하는 `shouldComponentUpdate`의 내부 구현은 어떤 모습일까? 아마도 다음과 비슷한 모습일 것이라고 추측된다.
 
 ```javascript
 const shouldComponentUpdate = (nextProps) => (
