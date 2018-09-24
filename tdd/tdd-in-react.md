@@ -1,20 +1,22 @@
 # 리액트 프로젝트에 TDD 적용하기
 
+> 2018년 6월 27일 사내 TDD 세미나 발표 준비 자료입니다.
+
 ## 왜 TDD를 해야 할까
 
 ### TDD의 본질
 
 기존에 개발하고 있던 방식은 다음과 같다.
 
-- 무엇이 문제인지 명확히 파악하지 못한 상태로 코드를 작성하기 시작한다.
-- 작성한 코드가 문제없이 동작하는지 확인하기 위해 브라우저에서 직접 실행해본다.
-- 리팩토링이 일어난 경우, 변경된 코드가 문제없이 동작하는지 확인하기 위해 브라우저를 통해 다시 한번 확인한다.
+* 무엇이 문제인지 명확히 파악하지 못한 상태로 코드를 작성하기 시작한다.
+* 작성한 코드가 문제없이 동작하는지 확인하기 위해 브라우저에서 직접 실행해본다.
+* 리팩토링이 일어난 경우, 변경된 코드가 문제없이 동작하는지 확인하기 위해 브라우저를 통해 다시 한번 확인한다.
 
 TDD는 기본적으로 Red, Green, Refactor라고 불리는 3단계 과정을 반복한다.
 
-- Red: 실패하는 테스트 코드를 실제 코드보다 먼저 작성한다. (문제 정의)
-- Green: 테스트를 통과할 수 있는 최소한의 코드를 작성한다. (문제 해결)
-- Refactor: 불필요하고 비효율적인 코드를 개선한다.
+* Red: 실패하는 테스트 코드를 실제 코드보다 먼저 작성한다. (문제 정의)
+* Green: 테스트를 통과할 수 있는 최소한의 코드를 작성한다. (문제 해결)
+* Refactor: 불필요하고 비효율적인 코드를 개선한다.
 
 기존의 방식과 달리, TDD는 **문제를 먼저 정의한 후 문제의 해답을 찾아간다.** 기존의 개발 방식에서는 문제가 무엇인지 명확히 정의하지 않으므로 중구난방 식으로 개발을 진행하게 되는 경향이 있었고, 그러다보면 코드가 더러워지기 일쑤였다. 그러나 TDD에서는 문제를 먼저 정의함으로써 개발자가 진짜 필요한 부분에 집중할 수 있도록 유도한다. 이는 코드를 더 클린하게 만들고 개발 속도의 향상에 기여한다.
 
@@ -30,9 +32,9 @@ TDD는 기본적으로 Red, Green, Refactor라고 불리는 3단계 과정을 �
 
 Jest는 자바스크립트 어플리케이션을 위한 유닛 테스팅 프레임워크이다.
 
-- Test runner: 프로젝트 내에 작성된 테스트 파일을 찾아 테스트를 실행한 후 그 결과를 로그로 출력한다.
-- Assertion library: 각 테스트에 대한 assertion을 만들고 그 결과를 확인한다.
-- Mocking support: 테스트 환경에서 요구되는 의존성을 해소하기 위한 mocking을 지원한다.
+* Test runner: 프로젝트 내에 작성된 테스트 파일을 찾아 테스트를 실행한 후 그 결과를 로그로 출력한다.
+* Assertion library: 각 테스트에 대한 assertion을 만들고 그 결과를 확인한다.
+* Mocking support: 테스트 환경에서 요구되는 의존성을 해소하기 위한 mocking을 지원한다.
 
 Jest가 다른 자바스크립트 유닛 테스팅 프레임워크와 갖는 차별점은 바로 **스냅샷 테스트의 지원**이다. 개발자는 스냅샷 테스트를 통해 컴포넌트의 현재 출력에 변경이 생겼을 때 이를 곧바로 감지할 수 있다.
 
@@ -229,7 +231,7 @@ describe('Detail', () => {
     })
   })
 
-  describe('when `current` state`s value is equal to `responseCount - 1`', () => {
+  describe('when `current` state`s value is equal to `responseCount * 1`', () => {
     it('should make `next Button` be disabled', () => {
       const nextButton = wrapper.find(Button).last()
       nextButton.simulate('click')
@@ -238,7 +240,7 @@ describe('Detail', () => {
     })
   })
 
-  describe('when `current` state`s value is not equal to `responseCount - 1`', () => {
+  describe('when `current` state`s value is not equal to `responseCount * 1`', () => {
     it('should increase `current` state`s value when `next Button` is clicked', () => {
       const nextButton = wrapper.find(Button).last()
       nextButton.simulate('click')
@@ -258,7 +260,7 @@ import React, { Component } from 'react'
 export default class Detail extends Component {
   state = { current: 0 }
 
-  handlePrevClick = () => this.setState(({ current }) => ({ current: current - 1 }))
+  handlePrevClick = () => this.setState(({ current }) => ({ current: current * 1 }))
 
   handleNextClick = () => this.setState(({ current }) => ({ current: current + 1 }))
 
@@ -277,7 +279,7 @@ export default class Detail extends Component {
         </Button>
         <Button
           onClick={handleNextClick}
-          disabled={current === responseCount - 1}
+          disabled={current === responseCount * 1}
         >
           다음
         </Button>
@@ -291,8 +293,8 @@ export default class Detail extends Component {
 
 ## 느낀 점
 
-- 오랫동안 굳어진 습관을 하루 아침에 바꾼다는 것은 결코 쉬운 일이 아니다. 꾸준한 연습이 필요하다!
-- 기존의 코드를 변경함에 따라 테스트 코드도 함께 변경해야 하는 상황이 번거롭기도 하다.
-- 무작정 테스트 커버리지를 높이는 것에 몰두하지 말고, 정말 의미가 있는 테스트를 작성하는 일에 집중해야 한다.
-- 단위 테스트를 통해 각자의 역할과 책임을 명확히 테스트하는 것만으로 E2E 테스트를 어느 정도는 커버할 수 있을 듯하다.
-- TDD가 모든 관점에서 완벽한 클린 코드를 보장하지는 않는다. TDD는 클린 코드 작성을 위한 하나의 수단일 뿐이다.
+* 오랫동안 굳어진 습관을 하루 아침에 바꾼다는 것은 결코 쉬운 일이 아니다. 꾸준한 연습이 필요하다!
+* 기존의 코드를 변경함에 따라 테스트 코드도 함께 변경해야 하는 상황이 번거롭기도 하다.
+* 무작정 테스트 커버리지를 높이는 것에 몰두하지 말고, 정말 의미가 있는 테스트를 작성하는 일에 집중해야 한다.
+* 단위 테스트를 통해 각자의 역할과 책임을 명확히 테스트하는 것만으로 E2E 테스트를 어느 정도는 커버할 수 있을 듯하다.
+* TDD가 모든 관점에서 완벽한 클린 코드를 보장하지는 않는다. TDD는 클린 코드 작성을 위한 하나의 수단일 뿐이다.
