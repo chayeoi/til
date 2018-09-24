@@ -33,6 +33,8 @@ class Contacts extends Component {
 이에 더해, 일정 목록을 나열하는 `Schedules` 컴포넌트가 있다고 한다면 `Contacts`와 매우 흡사한 방식으로 구현할 수 있을 것이다. 화면에 보여져야하는(Presentional) 부분을 제외한 두 컴포넌트의 인터랙션 로직은 완전히 동일하다.
 
 ```jsx
+import React, { Component } from 'react'
+
 class Schedules extends Component {
   state = { open: false }
 
@@ -65,6 +67,8 @@ class Schedules extends Component {
 첫 번째 해결책은 `Contacts`와 `Schedules`를 `Collapse`라는 이름의 컴포넌트로 추상화시킨 다음, `type` prop에 따라 렌더링 로직을 분기시키는 것이다.
 
 ```jsx
+import React, { Component } from 'react'
+
 class Collapse extends Component {
   state = { open: false }
 
@@ -119,6 +123,8 @@ class Collapse extends Component {
 참고로, [리액트 컴포넌트와 엘리먼트](https://medium.com/@dan_abramov/react-components-elements-and-instances-90800811f8ca)는 같지 않다. 간단히 구분하자면, `<Comp />`는 리액트 엘리먼트이고 `Comp`는 리액트 컴포넌트이다.
 
 ```jsx
+import React, { Component } from 'react'
+
 class Collapse extends Component {
   state = { open: false }
 
@@ -168,6 +174,8 @@ const Schedules = () => (
 리액트 엘리먼트가 아닌 리액트 컴포넌트를 prop으로 전달하도록 코드를 변경한다.
 
 ```jsx
+import React, { Component } from 'react'
+
 class Collapse extends Component {
   state = { open: false }
 
