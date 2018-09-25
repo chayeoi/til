@@ -4,7 +4,7 @@
 
 따라서 모든 컴포넌트에서 `Component`대신 `PureComponent`를 상속받도록 하면 성능 상의 이점을 얻을 수 있지 않을까 생각했다. 그런데 실제로 그렇게 시도하기 전에, 여태껏 이런 시도를 했던 프로젝트를 본 적이 있는지 스스로 곰곰히 생각해보았다. 아마 한 번도 못 봤던 듯하다. `PureComponent`가 훨씬 더 좋아보이는데 어째서? 단순히 사람들이 `PureComponent`를 어떻게 사용할 지 잘 몰라서일까?
 
-당연하게도 그럴 리는 없다. 만약 `PureComponent`가 무조건 더 좋은 녀석이었더라면 리액트 팀은 `PureComponent`의 기본 동작으로 기본값으로 세팅해놓았을 것이다. 오히려 모든 경우를 `PureComponent`로 대체하는 것은 앱을 더 느리게 만들 수 있다고 한다. [Dan의 트윗](https://twitter.com/dan_abramov/status/759383530120110080)을 읽어보면 그 이유를 짐작할 수 있다.
+당연하게도 그럴 리는 없다. 만약 `PureComponent`가 무조건 더 좋은 녀석이었더라면 리액트 팀은 `PureComponent`의 기본 동작을 기본값으로 세팅해놓았을 것이다. 오히려 모든 경우를 `PureComponent`로 대체하는 것은 앱을 더 느리게 만들 수 있다고 한다. [Dan의 트윗](https://twitter.com/dan_abramov/status/759383530120110080)을 읽어보면 그 이유를 짐작할 수 있다.
 
 "*Plase don't think shallow equality checks are extremely cheap. They can help your app when placed strategically but just making every single component pure can actually make your app slower. Tradeoffs.*"
 
