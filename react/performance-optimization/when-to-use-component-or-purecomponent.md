@@ -1,6 +1,6 @@
 # When to use Component or PureComponent
 
-`PureComponent`를 상속받은 컴포넌트는 업데이트 라이프사이클이 발생할 시, `shouldComponentUpdate`에서 얕은 동질성 비교(Shallow euqality check) 방식을 사용하여 `render` 메소드의 호출 여부를 결정한다. 따라서 실제 전달받는 props 또는 state에 변화가 없을 경우 불필요한 `render`의 호출을 막을 수 있다. 반면에, 일반적인 `Component`를 상속받은 컴포넌트는 `shouldComponentUpdate`가 무조건 `true`를 반환하므로 실제 전달받는 props 또는 state에 변화가 없더라도 무조건 `render` 메소드를 다시 호출하게 된다.
+`PureComponent`를 상속받은 컴포넌트는 업데이트 라이프사이클이 발생할 시, `shouldComponentUpdate`에서 얕은 동질성 비교(Shallow euqality check) 방식을 사용하여 `render` 메소드의 호출 여부를 결정한다. 따라서 실제 전달받는 props 또는 state에 변화가 없을 경우 불필요한 `render`의 호출을 막을 수 있다. 반면에, 일반적인 `Component`를 상속받은 컴포넌트는 기본적으로 `shouldComponentUpdate`가 항상 `true`를 반환하므로 실제 전달받는 props 또는 state에 변화가 없더라도 무조건 `render` 메소드를 다시 호출하게 된다.
 
 따라서 모든 컴포넌트에서 `Component`대신 `PureComponent`를 상속받도록 하면 성능 상의 이점을 얻을 수 있지 않을까 생각했다. 그런데 실제로 그렇게 시도하기 전에, 여태껏 이런 시도를 했던 프로젝트를 본 적이 있는지 스스로 곰곰히 생각해보았다. 아마 한 번도 못 봤던 듯하다. `PureComponent`가 훨씬 더 좋아보이는데 어째서? 단순히 사람들이 `PureComponent`를 어떻게 사용할 지 잘 몰라서일까?
 
