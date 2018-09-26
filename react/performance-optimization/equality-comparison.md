@@ -70,21 +70,3 @@ console.log('Strict Equal', bar === foo) // Strict Equal false
 console.log('Shallow Equal', shallowEqual(foo, bar)) // Shallow Equal false
 console.log('Deep Equal', deepEqual(foo, bar)) // Deep Equal true
 ```
-
-## Reconciliation
-
-* [Reconciliation](https://reactjs.org/docs/reconciliation.html) - React Docs
-
-## Redux: connect()
-
-* [connect API](https://github.com/reduxjs/react-redux/blob/master/docs/api.md#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options) - react-redux
-* [The most unknown redux performance trick](https://medium.com/@jidefr/the-most-unknown-redux-performance-trick-986fdfe871fa)
-* [Redux's Mysterious Connect Function](https://medium.com/mofed/reduxs-mysterious-connect-function-526efe1122e4)
-* [Optimizing Redux Components](https://medium.com/riipen-engineering/optimizing-redux-components-cbaad062abc7)
-
-## Arrow Function in Class Property vs. Bound Function Using 'bind(this)'
-
-* [Demystifying Memory Usage using ES6 React Classes](https://medium.com/dailyjs/demystifying-memory-usage-using-es6-react-classes-d9d904bc4557)
-* [Use arrow functions or bind manually in es6 classes? Any performance difference?](https://github.com/facebook/react/issues/9851)
-* [Arrow Functions in Class Properties Might Not Be As Great As We Think](https://medium.com/@charpeni/arrow-functions-in-class-properties-might-not-be-as-great-as-we-think-3b3551c440b1)
-* [Arrow function vs bound function with 100 instances](https://jsperf.com/arrow-function-vs-bound-function-with-100-instances)
