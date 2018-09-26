@@ -60,5 +60,5 @@ const query = postsRef.where('category', '==', 'react')
 
 ## References
 
-* [Cloud Firestore - 단순 쿼리 및 복합 쿼리 실행](https://firebase.google.com/docs/firestore/query-data/queries?hl=ko)
+* [Firebase: Cloud Firestore - 단순 쿼리 및 복합 쿼리 실행](https://firebase.google.com/docs/firestore/query-data/queries?hl=ko)
 * [How do queries work in Cloud Firestore? | Get to Know Cloud Firestore #2](https://youtu.be/Ofux_4c94FI)

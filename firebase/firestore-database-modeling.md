@@ -106,5 +106,5 @@ movies/{fightclub}
 
 ## 레퍼런스
 
-* [Firebase: 파이어스토어 - 데이터 구조화](https://firebase.google.com/docs/firestore/manage-data/structure-data)
+* [Firebase: Cloud Firestore - 데이터 구조화](https://firebase.google.com/docs/firestore/manage-data/structure-data)
 * [Angular Firebase](https://angularfirebase.com/lessons/firestore-nosql-data-modeling-by-example/)

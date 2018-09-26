@@ -61,4 +61,4 @@ const query = postsRef.where('title', '==', '/react/gi')
 
 ## References
 
-* [Cloud Firestore - 전체 텍스트 검색](https://firebase.google.com/docs/firestore/solutions/search?hl=ko)
+* [Firebase: Cloud Firestore - 전체 텍스트 검색](https://firebase.google.com/docs/firestore/solutions/search?hl=ko)
