@@ -1,6 +1,6 @@
 # Dynamic binding with the Arrow Function for multiple elements
 
-하나의 컴포넌트 안에 `input`이 여러 개 있고 이들을 공통된 하나의 이벤트 핸들러로 다루고자 할 떄, 다음과 같은 방법을 사용할 수 있다.
+하나의 컴포넌트 안에 `input`이 여러 개 있고 이들을 공통된 하나의 이벤트 핸들러로 다루고자 할 때, 다음과 같은 방법을 사용할 수 있다.
 
 ```javascript
 class LoginForm extends Component {
