@@ -9,8 +9,6 @@ https://github.com/facebook/create-react-app/issues/2338
 
 https://github.com/webpack/webpack/issues/4159
 
-
-
 dan abramov
 
 [@will-stone](https://github.com/will-stone)
