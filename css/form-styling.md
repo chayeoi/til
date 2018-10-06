@@ -133,4 +133,4 @@ CSS를 사용한 스타일링이 전혀 적용되지 않는 요소들
 ## 레퍼런스
 
 * [How to build custom form widgets - MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_build_custom_form_widgets)
-* [Advanced styling for HTML forms](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms)
+* [Advanced styling for HTML forms - MDN](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Advanced_styling_for_HTML_forms)
