@@ -62,7 +62,7 @@ table {
   caption-side: bottom;
   /* [5]
     테이블 레이아웃 설정. (auto | fixed)
-    auto 설정 시, 콘텐츠에 따라 셀이 늘어남.  
+    auto 설정 시, 콘텐츠에 따라 셀이 늘어남.
     fixed 설정은 고정. (width 속성 필요)
    */
   table-layout: fixed;
