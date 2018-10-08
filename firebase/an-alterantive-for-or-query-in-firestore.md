@@ -49,14 +49,14 @@
 }
 ```
 
-'react' 카테고리에 속하는 포스트를 필터링하고 싶다면 아래와 같이 쿼리한다.
+'react' 카테고리에 속하는 포스트를 필터링하고 싶다면 아래와 같이 쿼리할 수 있다.
 
 ```javascript
 const postsRef = db.collection('posts')
 const query = postsRef.where('category', '==', 'react')
 ```
 
-그런데 만약 'react' 또는 'vue' 카테고리에 해당하는 포스트를 모두 보여주고 싶다면? `postsRef.where('category', '==', ['react', 'vue'])`와 같은 쿼리가 가능하면 좋았겠지만, 안타깝게도 OR 절을 쿼리할 수 있는 방법은 없다. 이런 경우에는 'react' 카테고리와 'vue' 카테고리에 속한 포스트 목록을 가져오는 각각의 쿼리를 만든 후, 클라이언트에서 병합하는 방법을 사용해야 한다.
+그런데 만약 'react' 또는 'vue' 카테고리에 해당하는 포스트를 모두 보여주고 싶다면? `postsRef.where('category', '==', oneOf(['react', 'vue']))`와 같은 쿼리가 가능하면 편했겠지만, 안타깝게도 OR 절을 쿼리할 수 있는 방법은 없다. 이런 경우에는 'react' 카테고리와 'vue' 카테고리에 속한 포스트 목록을 가져오는 각각의 쿼리를 만든 후, 클라이언트에서 병합하는 방법을 사용해야 한다.
 
 ## References
 
