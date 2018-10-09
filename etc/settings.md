@@ -72,9 +72,7 @@
 - Reactjs code snippets
 - TODO Highlight
 - TSLint
-- Vetur
 - vscode-styled-components
-- Vue 2 Snippets
 
 #### 환경 설정
 
