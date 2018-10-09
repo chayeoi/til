@@ -1,4 +1,4 @@
-# Advanced data modeling with firestore
+# 파이어스토어 데이터 모델링 고급 기법
 
 ## Advanced Techniques in NoSQL
 
