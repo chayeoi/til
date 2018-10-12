@@ -1,6 +1,6 @@
 # 백그라운드
 
-요소의 배경(background)은 요소의 content-box, padding-box, border-box 아래에 있는 영역이다(margin-box 제외). 모던 브라우저에서는 배경을 차지하는 영역을 background-clip 속성을 사용하여 변경할 수 있다.
+요소의 배경(background)은 요소의 content-box, padding-box, border-box 아래에 있는 영역이다(margin-box 제외). 모던 브라우저에서는 배경을 차지하는 영역을 `background-clip` 속성을 사용하여 변경할 수 있다.
 
 ## 백그라운드 관련 속성
 
