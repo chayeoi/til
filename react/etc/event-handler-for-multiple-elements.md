@@ -45,9 +45,9 @@ class LoginForm extends Component {
     password: '',
   }
 
-  handleChange = name => {
+  handleChange = (name) => {
     if (!this.handlers[name]) {
-      this.handlers[name] = event => {
+      this.handlers[name] = (event) => {
         this.setState({ [name]: event.target.value })
       }
     }
