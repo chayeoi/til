@@ -2,7 +2,7 @@
 
 ## 정렬
 
-`space-evenly`는 `space-around`와 달리, 양 끝 공간을 flex item 간의 간격과 동일하게 설정한다.
+`space-evenly`는 `space-around`와 달리, 양 끝 공간을 flex item 간의 간격과 동일하게 설정한다. 이 속성 값은 현재 [모든 IE 버전에서 지원되지 않는 듯](https://caniuse.com/#feat=justify-content-space-evenly)하다.
 
 ## flex-grow
 
