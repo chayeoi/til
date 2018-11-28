@@ -226,7 +226,7 @@ function foo() {
 foo() // window
 ```
 
-메소드의 내부 함수일 경우애도 `this`는 전역 객체에 바인딩된다.
+메소드의 내부 함수일 경우에도 `this`는 전역 객체에 바인딩된다.
 
 ```javascript
 const obj = {
@@ -244,6 +244,8 @@ obj.foo() // 'foo' obj, 'bar' window
 ```
 
 ### 2.2 콜백 함수에서의 this
+
+콜백 함수에서의 `this` 역시 전역 객체에 바인딩된다.
 
 ```javascript
 function foo(callback) {
