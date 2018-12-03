@@ -10,8 +10,14 @@
     "semi": ["error", "never"],
     "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
     "react/forbid-prop-types": ["off"],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": [".storybook/**", "**/index.stories.js", "**/index.test.js"] }],
+    "react/jsx-one-expression-per-line": ["off"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.stories.js", "**/*.test.js"] }],
+    "import/prefer-default-export": ["off"],
     "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }],
-    "jsx-a11y/anchor-is-valid": [ "error", { "components": ["Link"], "specialLink": ["to"] } ]
+    "jsx-a11y/anchor-is-valid": [ "error", { "components": ["Link"], "specialLink": ["to"] } ],
+    "jsx-a11y/label-has-for": ["off"],
+    "no-useless-escape": ["off", "always"],
+    "no-multi-spaces": ["off"],
+    "import/no-unresolved": "off"
   }
 }
