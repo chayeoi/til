@@ -124,6 +124,10 @@ CSS 속성 선언을 그룹 단위로 조직화시키고 개인 또는 팀 내�
 12. `font-emphasize-style`
 13. `font-smooth`
 14. `line-height`
+15. `letter-spacing`
+16. `white-space`
+17. `word-break`
+18. `text-overflow`
 
 ### Animation
 
