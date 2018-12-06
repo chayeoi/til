@@ -11,6 +11,8 @@
 * chore: Improve eslint glob and add lint-staged (#132)
 * chore: Switch over to fixed versioning
 * chore: Upgrade examples
+* chore: Replace standard-changelog by standard-version
+* chore: Remove renamed SpreadProperty checks
 
 ### feat
 
@@ -20,6 +22,7 @@
 * feat: Make recording size limit configurable (#40)
 * feat(core): Normalize headers by lower-casing all keys (#42)
 * feat: Support `devtools` string on `Provider`
+* feat: Support type cast expression when detecting components (#279)
 
 ### refactor
 
@@ -29,6 +32,9 @@
 
 * fix: Accept arguments other than objects in `createContext`
 * fix: Make `initialAction` on `useContextReducer` synchronous on render
+* fix: Ensure null is never put into visited types memory
+* fix: resolve value to a proper node instead of an array (#278)
+* fix: extract display name correctly even if components are wrapped (#277)
 
 ### docs
 
@@ -37,6 +43,7 @@
 * docs: Replace jsbin with codepen embed
 * docs: Add jest with node-fetch example (#115)
 * docs: Update readmes
+* docs: Add cli option to README
 
 ### test
 
@@ -47,3 +54,4 @@
 
 * [Netflix/pollyjs](https://github.com/Netflix/pollyjs)
 * [diegohaz/constate](https://github.com/diegohaz/constate)
+* [reactjs/react-docgen](https://github.com/reactjs/react-docgen)
