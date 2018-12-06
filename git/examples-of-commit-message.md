@@ -10,7 +10,7 @@
 * chore: Remove class properties babel plugin and babel-eslint (#134)
 * chore: Improve eslint glob and add lint-staged (#132)
 * chore: Switch over to fixed versioning
-* 
+* chore: Upgrade examples
 
 ### feat
 
@@ -18,7 +18,17 @@
 * feat: Class events and EventEmitter (#52)
 * feat: Convert recordings to be HAR compliant (#45)
 * feat: Make recording size limit configurable (#40)
-* feat(core): Normalize headers by lower-casing all keys (#42) 
+* feat(core): Normalize headers by lower-casing all keys (#42)
+* feat: Support `devtools` string on `Provider`
+
+### refactor
+
+* refactor: Abstract `useContextState` and `useContextReducer` common stuff
+
+### fix
+
+* fix: Accept arguments other than objects in `createContext`
+* fix: Make `initialAction` on `useContextReducer` synchronous on render
 
 ### docs
 
@@ -31,6 +41,7 @@
 ### test
 
 * test: Fix hanging jest test case (#130)
+* test: Ignore coverage from useDevtools
 
 ## References
 
