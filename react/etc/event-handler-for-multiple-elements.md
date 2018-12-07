@@ -45,6 +45,8 @@ class LoginForm extends Component {
     password: '',
   }
 
+  handlers = {}
+
   handleChange = (name) => {
     if (!this.handlers[name]) {
       this.handlers[name] = (event) => this.setState({ [name]: event.target.value })
@@ -55,8 +57,10 @@ class LoginForm extends Component {
   render() {
     const { email, password } = this.state
     return (
-      <input value={email} onChange={this.handleChange('email')}/>
-      <input value={password} onChange={this.handleChange('password')}/>
+      <>
+        <input value={email} onChange={this.handleChange('email')}/>
+        <input value={password} onChange={this.handleChange('password')}/>
+      </>
     )
   }
 }
