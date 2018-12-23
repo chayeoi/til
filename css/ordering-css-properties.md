@@ -1,6 +1,6 @@
 # CSS 프로퍼티 선언 순서
 
-CSS 프로퍼티 나열 방식에 대한 여러 방법론(Randomly, Grouped by type, By line length, lphabeitcal...)이 존재하지만, 다수에 의해 보편적으로 선호되는 방식은 **타입에 의한 분류법(Grouped by type)**이다.
+CSS 프로퍼티 나열 방식에 대한 여러 방법론(Randomly, Grouped by type, By line length, Alphabeitcal...)이 존재하지만, 다수에 의해 보편적으로 선호되는 방식은 **타입에 의한 분류법(Grouped by type)**이다.
 
 ```css
 .selector {
