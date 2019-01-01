@@ -2,7 +2,7 @@
 
 [Modernizr](https://modernizr.com/)를 활용하면 필터링 방식으로 크로스 브라우징 문제를 해결할 수 있다.
 
-1. 먼저 [Modernizr Download](https://modernizr.com/download?setclasses)에서 필터링 할 기능을 검색한 후 선택한다.
+1. 먼저 [Modernizr Download](https://modernizr.com/download?setclasses)에서 필터링할 기능을 검색한 후 선택한다.
 
 2. 원하는 기능을 모두 선택한 후, BUILD 버튼을 눌러 Modernizr 커스텀 코드를 생성한 후, 다운로드 받는다.
 
