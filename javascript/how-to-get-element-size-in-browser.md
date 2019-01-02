@@ -6,7 +6,7 @@ border, padding, margin 영역을 포함한 엘리먼트의 레이아웃 크기�
 
 요소가 `display: none` 처리 등으로 인해 숨김 처리되었을 경우, `0`이 반환된다.
 
-또한 위 두 속성은 실제 값을 소수 첫째 자리에서 반올림하여 정수화시킨 값을 반환하기 때문에, 정확한 값이 필요할 경우에는 위 두 속성 대신 `Element.getBoundingClientRect()`를 이용하여야 한다. 단, 이 함수는 요소가 화면에 실제로 렌더링된 크기를 반환한다는 사실에 주의할 필요가 있다. 예를 들어 해당 요소에 CSS 속성이 `width: 100px; transform: scale(0.5);`로 설정되어있을 때, `offsetWidth`는 100을 반환하지만 `getBoundingClientRect().width`sms 50을 반환하게 된다.
+또한 위 두 속성은 실제 값을 소수 첫째 자리에서 반올림하여 정수화시킨 값을 반환하기 때문에, 정확한 값이 필요할 경우에는 위 두 속성 대신 `Element.getBoundingClientRect()`를 이용하여야 한다. 단, 이 함수는 요소가 화면에 실제로 렌더링된 크기를 반환한다는 사실에 주의할 필요가 있다. 예를 들어 해당 요소에 CSS 속성이 `width: 100px; transform: scale(0.5);`로 설정되어있을 때, `offsetWidth`는 100을 반환하지만 `getBoundingClientRect().width`는 50을 반환하게 된다.
 
 ## `HTMLElement.clientWidth`, `HTMLElement.clientHeight`
 
