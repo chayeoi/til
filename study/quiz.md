@@ -84,7 +84,7 @@ function Prefixer(prefix) {
 
 Prefixer.prototype.prefixArray = function (arr) {
   return arr.map(function (x) {
-    return `${this.prefix} x`
+    return `${this.prefix} ${x}`
   })
 }
 
