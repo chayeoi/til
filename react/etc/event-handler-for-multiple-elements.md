@@ -71,4 +71,5 @@ class LoginForm extends Component {
 
 ## References
 
-* [The best way to bind event handlers in React](https://medium.freecodecamp.org/the-best-way-to-bind-event-handlers-in-react-282db2cf1530)
+* [The best way to bind event handlers in React - freeCodeCamp](https://medium.freecodecamp.org/the-best-way-to-bind-event-handlers-in-react-282db2cf1530)
+* [Cache your React event listeners to improve performance. - Hacker Noon](https://hackernoon.com/cache-your-react-event-listeners-to-improve-performance-37bda57ac965)
