@@ -68,7 +68,7 @@ RWD애서는 픽셀(Pixel)이 아닌, 상대 단위(em, rem, % 등)를 사용해
 
 ### 4. 재단 이미지
 
-재단 이미지(Crop Image)는 이미지를 포함하는 컨테이너 요소의 폭에 맞춰 크기가 동적으로 잘려지는 임지ㅣ를 말한다.
+재단 이미지(Crop Image)는 이미지를 포함하는 컨테이너 요소의 폭에 맞춰 크기가 동적으로 잘려지는 이미지를 말한다.
 
 #### 4.1 콘텐츠 이미지
 
@@ -115,7 +115,7 @@ HTML `video` 요소의 경우, `img` 요소와 마찬가지로 `wdith: 100%`와 
     /* 4:3 => 75%,
        16:9 => 56.25%,
        21:9 => 42.857142857% */
-  padding-bottom: 56.25%; /* calc(9 / 16 * 100%);
+  padding-bottom: 56.25%; /* calc(9 / 16 * 100%); */
   height: 0;
   overflow: hidden;
   max-width: 100%;
@@ -170,3 +170,4 @@ HTML `video` 요소의 경우, `img` 요소와 마찬가지로 `wdith: 100%`와 
 * [Responsive Iframes with One Great CSS Trick - Theodo](https://blog.theodo.fr/2018/01/responsive-iframes-css-trick/)
 * [Pixel Density, Demystified - Peter Nowell](https://medium.com/@pnowelldesign/pixel-density-demystified-a4db63ba2922)
 * [픽셀 밀도(Pixel Density)에 대한 설명 - 정윤선(번역본)](https://brunch.co.kr/@blackindigo-red/18)
+* [Responsive Wevb Design - Google](https://developers.google.com/web/fundamentals/design-and-ux/responsive/?hl=ko)
