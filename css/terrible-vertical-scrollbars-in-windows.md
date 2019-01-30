@@ -98,7 +98,10 @@ const ps = new PerfectScrollbar(container)
 const ps = new PerfectScrollbar('#container')
 ```
 
-위와 같이 `PerfectScrollbar`의 인스턴스를 생성해주기만 하면 끝일 정도로 사용법 역시 간단하다. 단, 이때 컨테이너 요소는 반드시 `static`이 아닌 `position` 속성이 설정되있어야 함에 주의한다.
+위와 같이 `PerfectScrollbar`의 인스턴스를 생성해주기만 하면 끝일 정도로 사용법 역시 간단하다. 단, 몇 가지 주의해야할 사항이 존재한다.
+
+1. 컨테이너 요소는 반드시 `static`이 아닌 `position` 속성이 설정되있어야 한다.
+2. 컨테이너 요소는 반드시 `overflow: hidden` 스타일을 가져야 한다.
 
 React를 사용한 프로젝트에서 `perfect-scrollbar`를 도입할 경우 다음과 같은 방식으로 사용할 수 있다.
 
@@ -121,7 +124,7 @@ class ScrollView extends Component {
     return (
       <div
         ref={container}
-        style={{ position: 'relative', width: 500, height: 500 }}
+        style={{ position: 'relative', overflow: 'hidden', width: 500, height: 500 }}
       >
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae voluptas vero deserunt incidunt unde. Maiores ipsam, quam maxime iure odit numquam et corrupti dolorem dolores temporibus iusto quos harum hic doloremque ad, eveniet minima? Natus blanditiis nihil eaque iusto minima fugiat in, non saepe asperiores id officia quidem recusandae commodi ex nam deserunt obcaecati corrupti, necessitatibus quasi consequatur optio quaerat hic dolor? Sequi magnam ducimus eaque, dignissimos placeat fuga itaque rerum non eius provident doloribus, nihil maiores! Earum voluptatibus, temporibus enim magnam exercitationem commodi repudiandae ex consequatur aliquam totam quibusdam aperiam quidem similique quaerat sint eum quasi asperiores facere quam.
