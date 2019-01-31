@@ -24,7 +24,6 @@
 
 * [HTMLElement.offsetParent - MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent)
 * [HTMLElement.offsetTop - MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop)
-* [HTMLElement.offsetHeight - MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetHeight)
 * [Element.scrollTop - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop)
 * [Element.scrollLeft - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollLeft)
 * [Element.clientTop - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element/clientTop)
