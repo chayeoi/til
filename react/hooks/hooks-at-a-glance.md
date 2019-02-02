@@ -98,7 +98,6 @@ State Hook, Effect Hook 외에도 다양한 빌트인 Hooks가 존재한다.자�
 * `useLayoutEffect`
 * `useDebugValue`
 
-
 ## Hooks에 대한 규칙
 
 Hooks은 자바스크립트의 일반적 함수라는 사실에 더해, 추가적으로 두 가지의 규칙을 더 갖는다.
