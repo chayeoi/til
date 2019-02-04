@@ -135,7 +135,7 @@ class ButtonGroup extends Component {
 
 그 이유는 `event.target`이 가리키는 값이 해당 이벤트를 직접적으로 발생시킨 요소를 가리키기 때문이다. 버튼 내부의 텍스트 영역을 클릭 시, 'click' 이벤트를 발생시킨 요소는 `button`이 아니라 `span`이다. 이때 우리는 `event.target.name` 값을 참조하려 시도하고 있지만, `span` 요소는 `name` 속성을 갖고 있지 않다. 이런 이유로 위와 같은 문제가 발생했던 것이다.
 
-이 문제를 해결하려면 `event.target.name` 대신 `event.currentTarget.name`을 참조하면 된다. `event.target`이 실제로 이벤트를 발생시킨 요소를 가리키는 것과 달리, `event.currentTarget`은 이벤트 핸들러가 바인딩된 요소를 가리키기 때문이다. 그렇기 때문에 `button` 내부의 `span` 요소를 클릭하는 경우라고 하더라도, `event.currentTarget.name`에 담겨있는 값을 정상적으로 읽어올 수 있게 되는 것이다.
+이 문제를 해결하려면 `event.target.name` 대신 `event.currentTarget.name`을 참조하면 된다. `event.target`이 실제로 이벤트를 발생시킨 요소를 가리키는 것과 달리, `event.currentTarget`은 이벤트 핸들러가 바인딩된 요소를 가리키기 때문이다. 그렇기 때문에 `button` 내부의 `span` 요소를 클릭하는 경우라고 하더라도, `event.currentTarget.name`에 담겨있는 값을 정상적으로 읽어올 수 있게 된다.
 
 ## References
 
