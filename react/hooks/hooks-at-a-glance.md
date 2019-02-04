@@ -28,7 +28,7 @@ React에서 어떤 행동을 재사용 가능하게 만들기 위해 `render pro
 
 클래스 컴포넌트는 리액트를 배우려는 사람에게 큰 장벽으로 작용한다. 아직 표준이 아닌 `class fields` 문법을 사용하지 않는 이상, 자바스크립트에서 `this`가 동작하는 방법과 이벤트 핸들러를 바인딩하는 방식을 이해해야하기 때문이다.
 
-또한, 정확히 뭔지는 잘 모르겠지만 React 코어 팀은 최근 [Prepack](https://prepack.io/)을 사용하여 [component folding](https://github.com/facebook/react/issues/7323)을 실험해 긍정적인 결과를 얻었다고 한다. 그런데 여기서 클래스 컴포넌트가 이러한 최적화를 더 느리게 만드는 방향으로 의도치 않은 패턴을 유도하는 사실을 발견되는 등의 문제가 있었다.
+또한, (정확히 뭔지는 잘 모르겠지만) React 코어 팀은 최근 [Prepack](https://prepack.io/)을 사용하여 [component folding](https://github.com/facebook/react/issues/7323)을 실험해 긍정적인 결과를 얻었다고 한다. 그런데 여기서 클래스 컴포넌트가 이러한 최적화를 더 느리게 만드는 방향으로 의도치 않은 패턴을 유도하는 사실을 발견되는 등의 문제가 있었다.
 
 이러한 문제들을 해결하기 위해, 클래스 없이도 React의 여러 특징들을 활용할 수 있도록 하는 Hooks을 고안하게 되었다.
 
@@ -105,7 +105,7 @@ Hooks은 자바스크립트의 일반적 함수라는 사실에 더해, 추가�
 1. Hooks은 오직 최상위 레벨에서만 호출해야 한다. 즉, 루프나 조건문 또는 내부 함수 안에서 호출하지 말아야 한다.
 2. 리액트 함수형 컴포넌트 내에서만 호출해야 한다. 일반 자바스크립트 함수 안에서 호출하지 말아야 한다.
 
-이러한 규칙을 강요하도록 할 수 있는 `[linter 플러그인](https://www.npmjs.com/package/eslint-plugin-react-hooks)` 역시 제공되고 있다.
+이러한 규칙을 강요하도록 할 수 있는 [linter 플러그인](https://www.npmjs.com/package/eslint-plugin-react-hooks) 역시 제공되고 있다.
 
 ## 커스텀 Hooks 작성하기
 
