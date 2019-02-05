@@ -69,7 +69,7 @@ console.log(box.display.style) // false
 ### 2.2 전역 변수의 사용 억제
 
 ```javascript
-const incleaseBtn = document.getElementById('inclease')
+const increaseBtn = document.getElementById('increase')
 const count = document.getElementById('count')
 
 function increase() {
@@ -78,7 +78,7 @@ function increase() {
   return ++counter
 }
 
-incleaseBtn.onclick = function () {
+increaseBtn.onclick = function () {
   count.innerHTML = increase()
 }
 ```
