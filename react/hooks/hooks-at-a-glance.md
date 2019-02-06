@@ -87,7 +87,7 @@ function FriendStatus(props) {
 
 ### 기타 Hooks
 
-State Hook, Effect Hook 외에도 다양한 빌트인 Hooks가 존재한다.자세한 내용은 [공식 문서](https://reactjs.org/docs/hooks-reference.html)를 참고한다.
+State Hook, Effect Hook 외에도 다양한 빌트인 Hooks가 존재한다. 자세한 내용은 [공식 문서](https://reactjs.org/docs/hooks-reference.html)를 참고한다.
 
 * `useContext`
 * `useReducer`
