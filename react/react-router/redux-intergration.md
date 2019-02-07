@@ -34,7 +34,7 @@ const Bar = connect(mapStateToProps)(Foo)
 
 첫 번째 경우에서 Wrapped 컴포넌트에 업데이트 라이프사이클을 발생시키고 싶다면 어떻게해야 할까?
 
-Wrapped 컴포넌트에 업데이트가 발생하지 않았던 이유는 Connected 컴포넌트에 전달된 props 개체에는 로케이션과 관련된 데이터가 없기 때문이었다. 만약 전달된 props 객체에 로케이션과 관련된 값이 존재했다면 Connected 컴포넌트는 해당 prop의 변화를 감지한 후 Wrapped 컴포넌트를 업데이트시켰을 것이다.
+Wrapped 컴포넌트에 업데이트가 발생하지 않았던 이유는 Connected 컴포넌트에 전달된 props 객체에는 로케이션과 관련된 데이터가 없기 때문이었다. 만약 전달된 props 객체에 로케이션과 관련된 값이 존재했다면 Connected 컴포넌트는 해당 prop의 변화를 감지한 후 Wrapped 컴포넌트를 업데이트시켰을 것이다.
 
 Connected 컴포넌트로 로케이션과 관련된 prop을 주입시키기 위해서 우리는 `withRouter` HOC를 사용할 수 있다. 해당 컴포넌트를 `withRouter(Comp)` 형식으로 감싸주게 되면 `Comp` 컴포넌트는 `match`, `history`, `location` prop을 전달받기 때문에 로케이션 값의 변경에 따른 업데이트를 감지할 수 있다.
 
