@@ -47,11 +47,11 @@
 
 #### 1.1 컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 작은 경우
 
-![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 작은 경우](./assets/width-lt-512.png)
+![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 작은 경우](./assets/difference-between-width-and-max-width-in-img-element-1.png)
 
 #### 1.2 컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 큰 경우
 
-![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 큰 경우](./assets/width-mt-512.png)
+![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 큰 경우](./assets/difference-between-width-and-max-width-in-img-element-2.png)
 
 ### 2. `max-width: 100%`를 지정한 경우
 
@@ -90,8 +90,8 @@
 
 #### 2.1 컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 작은 경우
 
-![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 작은 경우](./assets/max-width-lt-512.png)
+![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 작은 경우](./assets/difference-between-width-and-max-width-in-img-element-3.png)
 
 #### 2.2 컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 큰 경우
 
-![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 큰 경우](./assets/max-width-mt-512.png)
+![컨테이너 요소의 너비가 이미지 원본 너비인 512px보다 큰 경우](./assets/difference-between-width-and-max-width-in-img-element-4.png)
