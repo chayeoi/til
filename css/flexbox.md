@@ -16,6 +16,11 @@ flex item의 너비에 대한 축소 인자(flex shrink factor)를 지정한다.
 
 flex item의 너비 기본값을 px, % 등의 단위로 지정한다. 기본값은 auto이다.
 
-## References
+## Flex 아이템의 `z-index` 속성
+
+`z-index` 속성은 기본적으로 위치를 갖는 요소에만 지정할 수 있는 속성이다. 그러나 예외적으로 flex 아이템의 경우, 위치를 갖지 않더라도 `z-index` 속성을 지정할 수 있다는 특징이 있다.
+
+## 참고
 
 * [CSS3 Flexbox Layout - Poiemaweb](https://poiemaweb.com/css3-flexbox)
+* [Quick Tip: How z-index and Auto Margins Work in Flexbox - sitepoint](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
