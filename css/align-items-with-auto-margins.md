@@ -99,6 +99,8 @@
 
 이렇게 Auto magrins 방식이 적용된 Flexbox에는 `justify-content` 속성을 적용하더라도 겉으로 보았을 때 아무런 차이가 없다. 이는 Auto margin 설정으로 인해 여백의 공간이 모두 margin 영역으로 빼곡히 채워짐으로 인한 것이다.
 
+또 하나 주의해야 할 점이 있는데, 수직 방향(`margin-top`, `margin-bottom`)에 대한 Auto margin 설정은 부모 요소가 반드시 flex 컨테이너일 경우에만 적용된다는 것이다. (반면에 수평 방향에 대한 Auto margin 설정은 부모 요소가 flex 컨테이너가 아니어도 가능하다.) 이를 활용하여 어떤 아이템을 정중앙에 놓고 싶을 경우, 컨테이너 요소를 flex 컨테이너로 설정하고 아이템 요소에 `margin: auto`를 설정하는 방법을 사용할 수 있다.
+
 ## 참고
 
 * [Quick Tip: How z-index and Auto Margins Work in Flexbox - sitepoint](https://www.sitepoint.com/quick-tip-how-z-index-and-auto-margins-work-in-flexbox/)
