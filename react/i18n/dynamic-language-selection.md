@@ -10,7 +10,6 @@
 >
   <App />
 </IntlProvider>
-(See Issue #243.)
 ```
 
 ## 참고
