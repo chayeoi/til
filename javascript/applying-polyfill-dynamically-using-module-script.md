@@ -10,6 +10,8 @@
 <script src="polyfills.js" nomodule></script>
 ```
 
+단, 이 방법은 `type="module"`을 지원하지 않는 브라우저에 한해 적용되기 때문에, 더 최신 기능을 위한 폴리필을 추가하고자 할 때 정확한 타겟 브라우저 설정이 어려울 수 있다.
+
 ## 참고
 
 * [What’s the purpose of the HTML “nomodule” attribute for script elements if the default is text/javascript? | Stackoverflow](https://stackoverflow.com/questions/45943494/what-s-the-purpose-of-the-html-nomodule-attribute-for-script-elements-if-the-d)
