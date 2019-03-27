@@ -1,7 +1,7 @@
 # Using Material UI with styled components
 
 Material UI는 기본적으로 [JSS를 스타일링 솔루션으로 사용할 것을 권장](https://material-ui.com/getting-started/faq/#do-i-have-to-use-jss-to-style-my-app)하고 있다. 그러나 이미 나는 
-프로젝트에서 JSS 대신 Styled components를 사용 중인 상황이라서, 지금 와서 스타일링 방식을 JSS로 변경하는 작업은 너무 비용이 큰 작업이라 생각했다. 그 대신, 어떻게 하면 Styled components를 Material UI와 더 유기적으로 결합할 수 있을 지를 고민해보기로 했다.
+프로젝트에서 JSS 대신 Styled components를 사용 중인 상황이라서, 지금 와서 스타일링 방식을 JSS로 변경하는 작업은 너무 비용이 큰 작업이라 생각했다. 그 대신, 어떻게 하면 Styled components를 Material UI와 더 유기적으로 결합할 수 있을지를 고민해보기로 했다.
 
 ## CSS 우선순위 변경하기
 
@@ -68,7 +68,7 @@ export default App
 
 ## 루트 요소가 아닌 자식 요소의 스타일 오버라이딩하기
 
-Material UI에서 제공되는 컴포넌트의 스타일을 커스터마이징할 때, `styled` 함수를 통해 적용한 스타일 속성은 루트 요소에만 적용된다. 만약 루트 요소가 아닌 자식 요소의 스타일을 덮어씌우고 싶을 경우, 스타일 오버라이딩의 목적으로 제공되는 `classes` prop을 활용할 수 있다. 스타일 오버라이딩을 위해 `classes`에 전달할 객체에 사용될 수 있는 속성 목록은 각 컴포넌트의 API 문서에서 확인할 수 있다.
+Material UI에서 제공되는 컴포넌트의 스타일을 커스터마이징할 때, `styled` 함수를 통해 적용한 스타일 속성은 루트 요소에만 적용된다. 만약 루트 요소가 아닌 자식 요소의 스타일을 덮어씌우고 싶을 경우, 스타일 오버라이딩의 목적으로 제공되는 `classes` prop을 활용할 수 있다. 스타일 오버라이딩을 위해 `classes`에 전달할 객체에 사용될 수 있는 속성 목록은 각 컴포넌트의 API 문서에서 확인할 수 있다.
 
 ```jsx
 import React from 'react'
@@ -116,7 +116,7 @@ const DialogStyles = styled(Dialog).attrs({
 
 ## Theme 주입하기
 
-Material UI가 제공하는 `MuiThemeProvider`를 활용하면 theme을 통해 앱 스타일을 전체적으로 일관성 있게 관리할 수 있다. 예를 들어서 앱의 'primary' 색상을 '#00c896'으로 설정했다면, `Button` 컴포넌트에 `color="primary"`를 전달하는 것만으로 버튼의 색상을 `primary`로 지정할 수 있다. 뿐만 아니라 `withStyles`에 함수를 인수로 사용할 경우, `theme` 객체를 전달받을 수도 있다.
+Material UI가 제공하는 `MuiThemeProvider`를 활용하면 theme을 통해 앱 스타일을 전체적으로 일관성 있게 관리할 수 있다. 예를 들어서 앱의 'primary' 색상을 '#00c896'으로 설정했다면, `Button` 컴포넌트에 `color="primary"`를 전달하는 것만으로 버튼의 색상을 `#00c896`으로 지정할 수 있다. 뿐만 아니라 `withStyles`에 함수를 인수로 사용할 경우, `theme` 객체를 전달받을 수도 있다.
 
 ```jsx
 <Button color="primary" />
