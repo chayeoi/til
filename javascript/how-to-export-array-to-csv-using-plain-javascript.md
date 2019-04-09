@@ -23,6 +23,17 @@ hiddenElement.click()
 
 우선, 임의의 변수(위 코드의 경우 `csv`라는 변수명을 사용) 안에 csv 파일에 기록할 컨텐츠를 담는다. 그 후 `a` 요소를 생성하고 `href` 속성 값에는 우리가 생성할 csv 파일의 URI 인코딩된 버전을 할당한다. 이때 다운르드될 csv 파일의 이름을 직접 정의하고 싶은 경우, 'people.csv'와 같이 원하는 파일명을 `download` 속성에 할당해줄 수 있다. 값을 할당하지 않을 경우, 다운로드된 csv 파일명은 기본적으로 'download.csv'로 이름지어진다.
 
+다음처럼 Blob 객체를 생성 후 오브젝트 URL을 `a` 태그의 `href` 속성으로 설정할 수도 있다.
+
+```javascript
+const blob = new Blob([csv], { type: 'text/csv' })
+const link = document.createElement('a')
+
+link.setAttribute('href', window.URL.createObjectURL(blob))
+link.setAttribute('download', 'people.csv')
+link.click()
+```
+
 ## 주의할 점
 
 위 방식은 다루고자 하는 데이터가 단순한 형태일 경우에만 사용 가능하다. 만약 어떤 데이터가 내부적으로 콤마(`,`) 기호를 포함하는 경우, 그 값을 따옴표(`'`)로 감싸는 처리가 필요할 것이다. 
