@@ -35,7 +35,7 @@ Creative Commons는 자유이용을 위한 최소한의 요건으로 많은 사�
 
 #### 라이선스
 
-![by](./assets/create-commons-licnese__by.svg)
+![by](./assets/create-commons-license__by.svg)
 
 #### 이용조건
 
@@ -49,7 +49,7 @@ CC BY
 
 #### 라이선스
 
-![by](./assets/create-commons-licnese__by-nc.svg)
+![by](./assets/create-commons-license__by-nc.svg)
 
 #### 이용조건
 
@@ -63,7 +63,7 @@ CC BY-NC
 
 #### 라이선스
 
-![by](./assets/create-commons-licnese__by-nd.svg)
+![by](./assets/create-commons-license__by-nd.svg)
 
 #### 이용조건
 
@@ -77,7 +77,7 @@ CC BY-ND
 
 #### 라이선스
 
-![by](./assets/create-commons-licnese__by-sa.svg)
+![by](./assets/create-commons-license__by-sa.svg)
 
 #### 이용조건
 
@@ -91,7 +91,7 @@ CC BY-SA
 
 #### 라이선스
 
-![by](./assets/create-commons-licnese__by-nc-sa.svg)
+![by](./assets/create-commons-license__by-nc-sa.svg)
 
 #### 이용조건
 
@@ -105,7 +105,7 @@ CC BY-NC-SA
 
 #### 라이선스
 
-![by](./assets/create-commons-licnese__by-nc-nd.svg)
+![by](./assets/create-commons-license__by-nc-nd.svg)
 
 #### 이용조건
 
