@@ -7,35 +7,114 @@ Creative Commons는 자유이용을 위한 최소한의 요건으로 많은 사�
 
 ## 이용허락조건
 
-<ul>
-  <li>
-    <p>
-      <img src="./assets/create-commons-license__by-icon.svg" alt="by" />
-      <span>Attribution (저작자 표시)</span><br />
-      저작자의 이름, 출처 등 저작자를 반드시 표시 해야 한다는, 라이선스에 반드시 포함하는 필수조항이다.
-    </p>
-  </li>
-  <li>
-    <p>
-      <img src="./assets/create-commons-license__nc-icon.svg" alt="nc" />
-      <span>Noncommercial (비영리)</span><br />
-      저작물을 영리 목적으로 이용할 수 없습니다. 영리목적의 이용을 위해서는, 별도의 계약이 필요하다는 의미이다.
-    </p>
-  </li>
-  <li>
-    <p>
-      <img src="./assets/create-commons-license__nd-icon.svg" alt="nd" />
-      <span>No Derivative Works (변경금지)</span><br />
-      저작물을 변경하거나 저작물을 이용한 2차적 저작물 제작을 금지한다는 의미이다.
-    </p>
-  </li>
-  <li>
-    <p>
-      <img src="./assets/create-commons-license__sa-icon.svg" alt="sa" />
-      <span>Share Alike (동일조건변경허락)</span><br />
-      2차적 저작물 제작을 허용하되, 2차적 저작물에 원 저작물과 동일한 라이선스를 적용해야 한다는 의미이다.
-    </p>
-  </li>
-</ul>
+### Attribution (저작자 표시)
+
+![Attribution](./assets/create-commons-license__by-icon.svg)
+
+저작자의 이름, 출처 등 저작자를 반드시 표시 해야 한다는, 라이선스에 반드시 포함하는 필수조항이다.
+
+### Noncommercial (비영리)
+
+![Noncommericial](./assets/create-commons-license__nc-icon.svg)
+
+### No Derivative Works (변경금지)
+
+![No Derivative Works](./assets/create-commons-license__nd-icon.svg)
+
+저작물을 변경하거나 저작물을 이용한 2차적 저작물 제작을 금지한다는 의미이다.
+
+### Share Alike (동일조건변경허락)
+
+![Share Alike](./assets/create-commons-license__sa-icon.svg)
+
+2차적 저작물 제작을 허용하되, 2차적 저작물에 원 저작물과 동일한 라이선스를 적용해야 한다는 의미이다.
+
+## 라이선스
+
+### 저작자 표시
+
+#### 라이선스
+
+![by](./assets/create-commons-licnese__by.svg)
+
+#### 이용조건
+
+저작자의 이름, 저작물의 제목, 출처 등 저작자에 관한 표시를 해주어야 한다.
+
+#### 문자표기
+
+CC BY
+
+### 저작자 표시-비영리
+
+#### 라이선스
+
+![by](./assets/create-commons-licnese__by-nc.svg)
+
+#### 이용조건
+
+저작자를 밝히면 자유로운 이용이 가능하지만 영리목적으로 이용할 수 없다.
+
+#### 문자표기
+
+CC BY-NC
+
+### 저작자 표시-변경금지
+
+#### 라이선스
+
+![by](./assets/create-commons-licnese__by-nd.svg)
+
+#### 이용조건
+
+저작자를 밝히면 자유로운 이용이 가능하지만, 변경 없이 그대로 이용해야 한다.
+
+#### 문자표기
+
+CC BY-ND
+
+### 저작자 표시-동일조건변경허락
+
+#### 라이선스
+
+![by](./assets/create-commons-licnese__by-sa.svg)
+
+#### 이용조건
+
+저작자를 밝히면 자유로운 이용이 가능하고 저작물의 변경도 가능하지만, 2차적 저작물에는 원 저작물에 적용된 것과 동일한 라이선스를 적용해야 한다.
+
+#### 문자표기
+
+CC BY-SA
+
+### 저작자 표시-비영리-동일조건변경허락
+
+#### 라이선스
+
+![by](./assets/create-commons-licnese__by-nc-sa.svg)
+
+#### 이용조건
+
+저작자를 밝히면 이용이 가능하며 저작물의 변경도 가능하지만, 영리목적으로 이용할 수 없고 2차적 저작물에는 원 저작물과 동일한 라이선스를 적용해야 한다.
+
+#### 문자표기
+
+CC BY-NC-SA
+
+### 저작자 표시-비영리-변경금지
+
+#### 라이선스
+
+![by](./assets/create-commons-licnese__by-nc-nd.svg)
+
+#### 이용조건
+
+저작자를 밝히면 자유로운 이용이 가능하지만, 영리목적으로 이용할 수 없고 변경 없이 그대로 이용해야 한다.
+
+#### 문자표기
+
+CC BY-NC-ND
+
+## 참고
 
 * [CC 라이선스 | CCKOREA](http://cckorea.org/xe/?mid=ccl)
