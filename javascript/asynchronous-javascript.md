@@ -19,7 +19,7 @@
 * 이벤트 루프
 * Web APIs
 
-![자바스크립트 실행 환경](./assets/2019-01-15-asynchronous-javascript-1.png)
+![자바스크립트 실행 환경](./assets/asynchronous-javascript__1.png)
 
 ### 자바스크립트 엔진
 
@@ -62,7 +62,7 @@ sayHello('Kim')
 
 시간에 따른 호출 스택의 모습은 다음과 같다.
 
-![동기식 처리 모델에서의 호출 스택](./assets/2019-01-15-asynchronous-javascript-2.png)
+![동기식 처리 모델에서의 호출 스택](./assets/asynchronous-javascript__2.png)
 
 ### 비동기식 처리 모델 예시
 
