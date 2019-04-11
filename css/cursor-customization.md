@@ -134,11 +134,8 @@ html {
   printout = document.getElementById('printout')
 
   mouseX = event => event.clientX
-  }
 
-  mouseY = event => {
-    return event.clientY
-  }
+  mouseY = event => return event.clientY
 
   positionElement = (event) => {
     var mouse = {
