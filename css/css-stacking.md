@@ -39,7 +39,7 @@
 
 [예제 링크](https://codepen.io/pen/?&editable=true)
 
-## 쌓임 맥락(Stacking context)
+## 쌓임 맥락 (Stacking context)
 
 앞서 이야기한 것처럼 특정 요소가 쌓이는 순서는 `z-index` 값에 의해 영향을 받는다. 이런 일들은 요소가 **쌓임 맥락**을 형성하도록 만드는 특별한 속성을 갖게 될 때 발생한다.
 
