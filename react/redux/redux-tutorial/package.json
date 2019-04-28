@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "immutable": "^3.8.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^5.0.6",
     "react-scripts": "^1.1.5",
     "redux": "^3.7.2",
-    "redux-actions": "^2.2.1"
+    "redux-actions": "^2.6.5"
   },
   "scripts": {
     "start": "react-scripts start",
