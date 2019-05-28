@@ -6,11 +6,11 @@
 
 1. 루트 요소의 배경(background)과 테두리(borders)가 제일 먼저 쌓임
 2. `position` 속성이 지정되지 않은 후손 요소들이 HTML에 등장한 순서대로 쌓임
-3. `position` 속성이 지정된 후손 요소들이 HTMl에 등장한 순서대로 쌓임
+3. `position` 속성이 지정된 후손 요소들이 HTML에 등장한 순서대로 쌓임
 
 여기서 주의해야 할 부분은 `flex` 컨테이너 내에서 어떤 요소에 `order` 속성을 사용하여 HTML에 등장한 순서대로 렌더링되는 원래의 흐름을 바꾸게 되더라도, 그것이 쌓임 맥락에 미치는 영향은 기존과 유사하다는 사실이다. 즉, HTML 상에서 마지막에 등장한 요소를 `order` 속성을 사용하여 제일 윗 부분으로 옮긴다고 해서 더 아래 계층에 쌓이지는 않는다.
 
-[예제 링크](https://codepen.io/pen/?&editable=true)
+[예제 링크](https://codepen.io/chayeoi/pen/BePbxM?&editable=true)
 
 ## float된 요소의 쌓임 (Stacking with floated blocks)
 
@@ -19,7 +19,7 @@
 1. 루트 요소의 배경(background)과 테두리(borders)가 제일 먼저 쌓임
 2. `position` 속성이 지정되지 않은 후손 요소들이 HTML에 등장한 순서대로 쌓임
 3. `float` 처리된 블록이 그 위에 쌓임
-4. `position` 속성이 지정된 후손 요소들이 HTMl에 등장한 순서대로 쌓임
+4. `position` 속성이 지정된 후손 요소들이 HTML에 등장한 순서대로 쌓임
 
 조금 더 정확히 말해서, `position` 속성이 지정되지 않은 블록의 배경과 테두리는 `float` 처리된 요소에 영향을 받지 않지만 그 안의 내용은 영향을 받는다. 이것은 `float`의 표준 행동에 따라 발생하는 일이고, 이에 따라 다음과 같이 추가 규칙을 나타낼 수도 있다.
 
@@ -27,9 +27,9 @@
 2. `position` 속성이 지정되지 않은 후손 요소들이 HTML에 등장한 순서대로 쌓임
 3. `float` 처리된 블록이 그 위에 쌓임
 4. `position` 속성이 지정되지 않은 후손 인라인 요소
-5. `position` 속성이 지정된 후손 요소들이 HTMl에 등장한 순서대로 쌓임
+5. `position` 속성이 지정된 후손 요소들이 HTML에 등장한 순서대로 쌓임
 
-[예제 링크](https://codepen.io/pen/?&editable=true)
+[예제 링크](https://codepen.io/chayeoi/pen/vwaPrj?&editable=true)
 
 > 위 예제에서 `position` 속성이 지정되지 않았던 `div#4` 요소에 `opacity` 속성을 설정할 경우 조금 이해할 수 없는 일이 벌어질 것이다. 제일 아랫층에 놓여있던 `div#4`의 배경와 테두리가 `float` 처리된 요소와 `position` 속성이 지정된 요소의 윗 부분으로 올라오는 것인데, 이는 "`opacity` 속성이 설정될 경우 새로운 쌓임 맥락이 생성된다."는 표준 명세에 의한 것이다.
 
@@ -37,7 +37,7 @@
 
 `position` 속성이 지정된 요소에 `z-index` 속성을 설정함으로써 요소가 쌓이는 순서를 변경할 수 있다.
 
-[예제 링크](https://codepen.io/pen/?&editable=true)
+[예제 링크](https://codepen.io/chayeoi/pen/NVBJzV?&editable=true)
 
 ## 쌓임 맥락 (Stacking context)
 
@@ -60,10 +60,10 @@
   - `mask` / `mask-image` / `mask-border`
 - `isolation` 속성 값이 `isolate`로 설정된 요소에 의해서
 - `-webkit-overflow-scrolling` 속성 값이 `touch`로 설정된 요소에 의해서
-- 초기값이 아닌 값에  쌓임 맥락을 생성할 것을 명시한 `will-change` 값을 갖는 요소에 의해서
+- 초기값이 아닌 값에 쌓임 맥락을 생성할 것을 명시한 `will-change` 값을 갖는 요소에 의해서
 - `contain` 속성 값이 `layout`, `paint` 또는 `strict`, `content` 등의 합성 값으로 설정된 요소에 의해서
 
-각 쌓임 맥락 내에서 자식 요소들은 이전에 설명한 내용들과 같은 규칙에 의해서 쌓이게 된다. 중요한 것은, 자식 쌓임 맥락의 `z-index` 값은 오직 그 부모의 안에서만 의미를 갖는다는 점이다. 각 쌓임 맥락은 그것의 부모 쌓임 맥락 영역 내에서 개별적인 단위로써 다뤄진다.
+각 쌓임 맥락 내에서 자식 요소들은 이전에 설명한 내용들과 같은 규칙에 의해서 쌓이게 된다. 중요한 것은 자식 쌓임 맥락의 `z-index` 값은 오직 그 부모의 안에서만 의미를 갖는다는 점이다. 각 쌓임 맥락은 그것의 부모 쌓임 맥락 영역 내에서 개별적인 단위로써 다뤄진다.
 
 요약해보자면,
 
@@ -75,7 +75,7 @@
 
 > `transform` 속성에 `scale(1)`, `translated3d(0, 0, 0,)`과 같이 외관상 변화가 없는 동형 변환(Identity transform)을 설정하더라도 새로운 쌓임 맥락이 형성됨에 주의하여야 한다. 즉, `none` 이 아닌 값으로 설정되기만 하면 새로운 자식 쌓임 맥락이 형성된다.
 
-[예제 링크](https://codepen.io/pen/?&editable=true)
+[예제 링크](https://codepen.io/chayeoi/pen/VOBRBQ?&editable=true)
 
 ## 참고
 
