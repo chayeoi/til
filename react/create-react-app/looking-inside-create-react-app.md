@@ -48,9 +48,8 @@ module.exports = {
 
 * [`manifest.webmanifest`](https://developer.mozilla.org/en-US/docs/Web/Manifest)와 같이, 빌드된 결과물에 정확한 이름의 파일을 포함시켜야 하는 경우
 * 수천 개의 이미지 경로를 동적으로 참조할 필요가 있는 경우
-* `pace.js`와 같은 작은 용량의 스크립트를 번들링된 코드에 함께 포함시키지 않고 싶은 경우
+* `pace.js`와 같은 작은 용량의 스크립트를 번들링된 코드에 함께 포함시키고 싶지 않은 경우
 * Webpack과 호환되지 않는 라이브러리를 사용하고 있고, `<script>` 태그를 직접 포함하는 방법 외엔 다른 선택지가 없는 경우
-
 
 ## 참고
 

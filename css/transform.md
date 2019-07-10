@@ -40,7 +40,7 @@ deg, radian, turn 등의 단위를 사용할 수 있다.
 
 * `rotateX()`
 * `rotateY()`
-* `rotateZ()`: `roate()`와 같다.
+* `rotateZ()`: `rotate()`와 같다.
 * `rotate3d()`: x, y, z축에 대한 회전율을 한 번에 선언할 수 있다.
 
 ### 이동

@@ -22,7 +22,7 @@ yarn add redux-saga
 
 리덕스 앱에 redux-saga 미들웨어를 아래와 같이 주입할 수 있습니다.
 
-먼저, createSagaMiddleware를 이용해 Saga 미들웨어를 생성합니다. Saga 미들웨어를 실제로 동작시키기 위해서는 미들웨어를 주입한 뒤 sagaMiddleware.run을 통해 태스크를 실행해야 하는데, 현재는 루트 파일에서 configureStore를 통해 스토어의 인스턴스를 생성한 후 태스크를 실행시킬 것이므로 store.runSaga에 sagaMiddleware.run을 할당합니다.
+먼저, `createSagaMiddleware()`를 이용해 Saga 미들웨어를 생성합니다. Saga 미들웨어를 실제로 동작시키기 위해서는 미들웨어를 주입한 뒤 `sagaMiddleware.run()`을 통해 태스크를 실행해야 하는데, 현재는 루트 파일에서 `configureStore`를 통해 스토어의 인스턴스를 생성한 후 태스크를 실행시킬 것이므로 `store.runSaga`에 `sagaMiddleware.run`을 할당합니다.
 
 ```javascript
 import { createStore, applyMiddleware, compose } from 'redux'
