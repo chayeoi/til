@@ -75,3 +75,7 @@ traceroute google.com
 - 대부분의 웹사이트들에서 성능의 병목점은 대역폭이 아니라 레이턴시? 대역폭을 늘려도 큰 영향은 없다?
 - 홉
 - ICMP
+
+## 참고
+
+* [네트워킹과 웹 성능 최적화 기법 | 알리아 그리고릭, 인사이트](http://www.kyobobook.co.kr/product/detailViewKor.laf?mallGb=KOR&ejkGb=KOR&linkClass=3309&barcode=9788966261659)
