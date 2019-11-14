@@ -2,7 +2,7 @@
 
 SPA에서는 화면을 렌더링하는 로직은 모두 클라이언트에서 처리하고 서버로부터 화면을 그리는 데 필요한 데이터만 통신하는 방식으로 앱을 구동한다. 이렇게 함으로써 MPA보다 사용자에게 더 좋은 반응성을 제공해줄 수 있는 장점이 있다. 그러나 SPA에서도 여전히 브라우저의 "뒤로 가기" 또는 "앞으로 가기" 동작을 수행 시 이미 한 번 불러왔던 데이터를 다시 불러오는 불필요한 로딩이 발생하게 되는데, 이때 API Cache를 적용하여 불필요한 API 통신을 발생시키지 않음으로써 사용자에게 더 좋은 반응성을 제공할 수 있다.
 
-[Axios](https://github.com/axios/axios)는 어댑터(Adapter)를 통해 요청을 커스텀 핸들링할 수 있는 방법을 제공한다. [Axios Extensions](https://github.com/kuitos/axios-extensions)에서 제공하는 `cacheAdapterEnhancer`를 활용하면 API 요청을 캐싱하기 위한 어댑터를 매우 쉽게 생성할 수 있다.
+[Axios](https://github.com/axios/axios)는 어댑터(Adapter)를 통해 요청을 커스텀 핸들링할 수 있는 방법을 제공한다. [Axios Extensions](https://github.com/kuitos/axios-extensions)에서 제공하는 `cacheAdapterEnhancer`를 활용하면 API 요청을 캐싱하기 위한 어댑터를 매우 쉽게 생성할 수 있다.
 
 ```javascript
 import axios from 'axios';
