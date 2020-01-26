@@ -37,25 +37,25 @@
     window.$docsify = {
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
+        '/.*/_navbar.md': '/_navbar.md',
       },
       auto2top: true,
       coverpage: true,
       disqus: 'chayeoi-til',
       ga: 'UA-156997403-1',
-      loadNavbar: true,
       loadSidebar: true,
-      logo: '_media/logo.png',
       mergeNavbar: true,
       name: 'Today I Learned',
+      onlyCover: true,
       search: {
-      maxAge: 86400000,
-      paths: [],
-      placeholder: 'Type to search',
-      noData: 'No Results!',
-      depth: 2,
-      hideOtherSidebarContent: false, // whether or not to hide other sidebar content
-      namespace: 'website-1',
-    },
+        maxAge: 86400000,
+        paths: [],
+        placeholder: 'Type to search',
+        noData: 'No Results!',
+        depth: 2,
+        hideOtherSidebarContent: false, // whether or not to hide other sidebar content
+        namespace: 'website-1',
+      },
       subMaxLevel: 2,
     }
   </script>
@@ -65,8 +65,5 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>
   <script src="//unpkg.com/docsify/lib/plugins/disqus.min.js"></script>
-  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/docsify-demo-box-react@{version}/dist/docsify-demo-box-react.min.js"></script>
 </body>
 </html>
