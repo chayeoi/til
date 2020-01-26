@@ -1,0 +1,300 @@
+# 리액트 프로젝트에 TDD 적용하기
+
+> 2018년 6월 27일 사내 TDD 세미나 발표 준비 자료입니다.
+
+## 왜 TDD를 해야 할까
+
+### TDD의 본질
+
+기존에 개발하고 있던 방식은 다음과 같다.
+
+* 무엇이 문제인지 명확히 파악하지 못한 상태로 코드를 작성하기 시작한다.
+* 작성한 코드가 문제없이 동작하는지 확인하기 위해 브라우저에서 직접 실행해본다.
+* 리팩토링이 일어난 경우, 변경된 코드가 문제없이 동작하는지 확인하기 위해 브라우저를 통해 다시 한번 확인한다.
+
+TDD는 기본적으로 Red, Green, Refactor라고 불리는 3단계 과정을 반복한다.
+
+* Red: 실패하는 테스트 코드를 실제 코드보다 먼저 작성한다. (문제 정의)
+* Green: 테스트를 통과할 수 있는 최소한의 코드를 작성한다. (문제 해결)
+* Refactor: 불필요하고 비효율적인 코드를 개선한다.
+
+기존의 방식과 달리, TDD는 **문제를 먼저 정의한 후 문제의 해답을 찾아간다.** 기존의 개발 방식에서는 문제가 무엇인지 명확히 정의하지 않으므로 중구난방 식으로 개발을 진행하게 되는 경향이 있었고, 그러다보면 코드가 더러워지기 일쑤였다. 그러나 TDD에서는 문제를 먼저 정의함으로써 개발자가 진짜 필요한 부분에 집중할 수 있도록 유도한다. 이는 코드를 더 클린하게 만들고 개발 속도의 향상에 기여한다.
+
+### 테스트는 유연성, 유지보수성, 재사용성을 제공한다
+
+테스트 케이스가 있으면 변경이 두렵지 않다. 그러나 테스트 케이스가 없다면 모든 변경이 잠정적인 버그다. 아키텍쳐가 아무리 유연하더라도, 설계를 아무리 잘 나눴더라도, 테스트 케이스가 없으면 개발자는 변경을 주저한다. 버그가 숨어들까 두렵기 때문이다.
+
+하지만 테스트 케이스가 있다면 공포는 사실상 사라진다. 테스트 커버리지가 높을수록 공포는 줄어든다. 아키텍처가 부실한 코드나 설계가 모호하고 엉망인 코드라도 별다른 우려 없이 변경할 수 있다. 테스트 케이스가 있으면 변경이 쉬워지기 때문이다.
+
+## 테스트 환경 구성: Jest + Enzyme
+
+### Jest
+
+Jest는 자바스크립트 어플리케이션을 위한 유닛 테스팅 프레임워크이다.
+
+* Test runner: 프로젝트 내에 작성된 테스트 파일을 찾아 테스트를 실행한 후 그 결과를 로그로 출력한다.
+* Assertion library: 각 테스트에 대한 assertion을 만들고 그 결과를 확인한다.
+* Mocking support: 테스트 환경에서 요구되는 의존성을 해소하기 위한 mocking을 지원한다.
+
+Jest가 다른 자바스크립트 유닛 테스팅 프레임워크와 갖는 차별점은 바로 **스냅샷 테스트의 지원**이다. 개발자는 스냅샷 테스트를 통해 컴포넌트의 현재 출력에 변경이 생겼을 때 이를 곧바로 감지할 수 있다.
+
+### Enzyme
+
+브라우저가 아닌 환경에서 JSDOM을 이용하여 리액트 컴포넌트를 테스트할 수 있도록 도와주는 테스팅 유틸리티이다.
+
+## 무엇을 테스트해야 할까
+
+### 역할과 책임의 판단
+
+내가 테스트하려는 코드의 주요한 책임이 무엇인지 파악하고, 그 책임에 좀 더 집중해서 테스트를 작성하는 것이 의미있는 테스트 코드를 작성하는 방법이다.
+
+가령, 라이프사이클 메소드인 `componentDidMount`가 mount된 직후에 호출되는지 테스트할 필요가 없다. 적절한 시점에 라이프사이클 메소드가 호출되도록 하는 책임은 React 라이브러리에게 있다. 우리는 그저 mount된 이후에 `componentDidMount` 안에 작성된 로직이 제대로 동작하는지를 테스트해야 한다.
+
+### 테스트 범주
+
+#### Presentational Components
+
+리액트는 화면을 그려주는 라이브러리이다. 따라서 리액트 컴포넌트에서 가장 중요하게 테스트되어야하는 것은 당연히 렌더링 로직이다.
+
+1. *Testing basic component rendering*
+2. *Testing props*
+3. *Testing state*
+4. *Testing event handlers*
+5. *Testing lifecycle methods*
+
+#### Redux
+
+1. *Testing action creators*
+2. *Testing reducers*
+3. *Testing sagas*
+4. *Testing store*
+5. *Testing middlewares*
+
+#### Others
+
+1. *Testing HOCs*
+2. *Testing render prop*
+
+## 어떻게 테스트해야 할까
+
+`describe` 메소드를 사용해 무엇을 테스트할 것인지 기술하는 test suite를 작성하고, `it` 메소드로 실제 assertion하려는 테스트 케이스를 작성한다. 그리고 `expect`를 이용해서 assertion의 결과를 확인한다.
+
+### Presentational Components
+
+Shallow rendering을 통해 한 컴포넌트의 책임에만 집중하는 단위 테스트를 작성할 수 있다. (Shallow rendering이란, 어떤 컴포넌트를 렌더할 때 그 내부에 위치한 자식 컴포넌트들은 렌더하지 않고 한 단계 깊이까지만 렌더하는 것을 말한다.) Enzyme에서 제공하는 `shallow` API를 이용하면 Shallow rendering을 지원할 수 있다.
+
+물론 `mount` API를 활용하여 전체 컴포넌트를 렌더하는 것도 가능하다. `shallow` API의 경우 전체 라이프사이클 메소드를 호출하지는 않기 때문에, 라이프사이클 메소드 내부의 로직을 테스트해야 하는 경우에는 `mount` API를 활용해야 한다.
+
+## TDD 실습
+
+### Presentaional Components
+
+![TDD in React](./assets/tdd-in-react.png)
+
+Detail 컴포넌트는 설문 항목에 대한 데이터와 개별 응답 기록 데이터를 받아서 화면에 출력한다. 이전 또는 다음 버튼을 클릭했을 때 그 다음 차례의 응답 기록 데이터를 화면에 출력하고, 마지막 응답 기록 데이터에 다다르게 되면 '다음' 버튼은 disabled되어야 한다.
+
+먼저, Detail 컴포넌트가 문제없이 그려지는지 확인하는 기본 테스트를 작성한다.
+
+```jsx
+import React from 'react'
+import { shallow } from 'enzyme'
+import Detail from '.'
+
+const renderComponent = (props = {}) => shallow(<Detail {...props} />)
+
+describe('Detail', () => {
+  it('renders without crashing', () => {
+      renderComponent(props)
+  })
+})
+```
+
+최소한의 코드를 작성하여 예외를 방지한다.
+
+```jsx
+import React from 'react'
+
+const Detail = () => (
+  <div>I am Detail.</div>
+)
+
+export default Detail
+```
+
+Detail 컴포넌트가 `current` state를 가져야 하고 기본값은 0임을 확인하는 테스트를 작성한다.
+
+```jsx
+describe('Detail', () => {
+  let wrapper
+  let props
+
+  beforeEach(() => {
+    props = {
+      surveyQuestions: [
+        { question: 'a', type: 'SHORT_ANSWER' },
+        { question: 'b', type: 'SINGLE_SELECTION', options: ['네', '아니오', '보류'] },
+        { question: 'c', type: 'DESCRIPTIVE_ANSWER' },
+        { question: 'd', type: 'MULTIPLE_SELECTION', options: ['서울', '경주', '제주도', '일본', '홍콩'] },
+      ],
+      detailResponse: [
+        { createdAt: 1529393477631, questions: ['아이린', '네', ['일본'], '떠나고 싶다'] },
+        { createdAt: 1529393477512, questions: ['슬기', '네', ['홍콩', '제주도'], '떠나고 싶다'] },
+        { createdAt: 1529393477331, questions: ['조이', '네', ['일본, 경주'], '떠나고 싶다'] },
+      ],
+      responseCount: 3,
+    }
+    wrapper = renderComponent(props)
+  })
+
+  it('renders without crashing', () => {
+    renderComponent(props)
+  })
+
+  it('should have `current` state whose default value is `0`', () => {
+    expect(wrapper.state('current')).toBe(0)
+  })
+}
+```
+
+`current` state를 추가하고 기본값으로 0을 부여한다.
+
+```jsx
+import React, { Component } from 'react'
+
+export default class Detail extends Component {
+  state = { current: 0 }
+
+  render() {
+    return (
+      <div>I am Detail.</div>
+    )
+  }
+}
+```
+
+`current` state와 `responseCount` prop을 `<span />` 내부에 문제없이 렌더하는지 확인하는 테스트를 작성한다.
+
+```jsx
+describe('Detail', () => {
+  // ...
+
+  it('should render both `current` state`s value and `responseCount` prop inside <span />', () => {
+    const spanWrapper = wrapper.find('span').first()
+    expect(spanWrapper.text()).toBe(`${wrapper.state('current') + 1} / ${props.responseCount}`)
+  })
+})
+```
+
+테스트를 통과할 수 있는 최소한의 코드를 작성한다.
+
+```jsx
+import React, { Component } from 'react'
+
+export default class Detail extends Component {
+  state = { current: 0 }
+
+  render() {
+    const { responseCount } = this.props
+    const { current } = this.state
+    return (
+      <div>
+        <span>{`${current + 1} / ${responseCount}`}</span>
+      </div>
+    )
+  }
+}
+```
+
+'이전' 또는 '다음' 버튼을 클릭했을 때 `current` state가 감소 또는 증가하고, `current` state가 0일 때 '이전' 버튼이 disabled되는지, `current` state가 최대값에 다다랐을 때 '다음' 버튼이 disabled되는지를 확인하는 테스트 코드를 작성한다.
+
+```jsx
+describe('Detail', () => {
+  // ...
+
+  describe('when `current` state`s value is `0`', () => {
+    it('should make `prev Button` be disabled', () => {
+      const prevButton = wrapper.find(Button).first()
+      expect(prevButton.props('disabled')).toBeTruthy()
+    })
+  })
+
+  describe('when `current` state`s value is not `0`', () => {
+    it('should decrease `current` state`s value when `prev Button` is clicked', () => {
+      const prevButton = wrapper.find(Button).first()
+      const nextButton = wrapper.find(Button).last()
+      nextButton.simulate('click')
+      nextButton.simulate('click')
+      prevButton.simulate('click')
+      expect(wrapper.state('current')).toBe(1)
+      prevButton.simulate('click')
+      expect(wrapper.state('current')).toBe(0)
+    })
+  })
+
+  describe('when `current` state`s value is equal to `responseCount * 1`', () => {
+    it('should make `next Button` be disabled', () => {
+      const nextButton = wrapper.find(Button).last()
+      nextButton.simulate('click')
+      nextButton.simulate('click')
+      expect(nextButton.props('disabled')).toBeTruthy()
+    })
+  })
+
+  describe('when `current` state`s value is not equal to `responseCount * 1`', () => {
+    it('should increase `current` state`s value when `next Button` is clicked', () => {
+      const nextButton = wrapper.find(Button).last()
+      nextButton.simulate('click')
+      expect(wrapper.state('current')).toBe(1)
+      nextButton.simulate('click')
+      expect(wrapper.state('current')).toBe(2)
+    })
+  })
+})
+```
+
+방금 작성한 테스트를 통과시키기 위해 `Button` 컴포넌트와 이벤트 핸들러를 추가한다.
+
+```jsx
+import React, { Component } from 'react'
+
+export default class Detail extends Component {
+  state = { current: 0 }
+
+  handlePrevClick = () => this.setState(({ current }) => ({ current: current * 1 }))
+
+  handleNextClick = () => this.setState(({ current }) => ({ current: current + 1 }))
+
+  render() {
+    const { handlePrevClick, handleNextClick } = this
+    const { responseCount } = this.props
+    const { current } = this.state
+    return (
+      <div>
+        <span>{`${current + 1} / ${responseCount}`}</span>
+        <Button
+          onClick={handlePrevClick}
+          disabled={current === 0}
+        >
+          이전
+        </Button>
+        <Button
+          onClick={handleNextClick}
+          disabled={current === responseCount * 1}
+        >
+          다음
+        </Button>
+      </div>
+    )
+  }
+}
+```
+
+이러한 과정을 반복하면서 테스트 코드와 실제 코드를 작성해나가면 된다.
+
+## 느낀 점
+
+* 오랫동안 굳어진 습관을 하루 아침에 바꾼다는 것은 결코 쉬운 일이 아니다. 꾸준한 연습이 필요하다!
+* 기존의 코드를 변경함에 따라 테스트 코드도 함께 변경해야 하는 상황이 번거롭기도 하다.
+* 무작정 테스트 커버리지를 높이는 것에 몰두하지 말고, 정말 의미가 있는 테스트를 작성하는 일에 집중해야 한다.
+* 단위 테스트를 통해 각자의 역할과 책임을 명확히 테스트하는 것만으로 E2E 테스트를 어느 정도는 커버할 수 있을 듯하다.
+* TDD가 모든 관점에서 완벽한 클린 코드를 보장하지는 않는다. TDD는 클린 코드 작성을 위한 하나의 수단일 뿐이다.

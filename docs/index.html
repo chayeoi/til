@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156997403-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156997403-1');
+  </script>
+  <meta charset="UTF-8">
+  <title>CHAYEOI's TIL</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="_media/logo.png" />
+  <link rel="apple-touch-icon-precomposed" href="_media/logo.png">
+  <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    const jsResources = [
+      '<scr',
+      'ipt src="//cdn.bootcss.com/react/15.6.1/react.js"></scr',
+      'ipt>\n',
+      '<scr',
+      'ipt src="//cdn.bootcss.com/react/15.6.1/react-dom.js"></scr',
+      'ipt>',
+    ].join('')
+    const cssResources = '@import url("//cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");'
+    const bootCode = 'var globalVariable = "leon"'
+    const globalVariable = 'leon'
+    window.$docsify = {
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+      },
+      auto2top: true,
+      coverpage: true,
+      disqus: 'chayeoi-til',
+      ga: 'UA-156997403-1',
+      loadNavbar: true,
+      loadSidebar: true,
+      logo: '_media/logo.png',
+      mergeNavbar: true,
+      name: 'Today I Learned',
+      search: {
+      maxAge: 86400000,
+      paths: [],
+      placeholder: 'Type to search',
+      noData: 'No Results!',
+      depth: 2,
+      hideOtherSidebarContent: false, // whether or not to hide other sidebar content
+      namespace: 'website-1',
+    },
+      subMaxLevel: 2,
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js" data-ga="UA-156997403-1"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/disqus.min.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/docsify-demo-box-react@{version}/dist/docsify-demo-box-react.min.js"></script>
+</body>
+</html>
