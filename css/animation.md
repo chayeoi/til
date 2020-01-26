@@ -31,7 +31,7 @@ CSS 애니메이션은 자바스크립트를 이용한 애니메이션보다 성
   animation: sonic-running 1s linear infinite alternate forwards 0.4s paused;
 }
 
-.sonic-adventure:active .soinc {
+.sonic-adventure:active .sonic {
   animation-play-state: paused;
 }
 
