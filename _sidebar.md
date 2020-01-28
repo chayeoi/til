@@ -16,7 +16,7 @@
   - [요소의 상대 위치 구하기](/javascript/how-to-get-element-position-in-browser.md)
   - [DOM 엘리먼트의 크기 구하기](/javascript/how-to-get-element-size-in-browser.md)
   - [클릭한 지점의 상대적 좌표 계산하기](/javascript/how-to-get-relative-coordinate-in-browser.md)
-  - [이터레이션 프로토콜](/javascript/iteration-protocol.md)
+  <!-- - [이터레이션 프로토콜](/javascript/iteration-protocol.md) -->
   - [부드러운 스크롤 애니메이션을 구현할 수 있는 여러가지 방법들](/javascript/several-ways-to-implement-smooth-scroll.md)
   - [Tagged template literals](/javascript/tagged-template-literals.md)
   - [텍스트 말줄임 여부 감지하기](/javascript/text-overflow-detection.md)

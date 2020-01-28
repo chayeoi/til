@@ -83,7 +83,7 @@ increaseBtn.onclick = function () {
 }
 ```
 
-### 2.4 디바운스
+### 2.3 디바운스
 
 ```javascript
 function debounce(cb, time) {
