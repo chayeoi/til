@@ -145,6 +145,7 @@
   - [Netlify의 Deploy previews](/etc/deploy-previews-in-netlify.md)
   - [자바스크립트를 이용하여 CSS 애니메이션의 진행 상태 감지하기](/etc/detecting-css-animation-with-javascript.md)
   - [브라우저에서 사용자의 locale 정보를 확인하는 방법](/etc/determining-user's-locale-in-browsers.md)
+  - [Linux 명령어](/etc/linux-commands.md)
   - [쉘 명령어에 대한 사용 설명서를 제공하는 `man` 커맨드](/etc/man-command-in-linux.md)
   - [MacBook 세팅하기](/etc/my-mac-preferences.md)
   - [오픈소스 라이선스](/etc/opensource-licenses.md)
