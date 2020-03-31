@@ -18,7 +18,7 @@ VirtualBox를 켠 다음 방금 설치한 VM 인스턴스를 시작한다. (비�
 
 로컬 환경을 VM에서 테스트하기 위해선 localhost에 접속할 수 있어야 한다. VM을 실행하여 *Command Prompt*를 실행하고 명령줄에 `ipconfig`를 입력하여 Default Gateway를 확인한다. 이 주소를 localhost처럼 사용하면 된다.
 
-## 참고
+## 참고 {docsify-ignore}
 
 * [Accessing localhost on Mac from Windows VM Virtualbox | Guilherme Sa](https://medium.com/@urubuz/accessing-localhost-in-mac-from-windows-vm-in-virtualbox-312a3de6fedb)
 * [Mac 환경에서 IE디버깅하기. (virtualBox 사용) | 필오의 개발 docs](https://feel5ny.github.io/2019/03/10/debug_01/)
