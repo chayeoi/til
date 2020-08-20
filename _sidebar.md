@@ -199,3 +199,5 @@
   - [2018.02.08](/lectures/2018-02-08.md)
   - [2018.02.09](/lectures/2018-02-09.md)
   - [Algorithms](/lectures/algorithms.md)
+- **Data Structure**
+  - [연결 리스트에서 요소의 추가 및 삭제의 시간복잡도가 O(1)인 이유](/data-structure/why-is-inserting-in-the-middle-of-linked-list-o(1).md)
