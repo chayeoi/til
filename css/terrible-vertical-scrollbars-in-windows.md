@@ -8,9 +8,9 @@
 
 또 한 가지 치명적인 문제가 있다. 맥에서는 스크롤바가 화면 상의 공간을 차지하지 않으므로 실제 콘텐츠가 렌더링되는 영역에 영향을 주지 않는다. 그러나 윈도의 경우 스크롤바가 화면 상의 실제 공간을 차지하므로 콘텐츠가 렌더링되는 영역 또한 스크롤바의 영역만큼 줄어들게 된다. 가령, 컨테이너 요소의 너비가 `500px`인 상황에서 스크롤 바가 `10px`만큼의 너비를 차지한다고 가정하면, 실제 콘텐츠가 나타나는 영역은 `490px`으로 설정되는 식이다. 이로 인해 레이아웃이 조금씩 뒤틀리는 문제가 발생할 수 있다.
 
-이 문제를 해결하기 위해 제일 먼저 순수 CSS만을 사용한 스크롤바 커스터마이징 방법을 찾아보았다. `::-webkiet-scrollbar`와 같은 속성을 사용하여 커스터마이징이 가능한 것 같은데, [IE는 물론 모던 브라우저에서조차 아직까지 부분적으로만 지원](https://caniuse.com/#feat=css-scrollbar)하고 있는 속성인 듯하다. 따라서 이 방법은 사용하기에 적합하지 않은 것 같았고, 다른 방법을 더 찾아보았다.
+문제 해결을 위한 스크롤바 커스터마이징 방법을 몇 가지 찾아보았다.
 
-## 대안 1. 스크롤바를 화면 상에서 숨기기
+## 방법 1. 스크롤바를 화면 상에서 숨기기
 
 이 방법을 사용하기 위해서는 두 개의 컨테이너 요소와 내용을 담당하는 요소 1개가 필요하다.
 
@@ -22,20 +22,20 @@
       width: 200px;
       height: 200px;
     }
-    
+
     .outer-container {
       position: relative;
       overflow: hidden;
       border: 5px solid purple;
     }
-    
+
     .inner-container {
       position: absolute;
       left: 0;
       overflow-x: hidden;
       overflow-y: scroll;
     }
-    
+
     .inner-container::-webkit-scrollbar {
       display: none;
     }
@@ -86,7 +86,7 @@
 
 단 이렇게 스크롤바를 감춰버리면 사용자에게 스크롤 가능한 콘텐츠라는 정보를 제공할 수 없기 때문에 사용자 경험은 나빠질 수 있다. 스크롤바를 숨긴 대신, 사용자에게 스크롤 가능한 영역임을 나타내는 시각적 힌트를 제공해야 한다.
 
-## 대안 2. `perfect-scrollbar` 라이브러리 ~활용하기~
+## 방법 2. `perfect-scrollbar` 라이브러리 ~활용하기~
 
 > (2019년 1월 30일 추가)
 > 유지보수가 안 이뤄진지도 오래 되었고, 프로덕션에서 사용하기엔 문제점이 많은 라이브러리인 것 같다. 사용 안 하는게 좋을 듯!
@@ -138,7 +138,22 @@ class ScrollView extends Component {
 }
 ```
 
+## 방법 3. 순수 CSS만 사용
+
+```css
+.example::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+```
+
 ## 참고 {docsify-ignore}
 
 * [Hiding Vertical Scrollbars with Pure CSS in Chrome, IE (6+), Firefox, Opera, and Safari - John Kurlak](https://blogs.msdn.microsoft.com/kurlak/2013/11/03/hiding-vertical-scrollbars-with-pure-css-in-chrome-ie-6-firefox-opera-and-safari/)
 * [utatti/perfect-scrollbar](https://github.com/utatti/perfect-scrollbar)
+* [Hide Scrollbars But Keep Functionality](https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp)
