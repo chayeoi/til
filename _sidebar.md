@@ -24,6 +24,7 @@
   - [사용되지 않는 객체 프로퍼티 트리쉐이킹](/javascript/unused-property-tree-shaking.md)
   - [Web API](/javascript/web-apis.md)
   - [Axios](/javascript/axios.md)
+  - [requestFullscreen API](./javascript/request-fullscreen.md)
 - **React**
   - [VSCode에서 Create React App 프로젝트 디버깅하기](/react/debugging-create-react-app-with-vs-code.md)
   - [React Intl에서 텍스트 랩핑에 사용된 `span` 요소 제거하기](/react/displaying-string-instead-of-span-in-react-intl.md)
