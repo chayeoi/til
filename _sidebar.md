@@ -46,6 +46,7 @@
   - [Styled Components와 Material UI 함께 사용하기](/react/using-material-ui-with-styled-components.md)
   - [Component 또는 PureComponent를 언제 사용해야할까?](/react/when-to-use-component-or-pure-component.md)
   - [Styled Components를 사용할 때 HTML attribute 경고가 발생하는 이유](/react/why-am-i-getting-html-attribute-warnings.md)
+  - [JavaScript에서 배열의 메모리 할당](/javascript/how-are-javascript-arrays-represented-in-physical-memory.md)
 - **Firebase**
   <!-- - [Advanced data modeling with Firestore](/firebase/advanced-data-modeling-with-firestore.md) -->
   - [Firestore에서 or 쿼리를 적용하기 위한 방법](/firebase/an-alterantive-for-or-query-in-firestore.md)
