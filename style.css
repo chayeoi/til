@@ -292,6 +292,16 @@ body .sidebar-toggle span:nth-child(3) {
   color: var(--text-color-tertiary);
 }
 
+@media screen and (max-width: 850px) {
+  .markdown-section {
+    max-width: 100%;
+  }
+
+  body.close .sidebar-toggle {
+    left: calc(300px + 1.5rem);
+  }
+}
+
 /****** CODE HIGHLIGHTING ******/
 .token.string {
   color: #42b983;
