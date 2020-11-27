@@ -43,4 +43,4 @@
 
 ## 참고 {docsify-ignore}
 
-* [컨테이닝 블록의 모든 것 | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/All_About_The_Containing_Block)
+- [컨테이닝 블록의 모든 것 | MDN](https://developer.mozilla.org/ko/docs/Web/CSS/All_About_The_Containing_Block)
