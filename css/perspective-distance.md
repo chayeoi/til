@@ -4,6 +4,9 @@
 
 ![Perspective distance](./assets/perspective-distance.png)
 
+`perspective-origin` 속성을 사용하면 `perspective` 속성에 대한 소실점을 설정할 수 있다. 관찰자가 물체를 마치 위 또는 아래에서 바라보는 것처럼 보이도록 하고 싶을 때 사용한다.
+
 ## 참고 {docsify-ignore}
 
-* [perspective | codrops](https://tympanus.net/codrops/css_reference/perspective/)
+- [perspective | codrops](https://tympanus.net/codrops/css_reference/perspective/)
+- [perspective-origin | codrops](http://tympanus.net/codrops/css_reference/perspective-origin/)
