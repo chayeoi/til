@@ -289,13 +289,14 @@ git config --global core.quotepath false
   npm install --global pure-prompt
   ```
 
-- ~/.zshrc 파일에 추가
+  ~/.zshrc 파일에 추가
 
   ```bash
   autoload -U promptinit; promptinit
   prompt pure
   ```
-  
+
+  `ZSH_THEME=""`로 변경
 
 
 ### Node
