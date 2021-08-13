@@ -123,7 +123,6 @@ git config --global core.quotepath false
 - Auto Rename Tag
 - Color Highlight
 - Color Picker
-- Debuuger for Chrome
 - DotENV
 - EditorConfig for VS Code
 - ESLint
@@ -136,7 +135,6 @@ git config --global core.quotepath false
 - Live Server
 - Markdown All in One
 - Material Icon Theme
-- Material Theme
 - npm
 - npm Intellisense
 - Path Intellisense
@@ -170,6 +168,24 @@ git config --global core.quotepath false
           "overviewRulerColor": "grey"
       }
   ]
+  ```
+  
+- settings.json
+
+  ```json
+  {
+       "window.zoomLevel": 1,
+       "atomKeymap.promptV3Features": true,
+       "editor.multiCursorModifier": "ctrlCmd",
+       "editor.formatOnPaste": true,
+       "workbench.colorTheme": "Atom One Dark",
+       "workbench.iconTheme": "material-icon-theme",
+       "editor.tabSize": 2,
+       "editor.renderWhitespace": "boundary",
+       "editor.codeActionsOnSave": {
+           "source.fixAll.eslint": true
+       }
+  }
   ```
 
 #### 기타
