@@ -120,7 +120,6 @@ git config --global core.quotepath false
 
 - Atom Keymap
 - Atom One Dark Theme
-- Auto Close Tag
 - Auto Rename Tag
 - Color Highlight
 - Color Picker
@@ -140,12 +139,10 @@ git config --global core.quotepath false
 - Material Theme
 - npm
 - npm Intellisense
-- Path Autocomplete
+- Path Intellisense
 - Prettier
-- React Native Tools
-- Reactjs code snippets
+- ES7 React/Redux/GraphQL/React-Native snippets
 - TODO Highlight
-- TSLint
 - vscode-styled-components
 
 #### 환경 설정
@@ -178,7 +175,6 @@ git config --global core.quotepath false
 #### 기타
 
 - `code` 명령 설치: ⌘ + ⇪ + P 입력 후 '셸 명령: PATH에 'code' 명령 설치' 입력 후 클릭
-- [바로 가기 키] - 'ESLint: Fix all auto-fixable Problems'에 단축키 ⌘ + ⇧ + E 지정, '탐색기 표시'에 단축키 ⌘ + ⌥ + E로 변경
 
 ### iTerm & Zsh
 
@@ -450,12 +446,8 @@ git config --global core.quotepath false
 
 ### Slack
 
-- Classting: classting.slack.com
 - React Korea: react-korea.slack.com
-- Vue.js Korea: vuejs-korea.slack.com
 - Typescript Korea: typescriptkr.slack.com
-- 9XD: 9xd.slack.com
-- 2017_fds7: 2017fds7.slack.com
 - Mash-Up: mash-up-kr.slack.com
 
 ### 무비스트
