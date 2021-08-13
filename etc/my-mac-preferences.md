@@ -88,6 +88,32 @@
 
 ## 개발 환경
 
+### homebrew
+
+- homebrew 설치
+
+  ```bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+### Git
+
+#### 설치
+
+```bash
+brew install git git-lfs
+```
+
+#### 설정
+
+```bash
+git config --global init.defaultBranch <name>
+git config --global user.name "Your Name"
+git config --global user.email "you@your-domain.com"
+git config --global core.precomposeunicode true
+git config --global core.quotepath false
+```
+
 ### VSCode
 
 #### 익스텐션
@@ -154,33 +180,26 @@
 - `code` 명령 설치: ⌘ + ⇪ + P 입력 후 '셸 명령: PATH에 'code' 명령 설치' 입력 후 클릭
 - [바로 가기 키] - 'ESLint: Fix all auto-fixable Problems'에 단축키 ⌘ + ⇧ + E 지정, '탐색기 표시'에 단축키 ⌘ + ⌥ + E로 변경
 
-### homebrew
-
-- homebrew 설치
-
-  ```bash
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  ```
-
 ### iTerm & Zsh
 
 - iterm2 설치
 
   ```bash
-  brew cask install iterm2
+  brew install --cask iterm2
   ```
 
-- [Snazzy.itemcolors](https://raw.githubusercontent.com/sindresorhus/iterm2-snazzy/master/Snazzy.itermcolors) 파일을 오른쪽 마우스를 클릭해 저장 후 실행하면 iterm 'Color Presets'에 추가되고, `⌘ + ,`를 눌러 환경 설정 창을 실행한 다음 [Profiles] - [Colors]에서  'Color Presets': Snazzy를 선택
+- [Snazzy.itemcolors](https://raw.githubusercontent.com/sindresorhus/iterm2-snazzy/master/Snazzy.itermcolors) 파일을 오른쪽 마우스를 클릭해 저장 후 실행하면 iterm 'Color Presets'에 추가되고, `⌘ + ,`를 눌러 환경설정 창을 실행한 다음 [Profiles] - [Colors]에서  'Color Presets': Snazzy를 선택
 
-- [Appearance] - [Theme]: Dark로 설정
-
-- [Appearance] - [Hide scrollbars]: 체크
-
-- [Appearance] - [Show line under title bar when the tab bar is not visible]: 체크 해제
-
-- [Advanced] - [Height of top and bottom margins in terminal panes]: 10px로 수정
-
-- [Advanced] - [Width of left and right margins in terminal panes]: 12px로 수정
+- [Appearance] > [Theme]: Minimal로 설정
+- [Appearance] > [Hide scrollbars]: 체크
+- [Appearance] > [Show line under title bar when the tab bar is not visible]: 체크 해제
+- [Appearance] > [Panes]: Side margins 12로 변경
+- [Appearance] > [Panes]: Top & bottom margins: 8로 변경
+- [Profiles] > [Text]: 폰트사이즈 12로 변경
+- [Profiles] > [Text]: n/n 줄간격 110으로 변경
+- [Profiles] > [Unicode]: Unicode normalization form: NFC로 변경 (한글 자/모음 분리 방지)
+- Profiles > Keys > Presets: Natural Text Editing 선택 (Option ⌥ + ← 또는 →를 이용하여 단어 단위로 이동할 수 있게 단축키 설정 변경)
+- Advanced: 'In the Minimal theme, how prominent should the tab outline be?': 0으로 변경
 
 - zsh 설치
 
@@ -218,7 +237,47 @@
   )
   ```
 
-- 새 설정 적용을 위해 터미널 재시작 또는 다음 명령 실행
+  새 설정 적용을 위해 터미널 재시작 또는 다음 명령 실행
+
+  ```bash
+  source ~/.zshrc
+  ```
+
+- fzf 설치
+  
+  ```bash
+  brew install fzf
+  ```
+  
+  .zshrc 파일을 실행 후 플러그인 추가
+  
+  ```bash
+  plugins=(
+    ...
+    fzf
+  )
+  ```
+  
+  새 설정 적용을 위해 터미널 재시작 또는 다음 명령 실행
+
+  ```bash
+  source ~/.zshrc
+  ```
+  
+- fasd 설치
+
+  ```bash
+  brew install fasd
+  ```
+  
+  ```bash
+  plugins=(
+    ...
+    fasd
+  )
+  ```
+
+  새 설정 적용을 위해 터미널 재시작 또는 다음 명령 실행
 
   ```bash
   source ~/.zshrc
@@ -236,6 +295,8 @@
   autoload -U promptinit; promptinit
   prompt pure
   ```
+  
+
 
 ### Node
 
